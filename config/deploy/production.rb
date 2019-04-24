@@ -8,9 +8,8 @@
 # server "db.example.com", user: "deploy", roles: %w{db}
 
 	
-server '13.114.93.23', user: 'ec2-user', roles: %w{app db web}
-set :rails_env, "production"
-set :unicorn_rack_env, "production"
+server '13.115.88.33', user: 'ec2-user', roles: %w{app db web}
+
 # role-based syntax
 # ==================
 
