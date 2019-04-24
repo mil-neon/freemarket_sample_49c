@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :basic_auth, if: :production?
+  before_action :basic_auth, if: :production?, except: :index
   protect_from_forgery with: :exception
 
   private
