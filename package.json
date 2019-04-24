@@ -1,5 +1,10 @@
 {
   "name": "freemarket_sample_49c",
   "private": true,
-  "dependencies": {}
+  "dependencies": {},
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/YUICHIROONUKI/freemarket_sample_49c.git",
+  "author": "YUICHIROONUKI <yuichiro.o0209@gmail.com>",
+  "license": "MIT"
 }
