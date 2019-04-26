@@ -48,7 +48,6 @@ group :development, :test do
   gem 'capistrano-rbenv'
   gem 'capistrano3-unicorn'
   gem 'factory_bot_rails'
-  gem 'factory_bot_rails'
   gem 'pry-byebug'
   gem 'pry-doc'
   gem 'pry-rails'
@@ -86,8 +85,8 @@ gem 'carrierwave'
 gem 'devise'
 gem 'erb2haml'
 gem 'fog-aws'
+gem 'jquery-rails'
 gem 'font-awesome-rails'
 gem 'haml-rails'
 gem 'mini_magick'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
