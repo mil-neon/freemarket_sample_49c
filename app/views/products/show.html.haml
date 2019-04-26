@@ -86,4 +86,13 @@
               発送日の目安
             %td.product-detail__item__main__table__tbody__tr__td
               1~2日で発送
-%footer.footer
+    .product-detail__item__price-box
+      .product-detail__item__price-box__price
+        ¥10,000
+      .product-detail__item__price-box__tax
+        (税込)
+      .product-detail__item__price-box__shipping-fee
+        送料込み
+    .product-detail__item__buy
+      = link_to root_path, class: 'product-detail__item__buy__button' do
+        購入画面に進む

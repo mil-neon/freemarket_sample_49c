@@ -130,6 +130,43 @@ body {
         }
       }
     }
+    &__price-box {
+      margin-top: 24px;
+      width: 620px;
+      height: 50px;
+      display: flex;
+      box-sizing: border-box;
+      padding-left: 22%;
+      &__price {
+        margin-right: 16px;
+        font-size: 40px;
+        font-weight: 700;
+      }
+      &__tax {
+        font-size: 10px;
+        padding-top: 35px;
+      }
+      &__shipping-fee {
+        font-size: 16px;
+        padding-top: 28px;
+      }
+    }
+    &__buy {
+      width: 620px;
+      height: 60px;
+      margin-top: 16px;
+      font-size: 24px;
+      font-weight: 700;
+      text-align: center;
+      background-color: #ea352d;
+      cursor: pointer;
+      &__button {
+        text-decoration: none;
+        width: 620px;
+        line-height: 60px;
+        color: #ffffff;
+      }
+    }
   }
 }
 
