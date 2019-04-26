@@ -17,3 +17,73 @@
           = image_tag ('/ダウンロード.jpeg'), class: 'product-detail__item__main__photo__mini-box__dot'
           = image_tag ('/ダウンロード.jpeg'), class: 'product-detail__item__main__photo__mini-box__dot'
           = image_tag ('/ダウンロード.jpeg'), class: 'product-detail__item__main__photo__mini-box__dot'
+      %table.product-detail__item__main__table
+        %tbody.product-detail__item__main__table__tbody
+          %tr.product-detail__item__main__table__tbody__tr
+            %th.product-detail__item__main__table__tbody__tr__th
+              出品者
+            %td.product-detail__item__main__table__tbody__tr__td
+              = link_to '出品者', root_path, class: 'product-detail__item__main__table__tbody__tr__td__user-name'
+              .product-detail__item__main__table__tbody__tr__td__rating-box
+                .product-detail__item__main__table__tbody__tr__td__rating-box__ratings-left
+                  %i.far.fa-grin-hearts.product-detail__item__main__table__tbody__tr__td__rating-box__ratings-left__icon-good
+                  %span.product-detail__item__main__table__tbody__tr__td__rating-box__ratings__total
+                    0
+                .product-detail__item__main__table__tbody__tr__td__rating-box__ratings
+                  %i.far.fa-meh.product-detail__item__main__table__tbody__tr__td__rating-box__ratings__icon-nomal
+                  %span.product-detail__item__main__table__tbody__tr__td__rating-box__ratings__total
+                    0
+                .product-detail__item__main__table__tbody__tr__td__rating-box__ratings
+                  %i.far.fa-dizzy.product-detail__item__main__table__tbody__tr__td__rating-box__ratings__icon-bad
+                  %span.product-detail__item__main__table__tbody__tr__td__rating-box__ratings__total
+                    0
+          %tr.product-detail__item__main__table__tbody__tr
+            %th.product-detail__item__main__table__tbody__tr__th
+              カテゴリー
+            %td.product-detail__item__main__table__tbody__tr__td
+              = link_to root_path, class: 'product-detail__item__main__table__tbody__tr__td__main-category' do
+                カテゴリ
+              = link_to root_path, class: 'product-detail__item__main__table__tbody__tr__td__sub-category' do
+                %i.fas.fa-chevron-right
+                カテゴリ
+              = link_to root_path, class: 'product-detail__item__main__table__tbody__tr__td__sub-category' do
+                %i.fas.fa-chevron-right
+                カテゴリ
+          %tr.product-detail__item__main__table__tbody__tr
+            %th.product-detail__item__main__table__tbody__tr__th
+              ブランド
+            %td.product-detail__item__main__table__tbody__tr__td
+              = link_to root_path, class: 'product-detail__item__main__table__tbody__tr__td__brand' do
+                ブランド名
+          %tr.product-detail__item__main__table__tbody__tr
+            %th.product-detail__item__main__table__tbody__tr__th
+              商品のサイズ
+            %td.product-detail__item__main__table__tbody__tr__td
+              XL
+          %tr.product-detail__item__main__table__tbody__tr
+            %th.product-detail__item__main__table__tbody__tr__th
+              商品の状態
+            %td.product-detail__item__main__table__tbody__tr__td
+              未使用に近い
+          %tr.product-detail__item__main__table__tbody__tr
+            %th.product-detail__item__main__table__tbody__tr__th
+              配送料の負担
+            %td.product-detail__item__main__table__tbody__tr__td
+              送料込み(出品者負担)
+          %tr.product-detail__item__main__table__tbody__tr
+            %th.product-detail__item__main__table__tbody__tr__th
+              配送の方法
+            %td.product-detail__item__main__table__tbody__tr__td
+              未定
+          %tr.product-detail__item__main__table__tbody__tr
+            %th.product-detail__item__main__table__tbody__tr__th
+              配送元地域
+            %td.product-detail__item__main__table__tbody__tr__td
+              = link_to root_path, class: 'product-detail__item__main__table__tbody__tr__td__place' do
+                神奈川県
+          %tr.product-detail__item__main__table__tbody__tr
+            %th.product-detail__item__main__table__tbody__tr__th
+              発送日の目安
+            %td.product-detail__item__main__table__tbody__tr__td
+              1~2日で発送
+%footer.footer
