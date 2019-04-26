@@ -1,0 +1,31 @@
+body {
+  background-color: rgb(245, 245, 245);
+}
+.header {
+  height: 150px;
+}
+
+.product-detail {
+  height: 100%;
+  width: 100%;
+  &__item {
+    width: 700px;
+    background-color: #fff;
+    margin: 40px auto 0;
+    padding: 24px 40px 40px;
+    box-sizing: border-box;
+    &__name {
+      font-family: 'arial black';
+      font-size: 24px;
+      text-align: center;
+      word-wrap: break-word;
+      line-height: 1.4;
+    }
+  }
+}
+
+.footer {
+  height: 100%;
+  width: 100%;
+  clear: both;
+}
