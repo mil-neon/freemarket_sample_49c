@@ -1,0 +1,93 @@
+.footer {
+  padding: 0 20px 10px 20px;
+  background: #212121;
+  color: #fff;
+  position:  relative;
+  width: 100%;
+  > nav{
+    width: 700px;
+    @include clearfix;
+    margin: 0 auto;
+    padding: 0 10px 0 0;
+  }
+  a {
+    color: #fff;
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+  &__cell {
+    float: left;
+    list-style: none;
+    margin-top: 18px;
+    padding-left: 10px;
+    width: 45%;
+    &__head {
+      color: #fff;
+      font-size: 16px;
+      font-weight: 100;
+      line-height: 1.4;
+      &-link {
+        padding: 0 14px 0 0;
+        a{
+          opacity: 1;
+          display: block;
+          i{
+            font-size: 30px;
+            background: transparent;
+            margin: 16px 18px 0 0;
+          }
+        }
+      }
+    }
+    li {
+      color: #fff;
+      margin: 14px 0 0;
+      a {
+        display: block;
+        opacity: .7;
+      }
+    }
+  }
+  .footer-bottom{
+    width: 700px;
+    margin: 50px auto 0;
+    &__logo {
+      display: inline-block;
+      margin-right: 10px;
+      width: auto;
+      a {
+        color: #fff;
+        font-size: 12px;
+        line-height: 1.5em;
+      }
+    }
+    &__copyright{
+      display: inline-block;
+      margin: 8px 0 0;
+      text-align: center;
+      small {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.full-width {
+  width: 100%;
+  ul{
+    list-style: none outside;
+    width: 100%;
+    li{
+      padding: 0;
+      float: left;
+      width: 48%;
+    }
+  }
+}
+
+.footer nav ul li{ 	
+  display: inline;
+  .footer__cell__head-link{
+    display: inline-block;
+  }
+} 
