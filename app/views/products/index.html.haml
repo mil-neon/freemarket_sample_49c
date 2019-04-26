@@ -1,0 +1,101 @@
+= render 'header'
+%main.white
+  %div.top-main__visual
+    %div
+      .top-main__visual__content
+        %h2
+          スマホでかんたん
+          %br>/
+          フリマアプリ
+        %p
+          メルカリはスマホカメラからすぐに出品できる
+          %br>/
+          購入時も安心な独自システムのアプリです
+        .top-main__visual__content__store
+          = link_to "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8", target: "_blank", class: "pull-left" do
+            = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?1528449478", alt: ""
+          = link_to "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja", target: "_blank", class: "pull-left" do
+            = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?1528449478", alt: ""
+      = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/jp/top/main_content_pc.png?1528449478", alt: ""
+    -# %div
+      .owl-item{:style => "width: 804px;"}
+        %h2
+          = image_tag "//www-mercari-jp.akamaized.net/assets/img/promotion/jp/201812_bokurano_heisei/index/main-index.png?570108281" ,alt: "僕らのマンガ 平成30年史"
+
+  %section.pickup-container
+    %h2.pickup-head ピックアップカテゴリー
+    %section.items-box__container
+      %h3.items-box__container__title
+        = link_to "レディース新着アイテム"
+      .items-box__content
+        = render partial: "itme"
+        = render partial: "itme"
+        = render partial: "itme"  
+      .view-all
+        = link_to "すべての商品を見る"
+    %section.items-box__container
+      %h3.items-box__container__title
+        = link_to "メンズ新着アイテム"
+      .items-box__content
+        = render partial: "itme"
+        = render partial: "itme"
+        = render partial: "itme"
+      .view-all
+        = link_to "すべての商品を見る"
+    %section.items-box__container
+      %h3.items-box__container__title
+        = link_to "キッズ新着アイテム"
+      .items-box__content
+        = render partial: "itme"
+        = render partial: "itme"
+        = render partial: "itme"
+      .view-all
+        = link_to "すべての商品を見る"
+    %section.items-box__container
+      %h3.items-box__container__title
+        = link_to "アクセサリー新着アイテム"
+      .items-box__content
+        = render partial: "itme"
+        = render partial: "itme"
+        = render partial: "itme"
+      .view-all
+        = link_to "すべての商品を見る"
+    %h2.pickup-head ピックアップブランド
+    %section.items-box__container
+      %h3.items-box__container__title
+        = link_to "ルイビトン新着アイテム"
+      .items-box__content
+        = render partial: "itme"
+        = render partial: "itme"
+        = render partial: "itme"
+      .view-all
+        = link_to "すべての商品を見る"
+    %section.items-box__container
+      %h3.items-box__container__title
+        = link_to "シャネル新着アイテム"
+      .items-box__content
+        = render partial: "itme"
+        = render partial: "itme"
+        = render partial: "itme"
+      .view-all
+        = link_to "すべての商品を見る"
+    %section.items-box__container
+      %h3.items-box__container__title
+        = link_to "ナイキ新着アイテム"
+      .items-box__content
+        = render partial: "itme"
+        = render partial: "itme"
+        = render partial: "itme"
+      .view-all
+        = link_to "すべての商品を見る"
+    %section.items-box__container
+      %h3.items-box__container__title
+        = link_to "ニューバランス新着アイテム"
+      .items-box__content
+        = render partial: "itme"
+        = render partial: "itme"
+        = render partial: "itme"
+      .view-all
+        = link_to "すべての商品を見る"
+= render 'botton'
+= render 'footer'
