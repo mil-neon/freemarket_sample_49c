@@ -167,6 +167,14 @@ body {
         color: #ffffff;
       }
     }
+    &__description-box {
+      margin-top: 56px;
+      line-height: 1.5;
+      &__text {
+        font-size: 17px;
+        white-space: pre-wrap;
+      }
+    }
   }
 }
 
