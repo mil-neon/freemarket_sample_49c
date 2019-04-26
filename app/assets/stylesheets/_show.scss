@@ -175,6 +175,57 @@ body {
         white-space: pre-wrap;
       }
     }
+    &__button-box {
+      height: 40px;
+      width:100%;
+      margin-top: 16px;
+      display: inline-block;
+      font-size: 14px;
+      position: relative;
+      &__left {
+        float: left;
+        &__good {
+          display: inline-block;
+          padding: 8px 16px;
+          border-radius: 40px;
+          color: #333;
+          border: 1px solid #f5f5f5;
+          background: #f5f5f5;
+          touch-action: manipulation;
+          font-size: 14px;
+          cursor: pointer;
+          &__icon {
+            color: #CCCCCC;
+            vertical-align: middle;
+          }
+          &__text {
+            margin-left: 1px;
+          }
+          &__count {
+            margin-left: 1px;
+          }
+        }
+        &__report {
+          margin-left: 16px;
+          color: #333;
+          background: #f5f5f5;
+          padding: 8px 16px;
+          border-radius: 40px;
+          border: 1px solid #f5f5f5;
+        }
+      }
+      &__right {
+        margin: 8px 0 0;
+        float: right;
+        position: absolute;
+        right:0;
+        &__report{
+          &__text {
+            margin-left: 5px;
+          }
+        }
+      }
+    }
   }
 }
 
