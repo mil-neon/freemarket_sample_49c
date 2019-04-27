@@ -16,7 +16,7 @@ body {
     padding: 24px 40px 40px;
     box-sizing: border-box;
     &__name {
-      font-family: 'arial black';
+      font-family: arial black;
       font-size: 24px;
       text-align: center;
       word-wrap: break-word;
@@ -396,11 +396,9 @@ body {
     padding: 32px 0 24px;
     width: 700px;
     &__box {
-      margin: 16px 0 0;
       text-align: center;
       margin: 0 8px 8px 0;
       vertical-align: middle;
-      text-align: center;
       font-size: 44px;
       &__icons {
         &__facebook {
