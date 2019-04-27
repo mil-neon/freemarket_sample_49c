@@ -175,7 +175,193 @@
           %textarea.product-detail__comments__box__comment__form__textarea
           .product-detail__comments__box__comment__form__button
             %input.product-detail__comments__box__comment__form__button__comment{name: "commit", type: "submit", value: "コメントする"}
-  .product-detail__link
+  %ul.product-detail__link
+    %li.product-detail__link__prev
+      = link_to root_path, class: 'product-detail__link__prev__href' do
+        %i.fas.fa-chevron-left.product-detail__link__prev__href__icon
+        前のページ
+    %li.product-detail__link__next
+      = link_to root_path, class: 'product-detail__link__next__href' do
+        次のページ
+        %i.fas.fa-chevron-right.product-detail__link__next__href__icon
   .product-detail__media
+    .product-detail__media__box
+      = link_to root_path, class: 'product-detail__media__box__icons' do
+        %i.fab.fa-facebook-square.product-detail__media__box__icons__facebook
+      = link_to root_path, class: 'product-detail__media__box__icons' do
+        %i.fab.fa-twitter-square.product-detail__media__box__icons__twitter
+      = link_to root_path, class: 'product-detail__media__box__icons' do
+        %i.fab.fa-pinterest-square.product-detail__media__box__icons__pinterest
   .product-detail__others
+    %section.product-detail__others__section
+      .product-detail__others__section__box
+        = link_to root_path, class: 'product-detail__others__section__box__head' do
+          大貫さんのその他の出品
+      .product-detail__others__section__item
+        .product-detail__others__section__item__box
+          = link_to root_path, class: 'product-detail__others__section__item__box__href' do
+            %figure.product-detail__others__section__item__box__href__figure
+              = image_tag ('/ダウンロード.jpeg'), class: 'product-detail__others__section__item__box__href__figure__image'
+              %figcaption.product-detail__others__section__item__box__href__figure__figcaption
+                .product-detail__others__section__item__box__href__figure__figcaption__sold-out
+                  .product-detail__others__section__item__box__href__figure__figcaption__sold-out__budge 
+                    SOLD
+            .product-detail__others__section__item__box__href__body
+              .product-detail__others__section__item__box__href__body__name
+                女神
+              .product-detail__others__section__item__box__href__body__num
+                .product-detail__others__section__item__box__href__body__num__price
+                  ¥ 100000
+                .product-detail__others__section__item__box__href__body__num__good
+                  %i.far.fa-heart.product-detail__others__section__item__box__href__body__num__good__icon
+                  %span.product-detail__others__section__item__box__href__body__num__good__count
+                    0
+              .product-detail__others__section__item__box__href__body__tax
+                (税込)
+        .product-detail__others__section__item__box
+          = link_to root_path, class: 'product-detail__others__section__item__box__href' do
+            %figure.product-detail__others__section__item__box__href__figure
+              = image_tag ('/ダウンロード.jpeg'), class: 'product-detail__others__section__item__box__href__figure__image'
+              %figcaption.product-detail__others__section__item__box__href__figure__figcaption
+                .product-detail__others__section__item__box__href__figure__figcaption__sold-out
+                  .product-detail__others__section__item__box__href__figure__figcaption__sold-out__budge 
+                    SOLD
+            .product-detail__others__section__item__box__href__body
+              .product-detail__others__section__item__box__href__body__name
+                女神
+              .product-detail__others__section__item__box__href__body__num
+                .product-detail__others__section__item__box__href__body__num__price
+                  ¥ 100000
+                .product-detail__others__section__item__box__href__body__num__good
+                  %i.far.fa-heart.product-detail__others__section__item__box__href__body__num__good__icon
+                  %span.product-detail__others__section__item__box__href__body__num__good__count
+                    0
+              .product-detail__others__section__item__box__href__body__tax
+                (税込)
+        .product-detail__others__section__item__box
+          = link_to root_path, class: 'product-detail__others__section__item__box__href' do
+            %figure.product-detail__others__section__item__box__href__figure
+              = image_tag ('/ダウンロード.jpeg'), class: 'product-detail__others__section__item__box__href__figure__image'
+              %figcaption.product-detail__others__section__item__box__href__figure__figcaption
+                .product-detail__others__section__item__box__href__figure__figcaption__sold-out
+                  .product-detail__others__section__item__box__href__figure__figcaption__sold-out__budge 
+                    SOLD
+            .product-detail__others__section__item__box__href__body
+              .product-detail__others__section__item__box__href__body__name
+                女神
+              .product-detail__others__section__item__box__href__body__num
+                .product-detail__others__section__item__box__href__body__num__price
+                  ¥ 100000
+                .product-detail__others__section__item__box__href__body__num__good
+                  %i.far.fa-heart.product-detail__others__section__item__box__href__body__num__good__icon
+                  %span.product-detail__others__section__item__box__href__body__num__good__count
+                    0
+              .product-detail__others__section__item__box__href__body__tax
+                (税込)
+        .product-detail__others__section__item__box
+          = link_to root_path, class: 'product-detail__others__section__item__box__href' do
+            %figure.product-detail__others__section__item__box__href__figure
+              = image_tag ('/ダウンロード.jpeg'), class: 'product-detail__others__section__item__box__href__figure__image'
+              %figcaption.product-detail__others__section__item__box__href__figure__figcaption
+                .product-detail__others__section__item__box__href__figure__figcaption__sold-out
+                  .product-detail__others__section__item__box__href__figure__figcaption__sold-out__budge 
+                    SOLD
+            .product-detail__others__section__item__box__href__body
+              .product-detail__others__section__item__box__href__body__name
+                女神
+              .product-detail__others__section__item__box__href__body__num
+                .product-detail__others__section__item__box__href__body__num__price
+                  ¥ 100000
+                .product-detail__others__section__item__box__href__body__num__good
+                  %i.far.fa-heart.product-detail__others__section__item__box__href__body__num__good__icon
+                  %span.product-detail__others__section__item__box__href__body__num__good__count
+                    0
+              .product-detail__others__section__item__box__href__body__tax
+                (税込)
+  .product-detail__others
+    %section.product-detail__others__section
+      .product-detail__others__section__box
+        = link_to root_path, class: 'product-detail__others__section__box__head' do
+          女神グッズその他の出品
+      .product-detail__others__section__item
+        .product-detail__others__section__item__box
+          = link_to root_path, class: 'product-detail__others__section__item__box__href' do
+            %figure.product-detail__others__section__item__box__href__figure
+              = image_tag ('/ダウンロード.jpeg'), class: 'product-detail__others__section__item__box__href__figure__image'
+              %figcaption.product-detail__others__section__item__box__href__figure__figcaption
+                .product-detail__others__section__item__box__href__figure__figcaption__sold-out
+                  .product-detail__others__section__item__box__href__figure__figcaption__sold-out__budge 
+                    SOLD
+            .product-detail__others__section__item__box__href__body
+              .product-detail__others__section__item__box__href__body__name
+                女神
+              .product-detail__others__section__item__box__href__body__num
+                .product-detail__others__section__item__box__href__body__num__price
+                  ¥ 100000
+                .product-detail__others__section__item__box__href__body__num__good
+                  %i.far.fa-heart.product-detail__others__section__item__box__href__body__num__good__icon
+                  %span.product-detail__others__section__item__box__href__body__num__good__count
+                    0
+              .product-detail__others__section__item__box__href__body__tax
+                (税込)
+        .product-detail__others__section__item__box
+          = link_to root_path, class: 'product-detail__others__section__item__box__href' do
+            %figure.product-detail__others__section__item__box__href__figure
+              = image_tag ('/ダウンロード.jpeg'), class: 'product-detail__others__section__item__box__href__figure__image'
+              %figcaption.product-detail__others__section__item__box__href__figure__figcaption
+                .product-detail__others__section__item__box__href__figure__figcaption__sold-out
+                  .product-detail__others__section__item__box__href__figure__figcaption__sold-out__budge 
+                    SOLD
+            .product-detail__others__section__item__box__href__body
+              .product-detail__others__section__item__box__href__body__name
+                女神
+              .product-detail__others__section__item__box__href__body__num
+                .product-detail__others__section__item__box__href__body__num__price
+                  ¥ 100000
+                .product-detail__others__section__item__box__href__body__num__good
+                  %i.far.fa-heart.product-detail__others__section__item__box__href__body__num__good__icon
+                  %span.product-detail__others__section__item__box__href__body__num__good__count
+                    0
+              .product-detail__others__section__item__box__href__body__tax
+                (税込)
+        .product-detail__others__section__item__box
+          = link_to root_path, class: 'product-detail__others__section__item__box__href' do
+            %figure.product-detail__others__section__item__box__href__figure
+              = image_tag ('/ダウンロード.jpeg'), class: 'product-detail__others__section__item__box__href__figure__image'
+              %figcaption.product-detail__others__section__item__box__href__figure__figcaption
+                .product-detail__others__section__item__box__href__figure__figcaption__sold-out
+                  .product-detail__others__section__item__box__href__figure__figcaption__sold-out__budge 
+                    SOLD
+            .product-detail__others__section__item__box__href__body
+              .product-detail__others__section__item__box__href__body__name
+                女神
+              .product-detail__others__section__item__box__href__body__num
+                .product-detail__others__section__item__box__href__body__num__price
+                  ¥ 100000
+                .product-detail__others__section__item__box__href__body__num__good
+                  %i.far.fa-heart.product-detail__others__section__item__box__href__body__num__good__icon
+                  %span.product-detail__others__section__item__box__href__body__num__good__count
+                    0
+              .product-detail__others__section__item__box__href__body__tax
+                (税込)
+        .product-detail__others__section__item__box
+          = link_to root_path, class: 'product-detail__others__section__item__box__href' do
+            %figure.product-detail__others__section__item__box__href__figure
+              = image_tag ('/ダウンロード.jpeg'), class: 'product-detail__others__section__item__box__href__figure__image'
+              %figcaption.product-detail__others__section__item__box__href__figure__figcaption
+                .product-detail__others__section__item__box__href__figure__figcaption__sold-out
+                  .product-detail__others__section__item__box__href__figure__figcaption__sold-out__budge 
+                    SOLD
+            .product-detail__others__section__item__box__href__body
+              .product-detail__others__section__item__box__href__body__name
+                女神
+              .product-detail__others__section__item__box__href__body__num
+                .product-detail__others__section__item__box__href__body__num__price
+                  ¥ 100000
+                .product-detail__others__section__item__box__href__body__num__good
+                  %i.far.fa-heart.product-detail__others__section__item__box__href__body__num__good__icon
+                  %span.product-detail__others__section__item__box__href__body__num__good__count
+                    0
+              .product-detail__others__section__item__box__href__body__tax
+                (税込)
 %footer.footer
