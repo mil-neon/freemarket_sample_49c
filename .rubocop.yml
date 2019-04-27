@@ -1,7 +1,11 @@
 inherit_from: .rubocop_todo.yml
+# モジュール名::クラス名の定義を許可
+ClassAndModuleChildren:
+  Enabled: false
 
 AllCops:
   Exclude:
+    - spec/**/*
     - bin/*
     - db/schema.rb
     - node_modules/**/*

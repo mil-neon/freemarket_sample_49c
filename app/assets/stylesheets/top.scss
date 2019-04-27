@@ -1,0 +1,101 @@
+.font-2 {
+  font-size: 14px;
+  font-weight: 400;
+  color: black;
+}
+.font-5 {
+  font-weight: 600;
+  color: black;
+}
+
+.pickup-container{
+  padding: 40px 0;
+  background-color: #f5f5f5;
+  .pickup-head{
+    font-size: 28px;
+    text-align: center;
+    font-weight: bold;
+  } 
+  .items-box__container{
+    width: 700px;
+    margin: 0 auto;
+    @include clearfix;
+    &__title{
+      font-size: 22px;
+      margin: 26px 11px;
+      text-align: center;
+      @include clearfix;
+    }
+    .items-box__content{
+      @include clearfix;
+      width: auto;
+      margin: 0 auto;
+      font-size: 0;
+      display: block;
+      .items-box {
+        margin: 0 0 0 20px;
+        width: 213px;
+        height: 330px;
+        position: relative;
+        float: left;
+        background: #fff;
+        a{
+          display: block;
+          color: #333;
+          .items-box__photo{
+            padding: 0 0 100%;
+            .lazyloaded{
+              position: absolute;
+              top: 0;
+              right: 0;
+              bottom: 0;
+              left: 0;
+              z-index: 1;
+              width: 100%;
+            }
+          }
+        }
+        &__body{
+          height: 110px;
+          padding: 16px;
+          color: #333;
+          &__name{
+            overflow: hidden;
+            position: relative;
+            font-weight: 400;
+            height: 3em;
+            line-height: 1.5;
+            word-break: break-word;
+            white-space: normal;
+          }
+          &__num{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 20px 0 0;
+            &__price{
+              font-size: 14px;
+            }
+            .far.fa-heart{
+              color: #ccc;
+            }
+          }
+          .item-box-tax{
+            font-size: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.view-all{
+  width: 100%;
+  text-align: right;
+  padding: 20px 0 30px 0;
+  a{
+    color: #0099e8;
+    text-decoration: none;
+    margin-top:10px; 
+  }
+}

@@ -1,0 +1,36 @@
+%header.header
+  .header__container
+    .header__container__search
+      %h1.header__container__search__logo
+        = image_tag "mercari_logo_horizontal.png",class:"header__container__search__logo--icon"
+      = form_with( method: :get, class: "header__container__search__form", enforce_utf8: false ) do
+        %input.header__container__search__form__input{name: "keyword", placeholder: "何かお探しですか？", type: "search", value: ""}/
+        = button_tag type: "submit", class: "search-button" do
+          %i.fas.fa-search
+    .header__container__bottom
+      %nav.header__container__bottom__left
+        %ul.header__container__bottom__left__search--menu
+          %li.header__container__bottom__left__search--menu__list__categories
+            %h2.header__container__bottom__left__search--menu__list__categories--tag
+              %i.fas.fa-list-ul
+              = link_to "カテゴリーから探す", class: "header__container__bottom__left__search--menu__list__categories--tag__text"
+          %li.header__container__bottom__left__search--menu__list__brands
+            %h2.header__container__bottom__left__search--menu__list__brands--tag
+              %i.fas.fa-tag
+              = link_to "ブランドから探す", class: "header__container__bottom__left__search--menu__list__brands--tag__text"
+      .header__container__bottom__right
+        %ul.header__container__bottom__right__personal__menu
+          %li.header__container__bottom__right__personal__menu__list__news
+            %a.header__container__bottom__right__personal__menu__list__news--link
+              %i.far.fa-bell.icon
+              %span.header__container__bottom__right__personal__menu__list__news--link__font お知らせ
+          %li.header__container__bottom__right__personal__menu__list__todo
+            %a.header__container__bottom__right__personal__menu__list__todo--link
+              %i.fa.fa-check
+              %span.header__container__bottom__right__personal__menu__list__todo--link__font やることリスト
+          %li.header__container__bottom__right__personal__menu__list__mypage
+            %a.header__container__bottom__right__personal__menu__list__mypage--link
+              %span
+                = image_tag "https://static-mercari-jp-imgtr2.akamaized.net/images/member_photo_noimage_thumb.png", class: "mypage-avator", alt: "", width: "32"
+                %span.header__container__bottom__right__personal__menu__list__mypage--link__font マイページ
+                
