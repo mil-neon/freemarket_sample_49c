@@ -49,7 +49,7 @@
                   &__item {
                     width: 116px;
                     margin: 0 0 10px 10px;
-                    :first-child {
+                    &:first-child {
                       margin-left: 0;
                     }
                     &__figure {
@@ -167,7 +167,7 @@
           }
           &__group {
             margin-top: 40px;
-            :first-child {
+            &:first-child {
               margin-top: 0;
             }
             label {
@@ -211,7 +211,7 @@
           margin: 0;
           &__group {
             margin-top: 40px;
-            :first-child {
+            &:first-child {
               margin-top: 0;
             }
             label {
@@ -261,14 +261,14 @@
               li {
                 padding: 12px 0 12px;
                 border-top: 1px solid #ccc;
-                :first-child {
+                &:first-child {
                   padding: 0 0 24px;
                   border: 0;
                 }
               }
               &__group {
                 width: 100%;
-                :first-child {
+                &:first-child {
                   margin: 0;
                 }
                 &__wrap {
