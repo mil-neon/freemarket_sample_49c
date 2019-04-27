@@ -1,0 +1,62 @@
+.product-detail__comments
+  .product-detail__comments__box
+    .product-detail__comments__box__contents
+      %ul.product-detail__comments__box__contents__lists
+        %li.product-detail__comments__box__contents__lists__comment
+          = link_to root_path, class: 'product-detail__comments__box__contents__lists__comment__user' do
+            %figure.product-detail__comments__box__contents__lists__comment__user__figure
+              = image_tag ('/ダウンロード.jpeg'), class: 'product-detail__comments__box__contents__lists__comment__user__figure__image'
+              %figcaption.product-detail__comments__box__contents__lists__comment__user__figure__user-name
+                大貫
+            .product-detail__comments__box__contents__lists__comment__user__seller
+              出品者
+          .product-detail__comments__box__contents__lists__comment__body
+            .product-detail__comments__box__contents__lists__comment__body__text
+              着丈 76
+              身幅 65
+              %br
+              桁丈 95
+              %br
+              となります
+            .product-detail__comments__box__contents__lists__comment__body__time
+              %time.product-detail__comments__box__contents__lists__comment__body__time__icons
+                %i.far.fa-clock.product-detail__comments__box__contents__lists__comment__body__time__icons__icon
+                %span.product-detail__comments__box__contents__lists__comment__body__time__icons__date
+                  0日前
+            %i.fab.fa-affiliatetheme.product-detail__comments__box__contents__lists__comment__body__comment-icon
+        %li.product-detail__comments__box__contents__lists__comment
+          = link_to root_path, class: 'product-detail__comments__box__contents__lists__comment__user' do
+            %figure.product-detail__comments__box__contents__lists__comment__user__figure
+              = image_tag ('/ダウンロード.jpeg'), class: 'product-detail__comments__box__contents__lists__comment__user__figure__image'
+              %figcaption.product-detail__comments__box__contents__lists__comment__user__figure__user-name
+                大貫
+          .product-detail__comments__box__contents__lists__comment__body
+            .product-detail__comments__box__contents__lists__comment__body__text
+              着丈 76
+              身幅 65
+              %br
+              桁丈 95
+              %br
+              となります
+            .product-detail__comments__box__contents__lists__comment__body__time
+              %time.product-detail__comments__box__contents__lists__comment__body__time__icons
+                %i.far.fa-clock.product-detail__comments__box__contents__lists__comment__body__time__icons__icon
+                %span.product-detail__comments__box__contents__lists__comment__body__time__icons__date
+                  0日前
+            %i.fab.fa-affiliatetheme.product-detail__comments__box__contents__lists__comment__body__comment-icon
+    .product-detail__comments__box__comment
+      %form.product-detail__comments__box__comment__form
+        %p.product-detail__comments__box__comment__form__message
+          相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        %textarea.product-detail__comments__box__comment__form__textarea
+        .product-detail__comments__box__comment__form__button
+          %input.product-detail__comments__box__comment__form__button__comment{name: "commit", type: "submit", value: "コメントする"}
+%ul.product-detail__link
+  %li.product-detail__link__prev
+    = link_to root_path, class: 'product-detail__link__prev__href' do
+      %i.fas.fa-chevron-left.product-detail__link__prev__href__icon
+      前のページ
+  %li.product-detail__link__next
+    = link_to root_path, class: 'product-detail__link__next__href' do
+      次のページ
+      %i.fas.fa-chevron-right.product-detail__link__next__href__icon
