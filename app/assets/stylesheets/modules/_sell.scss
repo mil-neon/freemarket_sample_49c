@@ -42,8 +42,6 @@
               &__items {
                 display: inline;
                 ul {
-                  display: -webkit-box;
-                  display: -ms-flexbox;
                   display: flex;
                   width: 100%;
                   &__item {
@@ -91,18 +89,13 @@
               border: 1px dashed #ccc;
               font-size: 0;
               text-align: center;
-              -webkit-transition: -webkit-box-shadow ease-out .3s;
-              transition: -webkit-box-shadow ease-out .3s;
               transition: box-shadow ease-out .3s;
-              transition: box-shadow ease-out .3s, -webkit-box-shadow ease-out .3s;
               cursor: pointer;
               &--img {
                 display: none;
                 border: 0;
                 outline: 0;
                 font-family: inherit;
-                -webkit-appearance: none;
-                touch-action: manipulation;
               }
               &--visible {
                 position: absolute;
@@ -244,7 +237,6 @@
               line-height: 1.5;
               cursor: pointer;
               outline: 0;
-              -webkit-appearance: none;
               }
             }
             &--icon {
