@@ -1,0 +1,122 @@
+.product-detail__item
+  .product-detail__item__name
+    supreme
+  .product-detail__item__main
+    .product-detail__item__main__photo
+      = image_tag ('/ダウンロード.jpeg'), class: 'product-detail__item__main__photo__biggest'
+      .product-detail__item__main__photo__mini-box
+        = image_tag ('/ダウンロード.jpeg'), class: 'product-detail__item__main__photo__mini-box__dot'
+        = image_tag ('/ダウンロード.jpeg'), class: 'product-detail__item__main__photo__mini-box__dot'
+        = image_tag ('/ダウンロード.jpeg'), class: 'product-detail__item__main__photo__mini-box__dot'
+        = image_tag ('/ダウンロード.jpeg'), class: 'product-detail__item__main__photo__mini-box__dot'
+        = image_tag ('/ダウンロード.jpeg'), class: 'product-detail__item__main__photo__mini-box__dot'
+        = image_tag ('/ダウンロード.jpeg'), class: 'product-detail__item__main__photo__mini-box__dot'
+        = image_tag ('/ダウンロード.jpeg'), class: 'product-detail__item__main__photo__mini-box__dot'
+        = image_tag ('/ダウンロード.jpeg'), class: 'product-detail__item__main__photo__mini-box__dot'
+        = image_tag ('/ダウンロード.jpeg'), class: 'product-detail__item__main__photo__mini-box__dot'
+        = image_tag ('/ダウンロード.jpeg'), class: 'product-detail__item__main__photo__mini-box__dot'
+    %table.product-detail__item__main__table
+      %tbody.product-detail__item__main__table__tbody
+        %tr.product-detail__item__main__table__tbody__tr
+          %th.product-detail__item__main__table__tbody__tr__th
+            出品者
+          %td.product-detail__item__main__table__tbody__tr__td
+            = link_to '出品者', root_path, class: 'product-detail__item__main__table__tbody__tr__td__user-name'
+            .product-detail__item__main__table__tbody__tr__td__rating-box
+              .product-detail__item__main__table__tbody__tr__td__rating-box__ratings-left
+                %i.far.fa-grin-hearts.product-detail__item__main__table__tbody__tr__td__rating-box__ratings-left__icon-good
+                %span.product-detail__item__main__table__tbody__tr__td__rating-box__ratings__total
+                  0
+              .product-detail__item__main__table__tbody__tr__td__rating-box__ratings
+                %i.far.fa-meh.product-detail__item__main__table__tbody__tr__td__rating-box__ratings__icon-nomal
+                %span.product-detail__item__main__table__tbody__tr__td__rating-box__ratings__total
+                  0
+              .product-detail__item__main__table__tbody__tr__td__rating-box__ratings
+                %i.far.fa-dizzy.product-detail__item__main__table__tbody__tr__td__rating-box__ratings__icon-bad
+                %span.product-detail__item__main__table__tbody__tr__td__rating-box__ratings__total
+                  0
+        %tr.product-detail__item__main__table__tbody__tr
+          %th.product-detail__item__main__table__tbody__tr__th
+            カテゴリー
+          %td.product-detail__item__main__table__tbody__tr__td
+            = link_to root_path, class: 'product-detail__item__main__table__tbody__tr__td__main-category' do
+              カテゴリ
+            = link_to root_path, class: 'product-detail__item__main__table__tbody__tr__td__sub-category' do
+              %i.fas.fa-chevron-right
+              カテゴリ
+            = link_to root_path, class: 'product-detail__item__main__table__tbody__tr__td__sub-category' do
+              %i.fas.fa-chevron-right
+              カテゴリ
+        %tr.product-detail__item__main__table__tbody__tr
+          %th.product-detail__item__main__table__tbody__tr__th
+            ブランド
+          %td.product-detail__item__main__table__tbody__tr__td
+            = link_to root_path, class: 'product-detail__item__main__table__tbody__tr__td__brand' do
+              ブランド名
+        %tr.product-detail__item__main__table__tbody__tr
+          %th.product-detail__item__main__table__tbody__tr__th
+            商品のサイズ
+          %td.product-detail__item__main__table__tbody__tr__td
+            XL
+        %tr.product-detail__item__main__table__tbody__tr
+          %th.product-detail__item__main__table__tbody__tr__th
+            商品の状態
+          %td.product-detail__item__main__table__tbody__tr__td
+            未使用に近い
+        %tr.product-detail__item__main__table__tbody__tr
+          %th.product-detail__item__main__table__tbody__tr__th
+            配送料の負担
+          %td.product-detail__item__main__table__tbody__tr__td
+            送料込み(出品者負担)
+        %tr.product-detail__item__main__table__tbody__tr
+          %th.product-detail__item__main__table__tbody__tr__th
+            配送の方法
+          %td.product-detail__item__main__table__tbody__tr__td
+            未定
+        %tr.product-detail__item__main__table__tbody__tr
+          %th.product-detail__item__main__table__tbody__tr__th
+            配送元地域
+          %td.product-detail__item__main__table__tbody__tr__td
+            = link_to root_path, class: 'product-detail__item__main__table__tbody__tr__td__place' do
+              神奈川県
+        %tr.product-detail__item__main__table__tbody__tr
+          %th.product-detail__item__main__table__tbody__tr__th
+            発送日の目安
+          %td.product-detail__item__main__table__tbody__tr__td
+            1~2日で発送
+  .product-detail__item__price-box
+    .product-detail__item__price-box__price
+      ¥10,000
+    .product-detail__item__price-box__tax
+      (税込)
+    .product-detail__item__price-box__shipping-fee
+      送料込み
+  .product-detail__item__buy
+    = link_to root_path, class: 'product-detail__item__buy__button' do
+      購入画面に進む
+  .product-detail__item__description-box
+    .product-detail__item__description-box__text
+      カラー ブラック サイズ XL
+      オンライン購入
+      3回着用
+      個人情報を切り取った納品書原本
+      全タグ
+      ショッパー
+      ステッカー
+  .product-detail__item__button-box
+    .product-detail__item__button-box__left
+      %button.product-detail__item__button-box__left__good
+        %i.far.fa-heart.product-detail__item__button-box__left__good__icon
+        %span.product-detail__item__button-box__left__good__text
+          いいね!
+        %span.product-detail__item__button-box__left__good__count
+          0
+      = link_to root_path, class: 'product-detail__item__button-box__left__report' do
+        %i.fas.fa-flag-checkered
+        %span.product-detail__item__button-box__left__report__text
+          不適切な商品の報告
+    .product-detail__item__button-box__right
+      = link_to root_path, class: 'product-detail__item__button-box__right__report' do
+        %i.fas.fa-lock.product-detail__item__button-box__right__report__icon
+        %span.product-detail__item__button-box__right__report__text
+          あんしん・あんぜんへの取り組み
