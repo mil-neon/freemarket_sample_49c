@@ -1,4 +1,10 @@
 class ApplicationController < ActionController::Base
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :firstname_fullangle, :lastname_fullangle, :firstname_kana, :lastname_kana, :birthday, :postal_cord, :prefecture, :city, :address_number, :building_name, :phone_number, :icon_image, :profile])
+  end
+
   before_action :basic_auth, if: :production?, except: :index
   protect_from_forgery with: :exception
 
