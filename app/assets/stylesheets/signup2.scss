@@ -74,10 +74,6 @@
   }
 }
 
-.signup2-form-group:first-child {
-  margin: 0;
-}
-
 .signup2-form-group {
   margin: 40px 0 0;
   &__name {
@@ -109,6 +105,10 @@
   &__recaptcha {
     height: 78px;
   }
+}
+
+.signup2-form-group:first-child {
+  margin: 0;
 }
 
 #_birthday_1i, #_birthday_2i, #_birthday_3i {
