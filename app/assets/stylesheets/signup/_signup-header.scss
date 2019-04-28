@@ -46,7 +46,12 @@
   }
 }
 
-
+// 赤い部分の調整[WIP]
+.through {
+  .progress-status {
+    background: $bottn_red;
+  }
+}
 
 // デフォルトのプログレスバー
 .progress-status:before {
@@ -69,11 +74,4 @@
   }
 .end .progress-status::after{
   left: -50%;
-}
-
-// 赤い部分の調整[WIP]
-.through {
-  .progress-status {
-    background: $bottn_red;
-  }
 }
