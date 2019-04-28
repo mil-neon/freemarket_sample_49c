@@ -1,0 +1,59 @@
+.header-signup4-main
+
+.signup4-main
+  .signup4-main__box
+    .signup4-main__box__head
+      発送・お届け先住所入力
+    = form_with url: root_path, html: { class: "signup4-main__box__form" } do |f|
+      .signup4-main__box__form__contents
+        .signup4-form-group.signup4-main__box__form__contents__name
+          .signup4-form-group__name.signup4-main__box__form__contents__name__text
+            名前(全角)
+          %span.signup4-form-group__require.signup4-main__box__form__contents__name__require
+            必須
+          = f.text_field :firstname_fullangle, placeholder: '例) 山田', class: 'signup4-form-group__form signup4-main__box__form__contents__name__form'
+          = f.text_field :lastname_fullangle, placeholder: '例) 彩', class: 'signup4-form-group__form signup4-main__box__form__contents__name__form'
+        .signup4-form-group.signup4-main__box__form__contents__kana
+          .signup4-form-group__name.signup4-main__box__form__contents__kana__text
+            名前カナ(全角)
+          %span.signup4-form-group__require.signup4-main__box__form__contents__kana__require
+            必須
+          = f.text_field :firstname_kana, placeholder: '例) ヤマダ', class: 'signup4-form-group__form signup4-main__box__form__contents__kana__form'
+          = f.text_field :lastname_kana, placeholder: '例) アヤ', class: 'signup4-form-group__form signup4-main__box__form__contents__kana__form'
+        .signup4-form-group.signup4-main__box__form__contents__postal-cord
+          .signup4-form-group__name.signup4-main__box__form__contents__postal-cord__text
+            郵便番号
+          %span.signup4-form-group__require.signup4-main__box__form__contents__postal-cord__require
+            必須
+          = f.number_field :postal_cord, placeholder: '例) 0000000', class: 'signup4-form-group__form signup4-main__box__form__contents__postal-cord__form'
+        .signup4-form-group.signup4-main__box__form__contents__prefecture
+          .signup4-form-group__name.signup4-main__box__form__contents__prefecture__text
+            都道府県
+          %span.signup4-form-group__require.signup4-main__box__form__contents__prefecture__require
+            必須
+          = f.collection_select :prefecture_id, Prefecture.all, :id, :name
+        .signup4-form-group.signup4-main__box__form__contents__city
+          .signup4-form-group__name.signup4-main__box__form__contents__city__text
+            市区町村
+          %span.signup4-form-group__require.signup4-main__box__form__contents__city__require
+            必須
+          = f.text_field :city, placeholder: '例) 横浜市緑区', class: 'signup4-form-group__form signup4-main__box__form__contents__city__form'
+        .signup4-form-group.signup4-main__box__form__contents__address-number
+          .signup4-form-group__name.signup4-main__box__form__contents__address-number__text
+            番地
+          %span.signup4-form-group__require.signup4-main__box__form__contents__address-number__require
+            必須
+          = f.text_field :address_number, placeholder: '例) 青山1-1-1', class: 'signup4-form-group__form signup4-main__box__form__contents__address-number__form'
+        .signup4-form-group.signup4-main__box__form__contents__building
+          .signup4-form-group__name.signup4-main__box__form__contents__building__text
+            建物名
+          %span.signup4-form-group__arbitrary.signup4-main__box__form__contents__building__arbitrary
+            任意
+          = f.text_field :building_name, placeholder: '例) 大貫ビル103', class: 'signup4-form-group__form signup4-main__box__form__contents__building__form'
+        .signup4-form-group.signup4-main__box__form__contents__phone
+          .signup4-form-group__name.signup4-main__box__form__contents__phone__text
+            電話番号
+          %span.signup4-form-group__arbitrary.signup4-main__box__form__contents__phone__arbitrary
+            任意
+          = f.number_field :phone_number, placeholder: '例) 0123456789', class: 'signup4-form-group__form signup4-main__box__form__contents__phone__form'
+        = f.submit '次へ進む', class: 'signup4-form-group signup4-main__box__form__contents__submit'
