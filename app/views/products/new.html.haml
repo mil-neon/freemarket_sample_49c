@@ -1,0 +1,117 @@
+= render 'buyers/buyer-header'
+.sell-main
+  %section.sell-main__container
+    %div
+      %div
+        .sell-main__container__inner
+          %h2.sell-main__container__inner__head 商品の情報を入力
+          .sell-main__container__inner__form
+            .sell-main__container__inner__form__upload-box
+              %h3.sell-main__container__inner__form__upload-box__head
+                出品画像
+                %span.sell-main__container__inner__form__upload-box__head--require 必須
+              %p 最大10枚までアップロードできます
+              .sell-main__container__inner__form__upload-box__dropbox
+                .sell-main__container__inner__form__upload-box__dropbox__container
+                  .sell-main__container__inner__form__upload-box__dropbox__container__items
+                    %ul
+                .sell-main__container__inner__form__upload-box__dropbox__upload
+                  %input.sell-main__container__inner__form__upload-box__dropbox__upload--img
+                  %pre.sell-main__container__inner__form__upload-box__dropbox__upload--visible
+                    ドラッグアンドドロップ
+                    またはクリックしてファイルをアップロード
+                  %i.sell-main__container__inner__form__upload-box__dropbox__upload--icon
+            .sell-main__container__inner__form__content
+              .sell-main__container__inner__form__content__group
+                %label 商品名
+                %span.sell-main__container__inner__form__content__group--require 必須
+                %input.sell-main__container__inner__form__content__group__input
+              .sell-main__container__inner__form__content__group
+                %label 商品の説明
+                %span.sell-main__container__inner__form__content__group--require 必須
+                %text_area.sell-main__container__inner__form__content__group__textarea
+            .sell-main__container__inner__form__content
+              %h3.sell-main__container__inner__form__content__head 商品の詳細
+              .sell-main__container__inner__form__content__box
+                .sell-main__container__inner__form__content__box__group
+                  %label
+                    カテゴリー
+                    %span.sell-main__container__inner__form__content__box__group--require 必須
+                  %div
+                    .sell-main__container__inner__form__content__box__group__wrap
+                      %select.sell-main__container__inner__form__content__box__group__wrap__select
+                      %i.sell-main__container__inner__form__content__box__group__wrap--icon
+                .sell-main__container__inner__form__content__box__group
+                  %label
+                    商品の状態
+                    %span.sell-main__container__inner__form__content__box__group--require 必須
+                  .sell-main__container__inner__form__content__box__group__wrap
+                    %select.sell-main__container__inner__form__content__box__group__wrap__select
+            .sell-main__container__inner__form__content
+              %h3.sell-main__container__inner__form__content__head 配送について
+              %span.fas.fa-question-circle.sell-main__container__inner__form__content--blue-icon
+              .sell-main__container__inner__form__content__box
+                .sell-main__container__inner__form__content__box__group
+                  %label
+                    配送料の負担
+                    %span.sell-main__container__inner__form__content__box__group--require 必須
+                  .sell-main__container__inner__form__content__box__group__wrap
+                    %select.sell-main__container__inner__form__content__box__group__wrap__select
+                .sell-main__container__inner__form__content__box__group
+                  %label
+                    発送元の地域
+                    %span.sell-main__container__inner__form__content__box__group--require 必須
+                  .sell-main__container__inner__form__content__box__group__wrap
+                    %select.sell-main__container__inner__form__content__box__group__wrap__select
+                .sell-main__container__inner__form__content__box__group
+                  %label
+                    配送までの日数
+                    %span.sell-main__container__inner__form__content__box__group--require 必須
+                  .sell-main__container__inner__form__content__box__group__wrap
+                    %select.sell-main__container__inner__form__content__box__group__wrap__select
+            .sell-main__container__inner__form__content
+              %h3.sell-main__container__inner__form__content__head 販売価格(300〜9,999,999)
+              %span.fas.fa-question-circle.sell-main__container__inner__form__content--blue-icon
+              .sell-main__container__inner__form__content__box
+                %ul.sell-main__container__inner__form__content__box__price
+                  %li.sell-main__container__inner__form__content__box__price__group
+                    .sell-main__container__inner__form__content__box__price__group__wrap
+                      %label.sell-main__container__inner__form__content__box__price__group__wrap--left
+                        価格
+                        %span.sell-main__container__inner__form__content__box__price__group__wrap--left--require 必須
+                      .sell-main__container__inner__form__content__box__price__group__wrap--right
+                        ¥
+                        .sell-main__container__inner__form__content__box__price__group__wrap--right__wrap
+                          %input.sell-main__container__inner__form__content__box__price__group__wrap--right__wrap__input
+                  %li.sell-main__container__inner__form__content__box__price__group
+                    .sell-main__container__inner__form__content__box__price__group__wrap
+                      %label.sell-main__container__inner__form__content__box__price__group__wrap--left
+                        販売手数料 (10%)
+                      .sell-main__container__inner__form__content__box__price__group__wrap--right
+                        ー
+                  %li.sell-main__container__inner__form__content__box__price__group
+                    .sell-main__container__inner__form__content__box__price__group__wrap
+                      %label.sell-main__container__inner__form__content__box__price__group__wrap--left
+                        販売利益
+                      .sell-main__container__inner__form__content__box__price__group__wrap--right
+                        ー
+            .sell-main__container__inner__form__content
+              %div
+                %p 
+                = link_to '禁止されている出品', ''
+                、
+                = link_to '行為', ''
+                を必ずご確認ください。
+                %p
+                またブランド品でシリアルナンバー等がある場合はご記載ください。
+                = link_to '偽ブランドの販売', ''
+                は犯罪であり処罰される可能性があります。
+                %p
+                また、出品をもちまして
+                = link_to '加盟店規約', ''
+                に同意したことになります。
+              = link_to '', class: 'sell-main__container__inner__form__content__btn--red' do
+                出品する
+              = link_to '', class: 'sell-main__container__inner__form__content__btn--grey' do
+                もどる
+= render 'buyers/buyer-footer'
