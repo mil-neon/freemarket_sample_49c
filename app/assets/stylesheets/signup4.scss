@@ -3,18 +3,11 @@
 }
 
 .signup4-main {
-  width: 100%;
-  height: 100%;
+  @include full-size();
   &__box {
-    width: 700px;
-    margin: 0 auto;
-    background: #fff;
+    @include form-box();
     &__head {
-      padding: 32px 16px;
-      font-size: 22px;
-      line-height: 1.5;
-      text-align: center;
-      font-weight: bold;
+      @include head-text();
     }
     &__form {
       padding: 64px;
@@ -22,52 +15,8 @@
       &__contents {
         max-width: 320px;
         margin: 0 auto;
-        &__user-confirm {
-          &__head {
-            font-size: 16px;
-            font-weight: 600;
-          }
-          &__text {
-            margin: 8px 0 0;
-            line-height: 1.5;
-          }
-        }
-        &__info {
-          margin: 8px 0 0;
-          line-height: 1.5;
-          color: #888;
-        }
         &__submit {
-          background: #ea352d;
-          border: 1px solid #ea352d;
-          color: #fff;
-          width: 100%;
-          line-height: 48px;
-          font-size: 14px;
-          cursor: pointer;
-          text-align: center;
-        }
-        &__register-info {
-          text-align: right;
-          line-height: 1.5;
-        }
-        &__birth-day {
-          position: relative;
-          &__year {
-            position: absolute;
-            top: 45px;
-            left: 150px;
-          }
-          &__month {
-            position: absolute;
-            top: 100px;
-            left: 150px;
-          }
-          &__day {
-            position: absolute;
-            top: 155px;
-            left: 150px;
-          }
+          @include submit();
         }
       }
     }
@@ -77,56 +26,29 @@
 .signup4-form-group {
   margin: 40px 0 0;
   &__name {
-    font-weight: 600;
-    display: inline-block;
-    cursor: default;
+    @include name-logo;
   }
   &__require {
+    @include require-logo;
     background: #ea352d;
-    margin: 0 0 0 8px;
-    padding: 2px 4px;
-    border-radius: 2px;
-    color: #fff;
-    font-size: 12px;
-    vertical-align: top;
+    
   }
   &__arbitrary {
+    @include require-logo;
     background: #ccc;
-    margin: 0 0 0 8px;
-    padding: 2px 4px;
-    border-radius: 2px;
-    color: #fff;
-    font-size: 12px;
-    vertical-align: top;
   }
   &__form {
-    width: 100%;
-    margin: 8px 0 0;
+    @include form();
     height: 30px;
-    padding: 10px 16px 8px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    background: #fff;
-    line-height: 1.5;
-    font-size: 16px;
-    min-height: 1.5em;
+  }
+  #prefecture_id {
+    @include form();
+    width: 100%;
+    height: 48px;
   }
   &__recaptcha {
     height: 78px;
   }
-}
-
-#prefecture_id {
-  width: 100%;
-    margin: 8px 0 0;
-    height: 48px;
-    padding: 10px 16px 8px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    background: #fff;
-    line-height: 1.5;
-    font-size: 16px;
-    min-height: 1.5em;
 }
 
 .signup2-form-group:first-child {
@@ -134,14 +56,8 @@
 }
 
 #_birthday_1i, #_birthday_2i, #_birthday_3i {
+  @include form();
   width: 140px;
-  margin: 8px 0 0;
   height: 48px;
   display: block;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  background: #fff;
-  line-height: 1.5;
-  font-size: 16px;
-  min-height: 1.5em;
 }
