@@ -1,4 +1,11 @@
 class UsersController < ApplicationController
-  def def new
+
+  def new
+  end
+
+  def address
+  end
+
+  def last_signup
   end
 end

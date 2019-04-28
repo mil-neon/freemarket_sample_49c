@@ -1,0 +1,63 @@
+.header-signup4-main {
+  height: 128px;
+}
+
+.signup4-main {
+  @include full-size();
+  &__box {
+    @include form-box();
+    &__head {
+      @include head-text();
+    }
+    &__form {
+      padding: 64px;
+      border-top: 1px solid #f5f5f5;
+      &__contents {
+        max-width: 320px;
+        margin: 0 auto;
+        &__submit {
+          @include submit();
+        }
+      }
+    }
+  }
+}
+
+.signup4-form-group {
+  margin: 40px 0 0;
+  &__name {
+    @include name-logo;
+  }
+  &__require {
+    @include require-logo;
+    background: #ea352d;
+    
+  }
+  &__arbitrary {
+    @include require-logo;
+    background: #ccc;
+  }
+  &__form {
+    @include form();
+    height: 30px;
+  }
+  #prefecture_id {
+    @include form();
+    width: 100%;
+    height: 48px;
+  }
+  &__recaptcha {
+    height: 78px;
+  }
+}
+
+.signup2-form-group:first-child {
+  margin: 0;
+}
+
+#_birthday_1i, #_birthday_2i, #_birthday_3i {
+  @include form();
+  width: 140px;
+  height: 48px;
+  display: block;
+}
