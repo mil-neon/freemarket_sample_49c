@@ -1,0 +1,21 @@
+.signup3
+  = render 'signup-header'
+  %main.signup3__main
+    .signup3__main__container
+      %h2.signup3__head 電話番号の確認
+      = form_with url: root_path, html: { class: "signup3__form" } do |f|
+        .signup3__form__inner
+          .tel
+            = f.label :携帯電話の番号
+            = f.text_field :tel, autocomplete: "tel", placeholder: "   携帯電話の番号を入力", class: "default", autofocus: true
+            %p 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+
+          .actions
+            = f.submit "SMSを送信する", class: "form-sms"
+            %p ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+          .txt
+            = link_to root_path, :target => "_blank" do
+              電話番号の確認が必要な理由
+              %i.fas.fa-chevron-right
+  = render 'buyers/buyer-footer'
+
