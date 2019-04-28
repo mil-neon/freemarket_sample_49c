@@ -1,3 +1,82 @@
+.header-signup-main {
+  height: 128px;
+}
+
+.signup {
+  height: 100%;
+  width: 100%;
+  &__box {
+    background-color: #fff;
+    height: 100%;
+    margin: auto;
+    width: 700px;
+    &__header {
+      border-bottom: 1px solid #e6e8eb;
+      font-size: 1.5em;
+      font-weight: bold;
+      height: 33px;
+      padding: 32px 16px;
+      text-align: center;
+      width: 668px;
+    }
+    &__main {
+      height: 182px;
+      padding: 64px;
+      width: 572px;
+      &__content {
+        font-size: 14px;
+        height: 100%;
+        line-height: 48px;
+        margin: auto;
+        text-align: center;
+        width: 320px;
+        &__mail {
+          background-color: #e6e8eb;
+          cursor: pointer;
+          height: 50px;
+          width: 320px;
+          .icon-mail {
+            color: #ccc;
+            float: left;
+            font-size: 26px;
+            padding: 10px 0 0 10px;
+          }
+        }
+        &__facebook {
+          background-color: #385185;
+          color: #fff;
+          cursor: pointer;
+          height: 50px;
+          margin-top: 16px;
+          width: 320px;
+          .icon-facebook {
+            float: left;
+            font-size: 30px;
+            padding: 10px 0 0 10px;
+          }
+        }
+        &__google {
+          background-color: #fff;
+          border: 1px solid;
+          cursor: pointer;
+          height: 50px;
+          margin-top: 16px;
+          width: 320px;
+          .icon-google {
+            float: left;
+            font-size: 16px;
+            padding: 15px 0 0 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.footer-signup-main {
+  height: 128px;
+}
+
 
 
 
