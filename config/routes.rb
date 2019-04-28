@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :new, :show]
   resources :users, only: [:new]
   resources :buyers, only: [:show]
-  get 'users/address'  =>  'users#address'
+  get 'users/address' => 'users#address'
 end

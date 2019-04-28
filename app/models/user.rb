@@ -13,6 +13,6 @@ class User < ApplicationRecord
   validates :nickname, length: { maximum: 20 }
   validates :encrypted_password, length: { minimum: 6, maximum: 128 }
 
-    extend ActiveHash::Associations::ActiveRecordExtensions
-    belongs_to_active_hash :prefecture
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :prefecture
 end
