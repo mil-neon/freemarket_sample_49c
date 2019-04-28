@@ -1,4 +1,3 @@
-//【このヘッダーについて】プログレスバーをsignup3用に作成しています。
 .all-signup__header{
   text-align: center;
   height: 128px;
@@ -48,23 +47,18 @@
 
 // デフォルトのプログレスバー
 .progress-status:before {
-  right: 50%;
-}
-.progress-status:before, .progress-status:after {
   position: absolute;
   bottom: 5px;
-  z-index: -1;
   display: block;
   content: '';
-  width: 100%;
+  width: 170%;
   height: 2px;
   background: $light_gray;
 }
 
-// サイドのハミ出たバーを消している
 .through .progress-status::before {
-  right: -50%;
+  left: 50%;
   }
-.end .progress-status::after{
-  left: -50%;
+.end .progress-status::before{
+  right: 50%;
 }
