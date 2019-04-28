@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :users, only: [:new]
   resources :buyers, only: [:show]
   get 'users/address' => 'users#address'
+  get 'users/last_signup' => 'users#last_signup'
 end

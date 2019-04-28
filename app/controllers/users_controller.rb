@@ -4,4 +4,7 @@ class UsersController < ApplicationController
 
   def address
   end
+
+  def last_signup
+  end
 end
