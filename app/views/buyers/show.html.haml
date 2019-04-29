@@ -6,7 +6,7 @@
       %h2 購入を確定しますか？
     .purchase-page__item
       .purchase-page__item__imag
-        = image_tag "https://static.mercdn.net/thumb/photos/m41451622790_1.jpg?1556276743"
+        = image_tag "car.jpg"
       %h3.purchase-page__item__name
         = link_to "ベルファイア"
       = form_with class: "purchase-page__item__price" do
@@ -35,7 +35,7 @@
           %br/
           麻生/8888-12
         %p.purchase-page__info__inner-tax
-          = link_to "https://www.mercari.com/jp/transaction/address/m41451622790/?_s=U2FsdGVkX1-TkBHUScH65EVZ24fhFXq0SwCBJ-KGX3FwbavHgGhTpbg_0UTstC3RJd4IvRXs05_wxfvX9aooWr_OFeZw6zRFiXj5-FEF86wx7amBsQ1PKK7Grry12S8h", { class: "purchase-page__info-fix"} do
+          = link_to root_path, { class: "purchase-page__info-fix"} do
             %span 変更する
             %i.fas.fa-chevron-right
     %section.purchase-page__way{"data-buy" => "pay-method"}
@@ -49,7 +49,7 @@
         .purchase-page__way__inner__img
           =image_tag "VISA.png"
         %p.purchase-page__way__inner-tax
-          = link_to "https://www.mercari.com/jp/transaction/card/m41451622790/?_s=U2FsdGVkX1-TkBHUScH65EVZ24fhFXq0SwCBJ-KGX3FwbavHgGhTpbg_0UTstC3RJd4IvRXs05_wxfvX9aooWr_OFeZw6zRFiXj5-FEF86wx7amBsQ1PKK7Grry12S8h", { class: "buy-user-info-fix" } do
+          = link_to root_path, { class: "buy-user-info-fix" } do
             %span 変更する
             %i.fas.fa-chevron-right
 
