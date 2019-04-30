@@ -46,6 +46,7 @@
 |category_id|references|null: false, foreign_key: true|
 |brand_id|references|foreign_key: true|
 |likes_count|integer||
+|prefecture_id|integer|null: false|
 
 * condition＝商品の状態（モデルにリストを作成する）
 * shipping_method＝運送方法（モデルにリストを作成する）
