@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions' }
   root 'products#index'
   resources :products, only: [:index, :new, :show]
-  resources :users, only: [:new, :index, :show]
+  resources :users, only: [:new, :show]
   resources :buyers, only: [:show]
-  get 'users/address' => 'users#address'
-  get 'users/last_signup' => 'users#last_signup'
+  resources :registration, controller: 'sessions', except: [:index, :update, :destroy, :show, :edit] do
+    collection do
+      post 'create_user'
+      get 'signup_phone'
+      get 'signup_address'
+      post 'create_address'
+      get 'signup_pay'
+      get 'complete'
+    end
+  end
 end
