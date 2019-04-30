@@ -41,7 +41,7 @@
 |area|integer|null: false|
 |shipping_date|integer|null: false|
 |price|integer|null: false|
-|seller_id|references|null: false, foreign_key: true|
+|seller_id|references|null: false, foreign_key: { to_table: :users }|
 |buyer_id|integer||
 |category_id|references|null: false, foreign_key: true|
 |brand_id|references|foreign_key: true|
