@@ -13,7 +13,7 @@
 |lastname_kana|string|null: false|
 |birthday|date|null: false|
 |postal_cord|integer|null: false|
-|prefecture|integer|null: false|
+|prefecture_id|integer|null: false|
 |city|string|null: false|
 |address_number|string|null: false|
 |building_name|string||
@@ -46,6 +46,7 @@
 |category_id|references|null: false, foreign_key: true|
 |brand_id|references|foreign_key: true|
 |likes_count|integer||
+|prefecture_id|integer|null: false|
 
 * condition＝商品の状態（モデルにリストを作成する）
 * shipping_method＝運送方法（モデルにリストを作成する）
@@ -101,7 +102,7 @@
 ### Association
 * has_many :products
 * has_many :brands, through: :brands_categories
-* belongs_to :parent, class_name: :Category,
+* belongs_to :parent, class_name: :Category
 * has_many :children, class_name: :Category, foreign_key: :parent_id
 
 ## chatsテーブル
