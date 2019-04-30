@@ -12,6 +12,7 @@
           list-style: none;
           &__comment{
             margin: 60px 0 0;
+            padding: 0;
             @include clearfix;
             &__user {
               float: left;
