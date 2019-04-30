@@ -41,7 +41,7 @@
 |area|integer|null: false|
 |shipping_date|integer|null: false|
 |price|integer|null: false|
-|seller_id|integer|null: false, foreign_key: true|
+|seller_id|references|null: false, foreign_key: true|
 |buyer_id|integer||
 |category_id|references|null: false, foreign_key: true|
 |brand_id|references|foreign_key: true|
@@ -75,7 +75,7 @@
 ## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|unique: true|
+|name|string|unique: true, null: false|
 |name_initial|string||
 
 ### Association
