@@ -41,8 +41,8 @@
 |area|integer|null: false|
 |shipping_date|integer|null: false|
 |price|integer|null: false|
-|seller_id|integer|null: false, foreign_key: true|
-|buyer_id|integer||
+|seller_id|references|null: false, foreign_key: { to_table: :users }|
+|buyer_id|integer|index: true|
 |category_id|references|null: false, foreign_key: true|
 |brand_id|references|foreign_key: true|
 |likes_count|integer||
@@ -65,7 +65,7 @@
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|string||	
+|image|string|null: false|	
 |product_id|references|null: false, foreign_key: true|	
 
 ### Association
@@ -75,7 +75,7 @@
 ## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|unique: true|
+|name|string|unique: true, null: false|
 |name_initial|string||
 
 ### Association

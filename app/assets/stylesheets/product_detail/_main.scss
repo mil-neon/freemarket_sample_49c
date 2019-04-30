@@ -43,6 +43,9 @@
             opacity: .4;
             cursor: pointer;
           }
+          &__dot:hover {
+          opacity: 1;
+          }
         }
       }
       &__table {
