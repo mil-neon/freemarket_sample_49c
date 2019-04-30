@@ -2,8 +2,8 @@ class User < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
   
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+  # devise :database_authenticatable, :registerable,
+  #        :recoverable, :rememberable, :validatable
 
   has_many :evaluations, dependent: :destroy
   has_many :products, dependent: :destroy

@@ -1,10 +1,9 @@
-.header-signup5-main
-
+= render 'signup-header'
 .signup5
   .signup5__box
     .signup5__box__header
       支払い方法
-    = form_with url: root_path, html: { class: "signup5__box__main" } do |f|
+    = form_with url: create_path, html: { class: "signup5__box__main" } do |f|
       .signup5__box__main__form
         .signup5__box__main__form__group
           %label.signup5__box__main__form__group__creditcard
@@ -34,5 +33,4 @@
             必須
           = f.text_field :card, maxlength: "4", name: "cvc", placeholder: "カード背面３桁または４桁の番号", type: "text", class: 'signup5__box__main__form__group__field'
           = f.submit '次へ進む', class: 'signup5__box__main__form__group__submit'
-
-.footer-signup5-main
+= render 'buyers/buyer-footer'
