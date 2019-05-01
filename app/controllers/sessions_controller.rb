@@ -51,12 +51,8 @@ class SessionsController < ApplicationController
 
   def login
     @user = User.where(email: params[:email], password: Rails.application.message_verifier('secret_key').generate({ token: params[:password] }))
-    if @user != []
-      session[:user_id] = @user[0].id
+      session[:user_id] = @user[0].id if @user != []
       redirect_to root_path
-    else
-      redirect_to root_path
-    end
   end
 
   def logout
