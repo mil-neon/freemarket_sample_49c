@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
     @birthday = @date.to_date
     session[:nickname] = params[:nickname]
     session[:email] = params[:email]
-    session[:password] = params[:encrypted_password]
+    session[:password] = Rails.application.message_verifier('secret_key').generate({ token: params[:password] })
     session[:password_confirmation] = params[:password_confirmation]
     session[:firstname_fullangle] = params[:firstname_fullangle]
     session[:lastname_fullangle] = params[:lastname_fullangle]
@@ -40,7 +40,8 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.new(nickname: session[:nickname], email: session[:email], encrypted_password: session[:password], firstname_fullangle: session[:firstname_fullangle], lastname_fullangle: session[:lastname_fullangle], firstname_kana: session[:firstname_kana], lastname_kana: session[:lastname_kana], birthday: session[:birthday], postal_cord: session[:postal_cord], prefecture_id: session[:prefecture_id], city: session[:city], address_number: session[:address_number], building_name: session[:building_name], phone_number: session[:phone_number])
+    binding.pry
+    @user = User.new(nickname: session[:nickname], email: session[:email] firstname_fullangle: session[:firstname_fullangle], lastname_fullangle: session[:lastname_fullangle], firstname_kana: session[:firstname_kana], lastname_kana: session[:lastname_kana], birthday: session[:birthday], postal_cord: session[:postal_cord], prefecture_id: session[:prefecture_id], city: session[:city], address_number: session[:address_number], building_name: session[:building_name], phone_number: session[:phone_number], password_digest: session[:password])
     if @user.save
       redirect_to complete_registration_index_path
     else
