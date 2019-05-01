@@ -10,28 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_01_043911) do
+ActiveRecord::Schema.define(version: 2019_04_30_083445) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "name_initial"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "brands_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "brand_id", null: false
     t.bigint "category_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.index ["brand_id"], name: "index_brands_categories_on_brand_id"
     t.index ["category_id"], name: "index_brands_categories_on_category_id"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.bigint "parent_id", null: false
     t.index ["parent_id"], name: "index_categories_on_parent_id"
   end
@@ -39,8 +39,8 @@ ActiveRecord::Schema.define(version: 2019_05_01_043911) do
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "image", null: false
     t.bigint "product_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.index ["product_id"], name: "index_images_on_product_id"
   end
 
@@ -59,8 +59,8 @@ ActiveRecord::Schema.define(version: 2019_05_01_043911) do
     t.bigint "category_id", null: false
     t.bigint "brand_id"
     t.integer "likes_count"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer "prefecture_id", null: false
     t.index ["brand_id"], name: "index_products_on_brand_id"
     t.index ["buyer_id"], name: "index_products_on_buyer_id"
@@ -74,9 +74,9 @@ ActiveRecord::Schema.define(version: 2019_05_01_043911) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "nickname", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string "nickname", default: "", null: false
     t.string "firstname_fullangle", null: false
     t.string "lastname_fullangle", null: false
     t.string "firstname_kana", null: false
@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 2019_05_01_043911) do
     t.string "icon_image"
     t.text "profile"
     t.integer "prefecture_id", null: false
-    t.string "password_digest"
+    t.string "encrypted_password"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
