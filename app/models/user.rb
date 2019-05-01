@@ -11,4 +11,5 @@ class User < ApplicationRecord
   validates :firstname_kana, :lastname_kana, format: { with: /\A[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+\z/ }
   validates :nickname, :email, uniqueness: true
   validates :nickname, length: { maximum: 20 }
+
 end

@@ -5,7 +5,7 @@
     .login1__main__noaccount
       .login1__main__noaccount__upper
         アカウントをお持ちでない方はこちら
-      .login1__main__noaccount__lower
+      = link_to new_user_path, class: 'login1__main__noaccount__lower' do
         新規会員登録
     .login1__main__inner
       .login1__main__inner__facebook
@@ -14,12 +14,12 @@
       .login1__main__inner__google
         %i.fab.fa-google.login1__main__inner__google__btn
         Googleでログイン
-    = form_with url: root_path, html: { class: "login1__main__form" } do |f|
+    = form_with url: login_registration_index_path, html: { class: "login1__main__form" } do |f|
       .login1__main__form__inner
         .login1__main__form__inner__group
-          = f.text_field :login1, name: "email", placeholder: "メールアドレス", type: "email", value: "", class: 'login1__main__form__inner__group__email'
+          = f.email_field :email, name: "email", placeholder: "メールアドレス", type: "email", value: "", class: 'login1__main__form__inner__group__email'
         .login1__main__form__inner__group
-          = f.text_field :login1, name: "password", placeholder: "パスワード", type: "password", class: 'login1__main__form__inner__group__password'
+          = f.password_field :password, name: "password", placeholder: "パスワード", type: "password", class: 'login1__main__form__inner__group__password'
         .login1__main__form__inner__group
           .login1__main__form__inner__group__robot
         = f.submit 'ログイン', class: 'login1__main__form__inner__submit'

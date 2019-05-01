@@ -152,6 +152,47 @@
           }
         }
       }
+      &__right-login {
+        float: right;
+        display: flex;
+        &__login {
+          width: 78px;
+          height: 32px;
+          background: #ea352d;
+          border-radius: 3px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-right: 10px;
+          &__link {
+            display: block;
+            color: #ffffff;
+            text-decoration: none;
+            line-height: 32px;
+            text-align: center;
+            width: 178px;
+            height: 32px;
+          }
+        }
+        &__new {
+          width: 106px;
+          height: 30px;
+          background: #ffffff;
+          border-radius: 3px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border: 1px solid #0099e8;
+          &__link {
+            color: #0099e8;
+            text-decoration: none;
+            line-height: 30px;
+            text-align: center;
+            width: 106px;
+            height: 30px;
+          }
+        }
+      }
     }
   }
 }

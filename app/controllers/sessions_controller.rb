@@ -42,9 +42,25 @@ class SessionsController < ApplicationController
   def create
     @user = User.new(nickname: session[:nickname], email: session[:email], firstname_fullangle: session[:firstname_fullangle], lastname_fullangle: session[:lastname_fullangle], firstname_kana: session[:firstname_kana], lastname_kana: session[:lastname_kana], birthday: session[:birthday], postal_cord: session[:postal_cord], prefecture_id: session[:prefecture_id], city: session[:city], address_number: session[:address_number], building_name: session[:building_name], phone_number: session[:phone_number], password: session[:password])
     if @user.save
+      session[:user_id] = @user.id
       redirect_to complete_registration_index_path
     else
       redirect_to new_user_path
     end
+  end
+
+  def login
+    @user = User.where(email: params[:email], password: Rails.application.message_verifier('secret_key').generate({ token: params[:password] }))
+    if @user != []
+      session[:user_id] = @user[0].id
+      redirect_to root_path
+    else
+      redirect_to root_path
+    end
+  end
+
+  def logout
+    session[:user_id] = nil
+    redirect_to root_path
   end
 end
