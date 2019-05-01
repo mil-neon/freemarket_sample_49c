@@ -43,3 +43,73 @@
           .header__container__bottom__right-login__new
             = link_to new_user_path, class: 'header__container__bottom__right-login__new__link' do
               新規会員登録
+      .header__container__bottom__right
+        %ul.personal__menu
+          %li.personal__menu__list__news
+            %a.personal__menu__list__news--link
+              %i.far.fa-bell.icon
+              %span.personal__menu__list__news__font お知らせ
+            %ul.mypage__nav__list.pulldown
+              = render 'news'
+              = render 'news'
+          %li.personal__menu__list__todo
+            %a.personal__menu__list__todo--link
+              %i.fa.fa-check
+              %span.personal__menu__list__todo--link__font やることリスト
+            %ul.mypage__item__todo.pulldown
+              %li.mypage__item__todo-not-found 現在、やることリストはありません
+          %li.personal__menu__list__mypage
+            %a.personal__menu__list__mypage--link
+              %figure
+                %div
+                  = image_tag "member_photo_noimage_thumb.png", class: "mypage-avator", alt: "", width: "32"
+              %span.personal__menu__mypage マイページ
+            %ul.mypage__link__box.pulldown
+              .mypage__link__box-state
+                %figure
+                  %div
+                    = image_tag "member_photo_noimage_thumb.png", width: "60"
+                  %figcaption name
+                %ul.mypage__link__box-state__review
+                  %li#li_clear_marging
+                    = link_to root_path ,class:"pc-header-link" do
+                      評価: 0
+                  %li
+                    = link_to root_path ,class:"pc-header-link" do
+                      出品数: 0
+                %ul.mypage__link__box-state__point
+                  %li
+                    = link_to root_path ,class:"pc-header-link" do
+                      .l-left 売上金
+                      .l-right ¥ 0
+                      %i.fas
+                  %li
+                    = link_to root_path ,class:"pc-header-link" do
+                      .l-left ポイント
+                      .l-right P 0
+                      %i.fas
+              %ul.mypage__nav__list
+                %li
+                  = link_to root_path ,class:"mypage__nav__list-item" do
+                    いいね！一覧
+                    %i.fas.fa-chevron-right
+                %li
+                  = link_to root_path ,class:"mypage__nav__list-item" do
+                    出品した商品 - 出品中
+                    %i.fas.fa-chevron-right
+                %li
+                  = link_to root_path ,class:"mypage__nav__list-item" do
+                    出品した商品 - 取引中
+                    %i.fas.fa-chevron-right
+                %li
+                  = link_to root_path ,class:"mypage__nav__list-item" do
+                    出品した商品 - 売却済み
+                    %i.fas.fa-chevron-right
+                %li
+                  = link_to root_path ,class:"mypage__nav__list-item" do
+                    購入した商品 - 取引中
+                    %i.fas.fa-chevron-right
+                %li
+                  = link_to root_path ,class:"mypage__nav__list-item" do
+                    購入した商品 - 過去の取引
+                    %i.fas.fa-chevron-right

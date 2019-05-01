@@ -1,0 +1,36 @@
+@mixin span(){
+  margin-left: 5px;
+  font-size: 14px;
+  padding-bottom: 8px;
+}
+
+@mixin tag(){
+  height: 44px;
+  margin: 0 auto;
+  font-size: 14px;
+  font-weight: 400px;
+  line-height: 44px;
+}
+
+@mixin fas(){
+  color: #ea352d;
+  margin-right: 4px;
+}
+
+@mixin tag_text(){
+  vertical-align: middle;
+  color : $txt_black;
+}
+
+@mixin hover_color() {
+  &:hover {
+    color: $link_blue;
+  }
+}
+@mixin list(){
+  z-index: 1;
+  position: absolute;
+  width: 320px;
+  background: $white;
+  font-size: 14px;
+}
