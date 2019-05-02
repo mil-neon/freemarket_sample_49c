@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
     session[:firstname_kana] = params[:firstname_kana]
     session[:lastname_kana] = params[:lastname_kana]
     session[:birthday] = @birthday
-    redirect_to signup_phone_registration_index_path
+    redirect_to new_signup_phone_path
   end
 
   def create_address
@@ -36,14 +36,14 @@ class SessionsController < ApplicationController
     session[:address_number] = params[:address_number]
     session[:building_name] = params[:building_name]
     session[:phone_number] = params[:phone_number]
-    redirect_to signup_pay_registration_index_path
+    redirect_to new_signup_pay_path
   end
 
   def create
     @user = User.new(nickname: session[:nickname], email: session[:email], firstname_fullangle: session[:firstname_fullangle], lastname_fullangle: session[:lastname_fullangle], firstname_kana: session[:firstname_kana], lastname_kana: session[:lastname_kana], birthday: session[:birthday], postal_cord: session[:postal_cord], prefecture_id: session[:prefecture_id], city: session[:city], address_number: session[:address_number], building_name: session[:building_name], phone_number: session[:phone_number], password: session[:password])
     if @user.save
       session[:user_id] = @user.id
-      redirect_to complete_registration_index_path
+      redirect_to new_complete_path
     else
       redirect_to new_user_path
     end
