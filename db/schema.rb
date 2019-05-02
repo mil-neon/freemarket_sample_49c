@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_01_081750) do
+ActiveRecord::Schema.define(version: 2019_05_02_094944) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2019_05_01_081750) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "parent_id", null: false
+    t.bigint "parent_id"
     t.index ["parent_id"], name: "index_categories_on_parent_id"
   end
 
@@ -47,11 +47,10 @@ ActiveRecord::Schema.define(version: 2019_05_01_081750) do
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "description", null: false
-    t.integer "size", null: false
+    t.integer "size"
     t.integer "condition", null: false
-    t.integer "select_shipping_feeh", null: false
+    t.integer "shipping_feeh", null: false
     t.integer "shipping_method", null: false
-    t.integer "area", null: false
     t.integer "shipping_date", null: false
     t.integer "price", null: false
     t.bigint "seller_id", null: false
@@ -76,7 +75,7 @@ ActiveRecord::Schema.define(version: 2019_05_01_081750) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "nickname", default: "", null: false
+    t.string "nickname", null: false
     t.string "firstname_fullangle", null: false
     t.string "lastname_fullangle", null: false
     t.string "firstname_kana", null: false
@@ -86,7 +85,7 @@ ActiveRecord::Schema.define(version: 2019_05_01_081750) do
     t.string "city", null: false
     t.string "address_number", null: false
     t.string "building_name"
-    t.integer "phone_number", null: false
+    t.string "phone_number"
     t.string "icon_image"
     t.text "profile"
     t.integer "prefecture_id", null: false
