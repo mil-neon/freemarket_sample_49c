@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'products#index'
   resources :products, only: [:index, :new, :show]
   resources :buyers, only: [:show]
-  resources :users, only: [:new, :login] do
+  resources :users, only: [:new] do
     collection do
       get 'login'
     end
