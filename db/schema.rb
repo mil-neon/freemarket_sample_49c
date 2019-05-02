@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 2019_05_02_064418) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "nickname", null: false
+    t.string "nickname", default: "", null: false
     t.string "firstname_fullangle", null: false
     t.string "lastname_fullangle", null: false
     t.string "firstname_kana", null: false
