@@ -89,5 +89,5 @@ gem 'font-awesome-rails'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'mini_magick'
-gem 'ransack' 
+gem 'ransack'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
