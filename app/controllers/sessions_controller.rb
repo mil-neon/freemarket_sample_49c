@@ -25,24 +25,16 @@ class SessionsController < ApplicationController
   end
 
   def create_address
-    session[:postal_cord] = params[:postal_cord]
-    session[:prefecture_id] = params[:prefecture_id]
-    session[:city] = params[:city]
-    session[:address_number] = params[:address_number]
-    session[:building_name] = params[:building_name]
-    session[:phone_number] = params[:phone_number]
-    redirect_to new_signup_pay_path
-  end
-
-  def create
-    @user = User.new(nickname: session[:nickname], email: session[:email], firstname_fullangle: session[:firstname_fullangle], lastname_fullangle: session[:lastname_fullangle], firstname_kana: session[:firstname_kana], lastname_kana: session[:lastname_kana], birthday: session[:birthday], postal_cord: session[:postal_cord], prefecture_id: session[:prefecture_id], city: session[:city], address_number: session[:address_number], building_name: session[:building_name], phone_number: session[:phone_number], password: session[:password])
-
+    @user = User.new(nickname: session[:nickname], email: session[:email], firstname_fullangle: session[:firstname_fullangle], lastname_fullangle: session[:lastname_fullangle], firstname_kana: session[:firstname_kana], lastname_kana: session[:lastname_kana], birthday: session[:birthday], postal_cord: params[:postal_cord], prefecture_id: params[:prefecture_id], city: params[:city], address_number: params[:address_number], building_name: params[:building_name], phone_number: params[:phone_number], password: session[:password])
     if @user.save
       session[:user_id] = @user.id
-      redirect_to new_complete_path
+      redirect_to new_signup_pay_path
     else
       redirect_to new_user_path
     end
+  end
+
+  def create
   end
 
   def login
