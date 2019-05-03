@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
-  def new
-  end
+  def new; end
 
-  def login
-  end
+  def login; end
 end
