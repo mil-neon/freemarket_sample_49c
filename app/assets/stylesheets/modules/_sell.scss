@@ -41,38 +41,36 @@
               display: inline;
               &__items {
                 display: inline;
-                ul {
-                  display: flex;
-                  width: 100%;
-                  &__item {
-                    width: 116px;
-                    margin: 0 0 10px 10px;
-                    &:first-child {
-                      margin-left: 0;
+                display: flex;
+                width: 100%;
+                &__item {
+                  width: 116px;
+                  margin: 0 0 10px 10px;
+                  &:first-child {
+                    margin-left: 0;
+                  }
+                  &__figure {
+                    width: auto;
+                    height: auto;
+                    padding: 0;
+                    line-height: 116px;
+                    image {
+                      position: static;
+                      transform: none;
+                      top: 50%;
+                      left: 0;
+                      width: 100%;
+                      cursor: default;
                     }
-                    &__figure {
-                      width: auto;
-                      height: auto;
-                      padding: 0;
-                      line-height: 116px;
-                      image {
-                        position: static;
-                        transform: none;
-                        top: 50%;
-                        left: 0;
-                        width: 100%;
-                        cursor: default;
-                      }
-                    }
-                    &__button {
-                      font-size: 14px;
-                      &__edit {
-                        display: inline-block;
-                        width: 50%;
-                        background: #f5f5f5;
-                        line-height: 44px;
-                        text-align: center;
-                      }
+                  }
+                  &__button {
+                    font-size: 14px;
+                    &__edit {
+                      display: inline-block;
+                      width: 50%;
+                      background: #f5f5f5;
+                      line-height: 44px;
+                      text-align: center;
                     }
                   }
                 }
@@ -186,67 +184,71 @@
               font-size: 16px;
               outline: 0;
             }
-          &__textarea {
-            display: block;
-            width: calc(100% - 30px);
-            max-width: 100%;
-            min-height: 104px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            background: #fff;
-            font-size: 16px;
-            line-height: 1.5;
-          }
-        }
-        &__box {
-          float: right;
-          width: 400px;
-          margin: 0;
-          &__group {
-            margin-top: 40px;
-            &:first-child {
-              margin-top: 0;
-            }
-            label {
-              font-weight: 600;
-            }
-            &--require {
-              background: #ea352d;
-              margin: 0 0 0 8px;
-              padding: 2px 4px;
-              border-radius: 2px;
-              color: #fff;
-              font-size: 12px;
-              vertical-align: top;
-            }
-          }
-          &__wrap {
-            position: relative;
-            background: #fff;
-            margin: 8px 0 0;
-            &__select {
-              width: 100%;
-              position: relative;
-              z-index: 2;
-              height: 48px;
-              padding: 0 16px;
-              border-radius: 4px;
+            &__textarea {
+              display: block;
+              width: calc(100% - 30px);
+              max-width: 100%;
+              min-height: 104px;
+              padding: 10px;
               border: 1px solid #ccc;
-              background: 0;
+              background: #fff;
               font-size: 16px;
               line-height: 1.5;
-              cursor: pointer;
-              outline: 0;
-              }
             }
-            &--icon {
-              position: absolute;
-              right: 16px;
-              top: 50%;
-              z-index: 2;
-              color: #888;
-              font-size: 8px;
-              transform: translate(0, -50%);
+          }
+          &__box {
+            float: right;
+            width: 400px;
+            margin: 0;
+            &__group {
+              margin-top: 40px;
+              &:first-child {
+                margin-top: 0;
+              }
+              label {
+                font-weight: 600;
+              }
+              &--require {
+                background: #ea352d;
+                margin: 0 0 0 8px;
+                padding: 2px 4px;
+                border-radius: 2px;
+                color: #fff;
+                font-size: 12px;
+                vertical-align: top;
+                &--grey {
+                  @extend .sell-main__container__inner__form__content__box__group--require;
+                  background: #ccc;
+                }
+              }
+              &__wrap {
+                position: relative;
+                background: #fff;
+                margin: 8px 0 0;
+                &__select {
+                  width: 100%;
+                  position: relative;
+                  z-index: 2;
+                  height: 48px;
+                  padding: 0 16px;
+                  border-radius: 4px;
+                  border: 1px solid #ccc;
+                  background: #fff;
+                  font-size: 16px;
+                  line-height: 1.5;
+                  cursor: pointer;
+                  outline: 0;
+                }
+                &--icon {
+                  position: absolute;
+                  right: 16px;
+                  top: 50%;
+                  z-index: 2;
+                  color: #888;
+                  font-size: 8px;
+                  transform: translate(0, -50%);
+                }
+              }
             }
             &__price {
               @include clearfix;
