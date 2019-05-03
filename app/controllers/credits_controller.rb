@@ -1,11 +1,6 @@
 class CreditsController < ApplicationController
-
   require "payjp"
-  def new
-  end
-
   def create
-    binding.pry
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     if params['payjp-token'].blank?
       redirect_to new_signup_pay_path

@@ -34,9 +34,6 @@ class SessionsController < ApplicationController
     end
   end
 
-  def create
-  end
-
   def login
     login_user = User.find_by(email: params[:email], password: Rails.application.message_verifier('secret_key').generate({ token: params[:password] }))
       session[:user_id] = login_user.id if login_user
