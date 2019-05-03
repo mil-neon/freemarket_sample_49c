@@ -91,3 +91,5 @@ gem 'jquery-rails'
 gem 'mini_magick'
 gem 'ransack'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'payjp'
+gem 'dotenv-rails'

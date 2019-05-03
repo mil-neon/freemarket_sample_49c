@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resource :signup_address, to: 'sessions#signup_address', only: :new
   resource :create_address, to: 'sessions#create_address', only: :create
   resource :signup_pay, to: 'sessions#signup_pay', only: :new
+  resource :credits, only: [:create]
   resource :complete, to: 'sessions#complete', only: :new
   resource :logout, to: 'sessions#logout', only: :new
   resource :login, to: 'sessions#login', only: :create
