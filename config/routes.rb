@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'credits/new'
-  get 'credits/show'
   root 'products#index'
   resources :products, only: [:index, :new, :create, :show]
   resources :buyers, only: [:show]
