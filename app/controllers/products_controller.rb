@@ -30,3 +30,4 @@ class ProductsController < ApplicationController
     params.require(:product).permit(:name, :description, :category_id, :brand_id, :size, :condition, :shipping_feeh, :shipping_method, :prefecture_id, :shipping_date, :price).merge(seller_id: session[:user_id])
   end
 end
+

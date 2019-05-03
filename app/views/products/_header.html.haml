@@ -22,20 +22,20 @@
         .header__container__bottom__right
           %ul.personal__menu
             %li.personal__menu__list__news
-              %a.personal__menu__list__news--link
+              = link_to root_path ,class:"personal__menu__list__news--link" do
                 %i.far.fa-bell.icon
                 %span.personal__menu__list__news__font お知らせ
               %ul.mypage__nav__list.pulldown
                 = render 'news'
                 = render 'news'
             %li.personal__menu__list__todo
-              %a.personal__menu__list__todo--link
+              = link_to root_path ,class:"personal__menu__list__todo--link" do
                 %i.fa.fa-check
                 %span.personal__menu__list__todo--link__font やることリスト
               %ul.mypage__item__todo.pulldown
                 %li.mypage__item__todo-not-found 現在、やることリストはありません
             %li.personal__menu__list__mypage
-              %a.personal__menu__list__mypage--link
+              = link_to root_path ,class:"personal__menu__list__mypage--link" do
                 %figure
                   %div
                     = image_tag "member_photo_noimage_thumb.png", class: "mypage-avator", alt: "", width: "32"
@@ -97,4 +97,3 @@
           .header__container__bottom__right-login__new
             = link_to new_user_path, class: 'header__container__bottom__right-login__new__link' do
               新規会員登録
-

@@ -267,11 +267,11 @@
                 vertical-align: middle;
                 margin: 0%;
                 color: $txt_black;
-                .personal__menu__mypage{
+                div{
                   overflow: hidden;
                   border-radius: 50%;
                   .mypage-avator{
-                    vertical-align: middle;
+                    vertical-align: bottom;
                     width: 32px;
                     text-align: center;
                   }

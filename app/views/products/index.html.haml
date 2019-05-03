@@ -1,4 +1,3 @@
-
 = render 'header'
 %main.white
   %div.top-main__visual
@@ -22,7 +21,6 @@
       .owl-item{:style => "width: 804px;"}
         %h2
           = image_tag "//www-mercari-jp.akamaized.net/assets/img/promotion/jp/201812_bokurano_heisei/index/main-index.png?570108281" ,alt: "僕らのマンガ 平成30年史"
-
   %section.pickup-container
     %h2.pickup-head ピックアップカテゴリー
     %section.items-box__container
@@ -32,12 +30,14 @@
         = render partial: "itme"
         = render partial: "itme"
         = render partial: "itme"  
+        = render partial: "itme"
       .view-all
         = link_to "すべての商品を見る"
     %section.items-box__container
       %h3.items-box__container__title
         = link_to "メンズ新着アイテム"
       .items-box__content
+        = render partial: "itme"
         = render partial: "itme"
         = render partial: "itme"
         = render partial: "itme"
@@ -50,12 +50,14 @@
         = render partial: "itme"
         = render partial: "itme"
         = render partial: "itme"
+        = render partial: "itme"
       .view-all
         = link_to "すべての商品を見る"
     %section.items-box__container
       %h3.items-box__container__title
         = link_to "アクセサリー新着アイテム"
       .items-box__content
+        = render partial: "itme"
         = render partial: "itme"
         = render partial: "itme"
         = render partial: "itme"
@@ -69,12 +71,14 @@
         = render partial: "itme"
         = render partial: "itme"
         = render partial: "itme"
+        = render partial: "itme"
       .view-all
         = link_to "すべての商品を見る"
     %section.items-box__container
       %h3.items-box__container__title
         = link_to "シャネル新着アイテム"
       .items-box__content
+        = render partial: "itme"
         = render partial: "itme"
         = render partial: "itme"
         = render partial: "itme"
@@ -87,6 +91,7 @@
         = render partial: "itme"
         = render partial: "itme"
         = render partial: "itme"
+        = render partial: "itme"
       .view-all
         = link_to "すべての商品を見る"
     %section.items-box__container
@@ -96,8 +101,8 @@
         = render partial: "itme"
         = render partial: "itme"
         = render partial: "itme"
+        = render partial: "itme"
       .view-all
         = link_to "すべての商品を見る"
 = render 'botton'
 = render 'footer'
-
