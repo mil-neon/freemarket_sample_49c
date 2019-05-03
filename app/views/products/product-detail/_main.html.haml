@@ -92,11 +92,15 @@
   .product-detail__item__button-box
     .product-detail__item__button-box__left
       %button.product-detail__item__button-box__left__good
-        %i.far.fa-heart.product-detail__item__button-box__left__good__icon
         %span.product-detail__item__button-box__left__good__text
-          いいね!
+          - if Like.find_by( user_id: current_user.id, product_id: @products.id)
+            %i.fas.fa-heart.product-detail__item__button-box__left__good__text__heart
+            = link_to("いいね！済み", "/likes/#{@products.id}/destroy", {method: "post"})
+          - else
+            %i.far.fa-heart.product-detail__item__button-box__left__good__icon
+            = link_to("いいね！", "/likes/#{@products.id}/create", {method: "post"})
         %span.product-detail__item__button-box__left__good__count
-          0
+          = Like.where(product_id: @products.id).count
       = link_to root_path, class: 'product-detail__item__button-box__left__report' do
         %i.fas.fa-flag-checkered
         %span.product-detail__item__button-box__left__report__text
