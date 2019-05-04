@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   resource :complete, to: 'sessions#complete', only: :new
   resource :logout, to: 'sessions#logout', only: :new
   resource :login, to: 'sessions#login', only: :create
+  resource :pay, to: 'credits#pay', only: :create
 end
