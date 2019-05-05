@@ -25,12 +25,22 @@ class SessionsController < ApplicationController
   end
 
   def create_address
-    @user = User.new(nickname: session[:nickname], email: session[:email], firstname_fullangle: session[:firstname_fullangle], lastname_fullangle: session[:lastname_fullangle], firstname_kana: session[:firstname_kana], lastname_kana: session[:lastname_kana], birthday: session[:birthday], postal_cord: params[:postal_cord], prefecture_id: params[:prefecture_id], city: params[:city], address_number: params[:address_number], building_name: params[:building_name], phone_number: params[:phone_number], password: session[:password])
-    if @user.save
-      session[:user_id] = @user.id
-      redirect_to new_signup_pay_path
+    if session[:uid]
+      @user = User.new(nickname: session[:nickname], email: session[:email], firstname_fullangle: session[:firstname_fullangle], lastname_fullangle: session[:lastname_fullangle], firstname_kana: session[:firstname_kana], lastname_kana: session[:lastname_kana], birthday: session[:birthday], postal_cord: params[:postal_cord], prefecture_id: params[:prefecture_id], city: params[:city], address_number: params[:address_number], building_name: params[:building_name], phone_number: params[:phone_number], uid: session[:uid], provider: session[:provider])
+      if @user.save
+        session[:user_id] = @user.id
+        redirect_to new_signup_pay_path
+      else
+        redirect_to new_user_path
+      end
     else
-      redirect_to new_user_path
+      @user = User.new(nickname: session[:nickname], email: session[:email], firstname_fullangle: session[:firstname_fullangle], lastname_fullangle: session[:lastname_fullangle], firstname_kana: session[:firstname_kana], lastname_kana: session[:lastname_kana], birthday: session[:birthday], postal_cord: params[:postal_cord], prefecture_id: params[:prefecture_id], city: params[:city], address_number: params[:address_number], building_name: params[:building_name], phone_number: params[:phone_number], password: session[:password])
+      if @user.save
+        session[:user_id] = @user.id
+        redirect_to new_signup_pay_path
+      else
+        redirect_to new_user_path
+      end
     end
   end
 
@@ -43,5 +53,20 @@ class SessionsController < ApplicationController
   def logout
     session[:user_id] = nil
     redirect_to root_path
+  end
+
+  def facebook
+    auth = request.env['omniauth.auth']
+    user = User.find_by(uid: auth[:uid])
+    if user.present? && auth.present?
+      session[:user_id] = user.id
+      redirect_to root_path
+    elsif auth.present?
+      session[:provider] = auth[:provider]
+      session[:uid] = auth[:uid]
+      redirect_to new_registration_path
+    else
+      redirect_to new_login_path, notice: 'Facebook認証に失敗しました。'
+    end
   end
 end
