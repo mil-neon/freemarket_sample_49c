@@ -5,9 +5,11 @@ class Product < ApplicationRecord
   has_many :chats, dependent: :destroy
   belongs_to :brand, optional: true
   belongs_to :category
+  accepts_nested_attributes_for :images, allow_destroy: true
 
   validates :name, :description, :category_id, :condition, :shipping_feeh, :shipping_method, :prefecture_id, :shipping_date, :price, :seller_id, presence: true
   validates :name, length: { maximum: 40 }
   validates :description, length: { maximum: 1000 }
   validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: '300以上9999999以下で入力してください' }
+  validates :images, length: { minimum: 1, maximum: 10}
 end
