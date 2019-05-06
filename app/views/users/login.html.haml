@@ -10,7 +10,10 @@
     .login1__main__inner
       .login1__main__inner__facebook
         %i.fab.fa-facebook.login1__main__inner__facebook__btn
-        Facebookでログイン
+        = link_to "/auth/facebook" do
+          Facebookでログイン
+      - if flash[:notice]
+        = flash[:notice]
       .login1__main__inner__google
         %i.fab.fa-google.login1__main__inner__google__btn
         Googleでログイン

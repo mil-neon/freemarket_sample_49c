@@ -94,3 +94,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'payjp'
 gem 'dotenv-rails'
 gem 'unf_ext', '~> 0.0.7.6'
+gem 'omniauth'
+gem 'omniauth-facebook'
