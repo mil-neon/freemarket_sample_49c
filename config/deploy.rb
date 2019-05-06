@@ -35,10 +35,10 @@ namespace :deploy do
   desc 'upload secrets.yml'
   task :upload do
     on roles(:app) do |host|
-      if test "[ ! -d #{shared_path}/ ]"
-        execute "mkdir -p #{shared_path}/"
+      if test "[ ! -d #{shared_path}/config ]"
+        execute "mkdir -p #{shared_path}/config"
       end
-      upload!('/.env', "#{shared_path}/.env")
+      upload!('/secrets.yml', "#{shared_path}/config/secrets.yml")
     end
   end
   before :starting, 'deploy:upload'
