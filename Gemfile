@@ -97,3 +97,4 @@ gem 'unf_ext', '~> 0.0.7.6'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
+gem 'recaptcha', require: "recaptcha/rails"
