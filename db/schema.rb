@@ -102,11 +102,11 @@ ActiveRecord::Schema.define(version: 2019_05_04_111757) do
     t.string "city", null: false
     t.string "address_number", null: false
     t.string "building_name"
+    t.string "phone_number"
     t.string "icon_image"
     t.text "profile"
     t.integer "prefecture_id", null: false
     t.string "password"
-    t.string "phone_number"
     t.string "uid"
     t.string "provider"
     t.index ["email"], name: "index_users_on_email", unique: true

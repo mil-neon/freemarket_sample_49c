@@ -5,22 +5,20 @@
       %div
         .sell-main__container__inner
           %h2.sell-main__container__inner__head 商品の情報を入力
-          = form_with model: @product, local: true, class: "sell-main__container__inner__form" do |f|
+          = form_for @product, local: true, remote: true, class: "sell-main__container__inner__form", id:'new_product' do |f|
             .sell-main__container__inner__form__upload-box
               %h3.sell-main__container__inner__form__upload-box__head
                 出品画像
                 %span.sell-main__container__inner__form__upload-box__head--require 必須
               %p 最大10枚までアップロードできます
-            = f.fields_for @product.images do |i|
               .sell-main__container__inner__form__upload-box__dropbox
                 .sell-main__container__inner__form__upload-box__dropbox__container
-                  .sell-main__container__inner__form__upload-box__dropbox__container__items
                 .sell-main__container__inner__form__upload-box__dropbox__upload
-                  = i.file_field :image, class: 'sell-main__container__inner__form__upload-box__dropbox__upload--img', accept: ".jpg, .jpeg, .png", multiple: true
-                  %pre.sell-main__container__inner__form__upload-box__dropbox__upload--visible
-                    ドラッグアンドドロップ
-                    またはクリックしてファイルをアップロード
-                  %i.sell-main__container__inner__form__upload-box__dropbox__upload--icon
+                  .sell-main__container__inner__form__upload-box__dropbox__upload__wrap
+                    %pre.sell-main__container__inner__form__upload-box__dropbox__upload__wrap--visible
+                      ドラッグアンドドロップ
+                      またはクリックしてファイルをアップロード
+                    %i.sell-main__container__inner__form__upload-box__dropbox__upload--icon
             .sell-main__container__inner__form__content
               .sell-main__container__inner__form__content__group
                 %label 商品名
