@@ -6,7 +6,7 @@
       = image_tag ("/ダウンロード.jpeg"), class: 'product-detail__item__main__photo__biggest'
       .product-detail__item__main__photo__mini-box
         - @images.each do |image|
-          = image_tag ("/uploads/image/image/3/" + image), class: 'product-detail__item__main__photo__mini-box__dot'
+          = image_tag (image), class: 'product-detail__item__main__photo__mini-box__dot'
     %table.product-detail__item__main__table
       %tbody.product-detail__item__main__table__tbody
         %tr.product-detail__item__main__table__tbody__tr
@@ -106,3 +106,4 @@
         %i.fas.fa-lock.product-detail__item__button-box__right__report__icon
         %span.product-detail__item__button-box__right__report__text
           あんしん・あんぜんへの取り組み
+
