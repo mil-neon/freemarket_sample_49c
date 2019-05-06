@@ -72,10 +72,10 @@
             日
         .signup2-form-group.signup2-main__box__form__contents__info
           ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
-        .signup2-form-group.signup2-main__box__form__contents__not-robot
-          .signup2-form-group__recaptcha.signup2-main__box__form__contents__not-robot__recaptcha.g-recaptcha.signup-recaptcha{"data-sitekey": ""}
-            .signup2-form-group__recaptcha.signup2-main__box__form__contents__not-robot__recaptcha__box
-              %iframe.signup2-form-group__recaptcha.signup2-main__box__form__contents__not-robot__recaptcha__box__iframe
+        = recaptcha_tags callback: 'recaptchaCallbackFunction'
+        .flash
+          - if flash[:notice]
+            = flash[:notice]
         .signup2-form-group.signup2-main__box__form__contents__agree-confirm
           .signup2-form-group.signup2-main__box__form__contents__agree-confirm__text
             「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
