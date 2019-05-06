@@ -28,15 +28,15 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @categories = Category.ransack(parent_id_null: true).result
-    respond_to do |format|
-      params[:images_attributes]['image'].each do |i|
-        @product.images.new(image: i)
-      end
-      if @product.save
+    params[:images_attributes]['image'].each do |i|
+      @product.images.new(image: i)
+    end
+    if @product.save
+      respond_to do |format|
         format.json
-      else
-        render :new
       end
+    else
+      render :new
     end
   end
 
