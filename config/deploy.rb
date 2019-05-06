@@ -32,17 +32,6 @@ namespace :deploy do
       end
     end
   end
-  desc 'upload secrets.yml'
-  task :upload do
-    on roles(:app) do |host|
-      if test "[ ! -d #{shared_path}/config ]"
-        execute "mkdir -p #{shared_path}/config"
-      end
-      upload!('/config/credentials.yml', "#{shared_path}/config/credentials.yml")
-    end
-  end
-  before :starting, 'deploy:upload'
-  after :finishing, 'deploy:cleanup'
 end
 
 set :default_env, {
