@@ -15,7 +15,7 @@ set :ssh_options, auth_methods: ['publickey'],
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
 set :keep_releases, 5
-set :linked_files, %w{ /.env }
+set :linked_files, fetch(:linked_files, []).push("config/master.key")
 
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
@@ -38,7 +38,7 @@ namespace :deploy do
       if test "[ ! -d #{shared_path}/config ]"
         execute "mkdir -p #{shared_path}/config"
       end
-      upload!('/secrets.yml', "#{shared_path}/config/secrets.yml")
+      upload!('/credentials.yml.enc', "#{shared_path}/config/secrets.yml")
     end
   end
   before :starting, 'deploy:upload'
