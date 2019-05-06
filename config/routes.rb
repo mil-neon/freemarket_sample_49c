@@ -15,5 +15,5 @@ Rails.application.routes.draw do
   resource :logout, to: 'sessions#logout', only: :new
   resource :login, to: 'sessions#login', only: :create
   resource :pay, to: 'credits#pay', only: :create
-  resource :facebook, to: 'sessions#facebook', path: 'auth/:provider/callback', only: :show
+  resource :sns, to: 'sessions#sns', path: 'auth/:provider/callback', only: :show
 end

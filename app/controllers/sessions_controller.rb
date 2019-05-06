@@ -55,7 +55,7 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
-  def facebook
+  def sns
     auth = request.env['omniauth.auth']
     user = User.find_by(uid: auth[:uid])
     if user.present? && auth.present?
