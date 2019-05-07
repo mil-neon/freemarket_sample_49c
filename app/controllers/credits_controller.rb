@@ -22,9 +22,11 @@ class CreditsController < ApplicationController
       redirect_to new_signup_pay_path
     else
       Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-      @pay = Payjp::Charge.create(amount: 5000, customer: card.customer_id, currency: 'jpy')
+      @pay = Payjp::Charge.create(amount: session[:price], customer: card.customer_id, currency: 'jpy')
       if @pay
-        redirect_to root_path
+        @product = Product.find(session[:product_id])
+        @product.update(buyer_id: session[:buyer_id], status: 2)
+        redirect_to buyers_path
       else
         redirect_to buyer_path(@buyer), notice: '購入に失敗しました'
       end

@@ -2,7 +2,14 @@
   = link_to product_path(item.id) do
     %figure.item-box__photo
       -if item.images.present?
-        = image_tag item.images.first.image.url, class: "item-box__photo-lazyloaded"
+        -if item.buyer_id
+          = image_tag item.images.first.image.url, class: "item-box__photo-lazyloaded"
+          %figcaption.product-detail__others__section__item__box__href__figure__figcaption
+            .product-detail__others__section__item__box__href__figure__figcaption__sold-out
+              .product-detail__others__section__item__box__href__figure__figcaption__sold-out__budge 
+                SOLD
+        -else
+          = image_tag item.images.first.image.url, class: "item-box__photo-lazyloaded"
       -else
         = image_tag "noimage.png" ,class: "item-box__photo-lazyloaded"
     .item-box__body

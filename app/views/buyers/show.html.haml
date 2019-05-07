@@ -8,35 +8,35 @@
       %h2 購入を確定しますか？
     .purchase-page__item
       .purchase-page__item__imag
-        = image_tag "car.jpg"
+        = image_tag @product.images.first.image.url
       %h3.purchase-page__item__name
-        = link_to "ベルファイア"
+        = @product.name
       = form_with class: "purchase-page__item__price" do
         %p.purchase-page__item__price-money
-          = link_to "¥ 1,333,999"
+          = "¥" + @product.price.to_s
         %h3.purchase-page__item__price-tax
-          = link_to "送料込み" 
+          = @product.shipping_method
       %ul.purchase-page__item__point
         %li.purchase-page__item__point-list
           = link_to "ポイントはありません"
       %ul.purchase-page__item__payment
         %li.purchase-page__item__payment-text 
-          = link_to "支払い金額"
+          支払い金額
           %h3.purchase-page__item__payment-money
-            = link_to "¥ 1,300,000" 
-      %h3.purchase-page__item__attention 配送先と支払い方法の入力を完了してください。
+            = "¥" + @product.price.to_s
+      %h3.purchase-page__item__attention
       = form_tag(pay_path, method: :post) do
         %button.purchase-page__item__button 購入する
     %section.purchase-page__info
       .purchase-page__info__inner
         %h3 配送先
         %address.purchase-page__info__inner-address
-          〒333-9999 
+          = "〒" + @buyer.postal_cord.to_s
           %br/
           %br/
-          東京都/東京区 
+          = @buyer.city
           %br/
-          麻生/8888-12
+          = @buyer.address_number
         %p.purchase-page__info__inner-tax
           = link_to root_path, { class: "purchase-page__info-fix"} do
             %span 変更する
