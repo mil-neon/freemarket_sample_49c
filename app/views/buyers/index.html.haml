@@ -1,0 +1,16 @@
+.purchase
+  .purchase-icon
+    = image_tag 'mercari_logo_horizontal.png',class: 'purchase-icon-merukari'
+  .signup6
+    .signup6__main
+      .signup6__main__head
+        購入完了
+      .signup6__main__info
+        .signup6__main__info__thanks
+          ありがとうございます。
+        .signup6__main__info__thanks
+          購入が完了しました。
+        .signup6__main__info__btn
+          = link_to root_path, class: 'signup6__main__info__btn__start' do
+            商品一覧へ戻る
+= render 'buyers/buyer-footer'
