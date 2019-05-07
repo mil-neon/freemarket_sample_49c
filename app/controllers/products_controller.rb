@@ -46,6 +46,14 @@ class ProductsController < ApplicationController
     @images = @products.images.pluck("image")
   end
 
+  def category
+    @categories = Category.ransack(parent_id_eq: params[:id]).result
+    respond_to do |format|
+      format.html
+      format.json {render json: @categories.select(:id, :name)}
+    end
+  end
+
   private
 
   def product_params
