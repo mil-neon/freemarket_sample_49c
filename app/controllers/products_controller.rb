@@ -50,7 +50,7 @@ class ProductsController < ApplicationController
     @categories = Category.ransack(parent_id_eq: params[:id]).result
     respond_to do |format|
       format.html
-      format.json {render json: @categories.select(:id, :name)}
+      format.json { render json: @categories.select(:id, :name) }
     end
   end
 
