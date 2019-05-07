@@ -30,7 +30,7 @@ $(function () {
     })
     .done(function (response) {
       response.forEach(function (category) {
-        let childCategory = `<option value="${category.id}">${category.name}</option>`;
+        var childCategory = `<option value="${category.id}">${category.name}</option>`;
         $("#product_child_category_id").append(childCategory);
       });
     });
@@ -38,7 +38,7 @@ $(function () {
 
   $(document).on('change', '#product_child_category_id', function () {
 
-    let id = $(this).val();
+    var id = $(this).val();
 
     if (id) {
       $("#product_category_id").attr("name", "");
@@ -67,7 +67,7 @@ $(function () {
       function (response) {
         response.forEach(function (category) {
           $("#grand_child_category").css("display", "block");
-          const grandChildCategory = `<option value="${category.id}">${category.name}</option>`;
+          var grandChildCategory = `<option value="${category.id}">${category.name}</option>`;
           $("#product_grand_child_category_id").append(grandChildCategory);
         });
       }
