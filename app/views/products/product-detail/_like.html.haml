@@ -1,0 +1,10 @@
+%button.product-detail__item__button-box__left__good
+  %span.product-detail__item__button-box__left__good__text{id: "like-link-#{@products.id}"}
+    - if Like.find_by( user_id: current_user.id, product_id: @products.id)
+      %i.fas.fa-heart.product-detail__item__button-box__left__good__text__heart
+      = link_to("いいね！", unlike_path(@products.id), method: :post)
+    - else
+      %i.far.fa-heart.product-detail__item__button-box__left__good__icon
+      = link_to("いいね！", like_path(@products.id), method: :post)
+    %span.product-detail__item__button-box__left__good__count
+      = @products.likes_count

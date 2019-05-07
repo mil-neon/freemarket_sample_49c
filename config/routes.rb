@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'products#index'
-  post "likes/:product_id/create" => "likes#create"
-  post "likes/:product_id/destroy" => "likes#destroy"
+  post "likes/:product_id/create" => "likes#create", as: 'like'
+  post "likes/:product_id/destroy" => "likes#destroy", as: 'unlike'
   resources :products, only: [:index, :new, :show]
   resources :buyers, only: [:show]
   resources :users, only: [:new]
