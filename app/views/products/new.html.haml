@@ -39,6 +39,12 @@
                     .sell-main__container__inner__form__content__box__group__wrap
                       = f.select :category_id, @categories.map{|t| [t.name, t.id]}, {prompt: "---"}, class: "sell-main__container__inner__form__content__box__group__wrap__select"
                       %i.sell-main__container__inner__form__content__box__group__wrap--icon
+                    .sell-main__container__inner__form__content__box__group__wrap#child_category{style: "display:none"}
+                      %select.sell-main__container__inner__form__content__box__group__wrap__select#product_child_category_id{name: ""}
+                      %i.sell-main__container__inner__form__content__box__group__wrap--icon
+                    .sell-main__container__inner__form__content__box__group__wrap#grand_child_category{style: "display:none"}
+                      %select.sell-main__container__inner__form__content__box__group__wrap__select#product_grand_child_category_id{name: ""}
+                      %i.sell-main__container__inner__form__content__box__group__wrap--icon
                 .sell-main__container__inner__form__content__box__group
                   %label
                     サイズ

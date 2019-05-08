@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   resource :login, to: 'sessions#login', only: :create
   resource :pay, to: 'credits#pay', only: :create
   resource :sns, to: 'sessions#sns', path: 'auth/:provider/callback', only: :show
+  resource :category, to: 'products#category', only: :show
 end
