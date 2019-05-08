@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   root 'products#index'
-  resources :products, only: [:index, :new, :create, :show] do
-    get :category, on: :collection
-  end
+  resources :products, only: [:index, :new, :create, :show]
   resources :buyers, only: [:show, :index]
   resources :users, only: [:new]
   resource :login, to: 'users#login', only: :new
@@ -18,4 +16,5 @@ Rails.application.routes.draw do
   resource :login, to: 'sessions#login', only: :create
   resource :pay, to: 'credits#pay', only: :create
   resource :sns, to: 'sessions#sns', path: 'auth/:provider/callback', only: :show
+  resource :category, to: 'products#category', only: :show
 end

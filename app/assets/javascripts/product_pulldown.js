@@ -24,7 +24,7 @@ $(function () {
 
     $.ajax({
       type: "GET",
-      url: "/products/category",
+      url: "/category",
       data: { id: id },
       dataType: "json",
     })
@@ -55,7 +55,7 @@ $(function () {
 
     $.ajax({
       type: "GET",
-      url: "/products/category",
+      url: "/category",
       data: { id: id },
       dataType: "json",
     })
