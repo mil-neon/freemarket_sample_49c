@@ -150,7 +150,7 @@
       - @products.each do |product|
         .search-container__right__contents
           .search-container__right__contents__item
-            = link_to root_path, class: 'search-container__right__contents__item__link' do
+            = link_to product_path(product.id), class: 'search-container__right__contents__item__link' do
               %figure.search-container__right__contents__item__link__figure
                 = image_tag product.images.first.image.url, class: "search-container__right__contents__item__link__figure__img"
               .search-container__right__contents__item__link__body
