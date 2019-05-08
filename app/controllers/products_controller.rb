@@ -41,9 +41,16 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @user = User.find(1)
-    @products = Product.find(1)
-    @images = @products.images.pluck("image")
+    @user = User.find(session[:user_id])
+    @product = Product.find(params[:id])
+    @seller = User.find_by(id: @product.seller_id)
+    @grandchild = Category.find(@product.category_id)
+    @parent = Category.find(@grandchild.parent_id)
+    @category = Category.find(@parent.parent_id)
+    @other_product = Product.where(seller_id: @product.seller_id)
+    @other_image = Image.where(product_id: @other_product.ids).where.not(product_id: @product.id)
+    @category_product = Product.where(category_id: @product.category_id).limit(6)
+    @category_product_image = Image.where(product_id: @category_product.ids).where.not(product_id: @other_product.ids)
   end
 
   def category
