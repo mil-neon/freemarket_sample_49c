@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
   def complete; end
 
   def create_user
+    # ロボット機能が本番環境で必要な為、コメントアウトにて対応しております。
     if verify_recaptcha
       @date = params["birthday(1i)"] + "-" + params["birthday(2i)"] + "-" + params["birthday(3i)"]
       @birthday = @date.to_date
