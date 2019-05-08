@@ -46,6 +46,10 @@ class ProductsController < ApplicationController
     @images = @products.images.pluck("image")
   end
 
+  def search
+    @products = Product.where('name LIKE(?)', "%#{params[:keyword]}%")
+  end
+
   private
 
   def product_params
