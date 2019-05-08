@@ -14,10 +14,36 @@
             %h2.header__container__bottom__left__search--menu__list__categories--tag
               %i.fas.fa-list-ul
               = link_to "カテゴリーから探す", class: "header__container__bottom__left__search--menu__list__categories--tag__text"
+            %ul.category-menu__level1
+              - categories = Category.all.where(parent_id: nil)
+              - categories.all.each do |parent|
+                %li
+                  = link_to parent.name, root_path
+                  %ul.category-menu__level1__level2
+                    - children = Category.where( parent_id: parent.id )
+                    - children.all.each do |child|
+                      %li
+                        = link_to child.name, root_path
+                        %ul.category-menu__level1__level2__level3
+                          - grandchild = Category.where( parent_id: child.id ).limit(16)
+                          - grandchild.all.each do |grandchild|
+                            %li
+                              =link_to grandchild .name, root_path
           %li.header__container__bottom__left__search--menu__list__brands
             %h2.header__container__bottom__left__search--menu__list__brands--tag
               %i.fas.fa-tag
               = link_to "ブランドから探す", class: "header__container__bottom__left__search--menu__list__brands--tag__text"
+            %ul.brand-menu__level1
+              %li
+                = link_to "シャネル"
+              %li
+                = link_to "ナイキ"
+              %li
+                = link_to "ルイヴィトン"
+              %li
+                = link_to "シュプリーム"
+              %li
+                = link_to "アディダス"
       - if user_signed_in?
         .header__container__bottom__right
           %ul.personal__menu

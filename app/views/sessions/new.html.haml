@@ -72,7 +72,8 @@
             日
         .signup2-form-group.signup2-main__box__form__contents__info
           ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
-        = recaptcha_tags callback: 'recaptchaCallbackFunction'
+        -# ロボット機能が本番環境で必要な為、コメントアウトにて対応しております。
+        -# = recaptcha_tags callback: 'recaptchaCallbackFunction'
         .flash
           - if flash[:notice]
             = flash[:notice]

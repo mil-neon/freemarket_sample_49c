@@ -10,7 +10,8 @@ class SessionsController < ApplicationController
   def complete; end
 
   def create_user
-    if verify_recaptcha
+    # ロボット機能が本番環境で必要な為、コメントアウトにて対応しております。
+    # if verify_recaptcha
       @date = params["birthday(1i)"] + "-" + params["birthday(2i)"] + "-" + params["birthday(3i)"]
       @birthday = @date.to_date
       session[:nickname] = params[:nickname]
@@ -23,9 +24,9 @@ class SessionsController < ApplicationController
       session[:lastname_kana] = params[:lastname_kana]
       session[:birthday] = @birthday
       redirect_to new_signup_phone_path
-    else
-      redirect_to new_registration_path, notice: '※押してください'
-    end
+    # else
+    #   redirect_to new_registration_path, notice: '※押してください'
+    # end
   end
 
   def create_address
