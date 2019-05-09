@@ -2,7 +2,8 @@
   .header__container
     .header__container__search
       %h1.header__container__search__logo
-        = image_tag "mercari_logo_horizontal.png",class:"header__container__search__logo--icon"
+        = link_to root_path, class: "header__container__search__logo--icon" do
+          = image_tag "mercari_logo_horizontal.png", class: "header__container__search__logo--icon"
       = form_tag('/search', method: :get, class: "header__container__search__form", enforce_utf8: false ) do
         %input.header__container__search__form__input{name: "keyword", placeholder: "何かお探しですか？", type: "search", value: ""}/
         %button.search-button
