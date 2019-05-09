@@ -50,7 +50,7 @@
                     サイズ
                     %span.sell-main__container__inner__form__content__box__group--require 必須
                   .sell-main__container__inner__form__content__box__group__wrap
-                    = f.select :size, [[ "---"],[ "XXS以下","153"], [ "XS(SS)", "154" ], [ "S", "2" ], [ "M", "3"], [ "L", "4"], [ "XL(LL)", "5" ], [ "2XL(3L)", "155" ], [ "3XL(4L)", "156" ], [ "4XL(5L)以上", "157" ], [ "FREE SIZE", "7" ]], {}, class: 'sell-main__container__inner__form__content__box__group__wrap__select'
+                    = f.select :size, Product.sizes.keys, { prompt: "---"}, class: 'sell-main__container__inner__form__content__box__group__wrap__select'
                     %i.sell-main__container__inner__form__content__box__group__wrap--icon
                 .sell-main__container__inner__form__content__box__group
                   %label
@@ -65,7 +65,7 @@
                     商品の状態
                     %span.sell-main__container__inner__form__content__box__group--require 必須
                   .sell-main__container__inner__form__content__box__group__wrap
-                    = f.select :condition, [[ "---"],[ "新品、未使用","1"], [ "未使用に近い", "2" ], [ "目立った傷や汚れなし", "3" ], [ "やや傷や汚れあり", "4"], [ "傷や汚れあり", "5"], [ "全体的に状態が悪い", "6" ]], {}, class: 'sell-main__container__inner__form__content__box__group__wrap__select'
+                    = f.select :condition, Product.conditions.keys, { prompt: "---"}, class: 'sell-main__container__inner__form__content__box__group__wrap__select'
                     %i.sell-main__container__inner__form__content__box__group__wrap--icon
             .sell-main__container__inner__form__content
               %h3.sell-main__container__inner__form__content__head 配送について
@@ -76,14 +76,14 @@
                     配送料の負担
                     %span.sell-main__container__inner__form__content__box__group--require 必須
                   .sell-main__container__inner__form__content__box__group__wrap
-                    = f.select :shipping_feeh, [[ "---"],[ "送料込み(出品者負担)","2"], [ "着払い(購入者負担)", "1" ]], {}, class: 'sell-main__container__inner__form__content__box__group__wrap__select'
+                    = f.select :shipping_feeh, Product.shipping_feehs.keys, { prompt: "---"}, class: 'sell-main__container__inner__form__content__box__group__wrap__select'
                     %i.sell-main__container__inner__form__content__box__group__wrap--icon
-                .sell-main__container__inner__form__content__box__group
+                .sell-main__container__inner__form__content__box__group#shipping_method{style: "display:none"}
                   %label
                     配送の方法
                     %span.sell-main__container__inner__form__content__box__group--require 必須
                   .sell-main__container__inner__form__content__box__group__wrap
-                    = f.select :shipping_method, [[ "---"],[ "未定","1"], [ "クロネコヤマト", "3" ], [ "ゆうパック", "4" ], [ "ゆうメール", "15" ],[ "未定","5"],[ "らくらくメルカリ便","14"],[ "ゆうメール","6"],[ "レターパック","8"],[ "普通郵便(定形、定形外)","9"],[ "クロネコヤマト","10"],[ "ゆうパック","11"],[ "クリックポスト","13"],[ "ゆうパケット","7"]], {}, class: 'sell-main__container__inner__form__content__box__group__wrap__select'
+                    = f.select :shipping_method, Product.shipping_methods.keys, { prompt: "---"}, class: 'sell-main__container__inner__form__content__box__group__wrap__select'
                 .sell-main__container__inner__form__content__box__group
                   %label
                     発送元の地域
@@ -95,7 +95,7 @@
                     配送までの日数
                     %span.sell-main__container__inner__form__content__box__group--require 必須
                   .sell-main__container__inner__form__content__box__group__wrap
-                    = f.select :shipping_date, [[ "---"],[ "1~2日で発送","1"], [ "2~3日で発送", "2" ], [ "4~7日で発送", "3" ]], {}, class: 'sell-main__container__inner__form__content__box__group__wrap__select'
+                    = f.select :shipping_date, Product.shipping_dates.keys, { prompt: "---"}, class: 'sell-main__container__inner__form__content__box__group__wrap__select'
             .sell-main__container__inner__form__content
               %h3.sell-main__container__inner__form__content__head 販売価格(300〜9,999,999)
               %span.fas.fa-question-circle.sell-main__container__inner__form__content--blue-icon
