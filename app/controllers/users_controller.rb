@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   end
 
   def new
-  end  
+  end
 
   def address
   end
@@ -11,4 +11,6 @@ class UsersController < ApplicationController
   def last_signup
   end
 
+  def mypage
+  end
 end
