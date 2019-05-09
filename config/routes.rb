@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :buyers, only: [:show]
   get 'users/address' => 'users#address'
   get 'users/last_signup' => 'users#last_signup'
+  get 'users/mypage' => 'users#mypage'
 end
