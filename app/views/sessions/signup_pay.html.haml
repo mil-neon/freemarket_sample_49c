@@ -14,7 +14,7 @@
           %span.signup5__box__main__form__group__span
             必須
           = text_field_tag "number", "", class: 'signup5__box__main__form__group__field', placeholder: "半角数字のみ", maxlength: "16", type: "text", id: "card_number"
-          %img{alt: "Credit", height: "30", src: "/assets/credit_logo.png", width: "350"}/
+          = image_tag "credit_logo.png", class: "signup5__box__main__form__group__credit-img"
         .signup5__box__main__form__group
           %label.signup5__box__main__form__group__creditcard
             有効期限
