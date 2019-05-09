@@ -6,6 +6,9 @@
     = form_tag(credits_path, method: :post, class: "signup5__box__main",  name: "inputForm") do
       .signup5__box__main__form
         .signup5__box__main__form__group
+          .flash
+            - if flash[:notice]
+              = flash[:notice]
           %label.signup5__box__main__form__group__creditcard
             カード番号
           %span.signup5__box__main__form__group__span
