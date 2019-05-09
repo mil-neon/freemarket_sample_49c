@@ -5,50 +5,42 @@
         = @seller.nickname.to_s+ 'さんのその他の出品'
     .product-detail__others__section__item
       - @other_image.each do |image|
-        .product-detail__others__section__item__box
-          = link_to product_path(image.product.id) , class: 'product-detail__others__section__item__box__href' do
-            %figure.product-detail__others__section__item__box__href__figure
-              = image_tag image.image.url, class: 'product-detail__others__section__item__box__href__figure__image'
-              %figcaption.product-detail__others__section__item__box__href__figure__figcaption
-                .product-detail__others__section__item__box__href__figure__figcaption__sold-out
-                  .product-detail__others__section__item__box__href__figure__figcaption__sold-out__budge 
-                    SOLD
-            .product-detail__others__section__item__box__href__body
-              .product-detail__others__section__item__box__href__body__name
-                = image.product.name
-              .product-detail__others__section__item__box__href__body__num
-                .product-detail__others__section__item__box__href__body__num__price
-                  = '¥' + image.product.price.to_s 
-                .product-detail__others__section__item__box__href__body__num__good
-                  %i.far.fa-heart.product-detail__others__section__item__box__href__body__num__good__icon
-                  %span.product-detail__others__section__item__box__href__body__num__good__count
-                    0
-              .product-detail__others__section__item__box__href__body__tax
-                (税込)
-.product-detail__others
-  %section.product-detail__others__section
-  .product-detail__others__section__box
-    = link_to root_path, class: 'product-detail__others__section__box__head' do
-      = @grandchild.name.to_s + 'その他の出品'
-  .product-detail__others__section__item
-    -@category_product_image.each do |image|
-      .product-detail__others__section__item__box
-        = link_to product_path(image.product.id), class: 'product-detail__others__section__item__box__href' do
-          %figure.product-detail__others__section__item__box__href__figure
-            = image_tag image.image.url, class: 'product-detail__others__section__item__box__href__figure__image'
-            %figcaption.product-detail__others__section__item__box__href__figure__figcaption
-              .product-detail__others__section__item__box__href__figure__figcaption__sold-out
-                .product-detail__others__section__item__box__href__figure__figcaption__sold-out__budge 
-                  SOLD
-          .product-detail__others__section__item__box__href__body
-            .product-detail__others__section__item__box__href__body__name
-              = image.product.name
-            .product-detail__others__section__item__box__href__body__num
-              .product-detail__others__section__item__box__href__body__num__price
-                = '¥' + image.product.price.to_s 
-              .product-detail__others__section__item__box__href__body__num__good
-                %i.far.fa-heart.product-detail__others__section__item__box__href__body__num__good__icon
-                %span.product-detail__others__section__item__box__href__body__num__good__count
-                  0
-            .product-detail__others__section__item__box__href__body__tax
-              (税込)
+        -if image.product.buyer_id
+          .product-detail__others__section__item__box
+            = link_to product_path(image.product.id) , class: 'product-detail__others__section__item__box__href' do
+              %figure.product-detail__others__section__item__box__href__figure
+                = image_tag image.image.url, class: 'product-detail__others__section__item__box__href__figure__image'
+                %figcaption.product-detail__others__section__item__box__href__figure__figcaption
+                  .product-detail__others__section__item__box__href__figure__figcaption__sold-out
+                    .product-detail__others__section__item__box__href__figure__figcaption__sold-out__budge 
+                      SOLD
+              .product-detail__others__section__item__box__href__body
+                .product-detail__others__section__item__box__href__body__name
+                  = image.product.name
+                .product-detail__others__section__item__box__href__body__num
+                  .product-detail__others__section__item__box__href__body__num__price
+                    = '¥' + image.product.price.to_s 
+                  .product-detail__others__section__item__box__href__body__num__good
+                    %i.far.fa-heart.product-detail__others__section__item__box__href__body__num__good__icon
+                    %span.product-detail__others__section__item__box__href__body__num__good__count
+                      0
+                .product-detail__others__section__item__box__href__body__tax
+                  (税込)
+        -else
+          .product-detail__others__section__item__box
+            = link_to product_path(image.product.id) , class: 'product-detail__others__section__item__box__href' do
+              %figure.product-detail__others__section__item__box__href__figure
+                = image_tag image.image.url, class: 'product-detail__others__section__item__box__href__figure__image'
+              .product-detail__others__section__item__box__href__body
+                .product-detail__others__section__item__box__href__body__name
+                  = image.product.name
+                .product-detail__others__section__item__box__href__body__num
+                  .product-detail__others__section__item__box__href__body__num__price
+                    = '¥' + image.product.price.to_s 
+                  .product-detail__others__section__item__box__href__body__num__good
+                    %i.far.fa-heart.product-detail__others__section__item__box__href__body__num__good__icon
+                    %span.product-detail__others__section__item__box__href__body__num__good__count
+                      0
+                .product-detail__others__section__item__box__href__body__tax
+                  (税込)
+= render 'products/product-detail/others_bottom'

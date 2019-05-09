@@ -3,10 +3,17 @@
     = @product.name
   .product-detail__item__main
     .product-detail__item__main__photo
-      = image_tag @product.images.first.image.url, class: 'product-detail__item__main__photo__biggest'
-      .product-detail__item__main__photo__mini-box
-        - @product.images.each do |image|
-          = image_tag image.image.url, class: 'product-detail__item__main__photo__mini-box__dot'
+      -if @product.buyer_id
+        = image_tag @product.images.first.image.url, class: 'product-detail__item__main__photo__biggest'
+        %figcaption.product-detail__item__main__photo__sold
+          .product-detail__item__main__photo__sold__label
+            .product-detail__item__main__photo__sold__label__string
+              SOLD
+      -else
+        = image_tag @product.images.first.image.url, class: 'product-detail__item__main__photo__biggest'
+        .product-detail__item__main__photo__mini-box
+          - @product.images.each do |image|
+            = image_tag image.image.url, class: 'product-detail__item__main__photo__mini-box__dot'
     %table.product-detail__item__main__table
       %tbody.product-detail__item__main__table__tbody
         %tr.product-detail__item__main__table__tbody__tr
@@ -83,9 +90,19 @@
       (税込)
     .product-detail__item__price-box__shipping-fee
       送料込み
-  .product-detail__item__buy
-    = link_to buyer_path(@product.id), class: 'product-detail__item__buy__button' do
-      購入画面に進む
+  -if @product.buyer_id
+    .product-detail__item__sold-btn
+      .product-detail__item__buy__button
+        売り切れました
+  -else
+    -if user_signed_in?
+      .product-detail__item__buy
+        = link_to buyer_path(@product.id), class: 'product-detail__item__buy__button' do
+          購入画面に進む
+    -else
+      .product-detail__item__buy
+        = link_to new_login_path, class: 'product-detail__item__buy__button' do
+          購入画面に進む
   .product-detail__item__description-box
     .product-detail__item__description-box__text
       = @product.description

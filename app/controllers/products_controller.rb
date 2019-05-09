@@ -41,7 +41,6 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @user = User.find(session[:user_id])
     @product = Product.find(params[:id])
     @seller = User.find_by(id: @product.seller_id)
     @grandchild = Category.find(@product.category_id)
