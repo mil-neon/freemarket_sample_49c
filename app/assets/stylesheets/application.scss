@@ -3,6 +3,7 @@
 @import "config/colors";
 @import "mixin/clearfix";
 @import "mixin/user-form";
+@import "mixin/mixin";
 @import "mixin/index-header";
 @import "flash";
 @import "modules/sell";
@@ -27,6 +28,9 @@
 @import "signup4";
 @import 'signup5';
 @import "signup6";
+@import "_mypage-side";
+@import "_mypage-main";
+@import "mypage";
 @import "login";
 @import "search";
 @import "modal";
