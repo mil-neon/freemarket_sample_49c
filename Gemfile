@@ -89,4 +89,5 @@ gem 'jquery-rails'
 gem 'font-awesome-rails'
 gem 'haml-rails'
 gem 'mini_magick'
+gem 'gretel'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
