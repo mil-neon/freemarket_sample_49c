@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'products#index'
-  resources :products, only: [:index, :new, :create, :show]
+  resources :products, only: [:index, :new, :create, :show, :destroy]
   resources :search, to: 'products#search', only: :index
   resources :buyers, only: [:show, :index]
   resources :users, only: [:new]
