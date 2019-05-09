@@ -99,13 +99,13 @@ $(function () {
     if (id === BILL_RECIPIENT) {
       $("#shipping_method").css("display", "block");
 
-      var html = `<option value="未定">未定</option>
+      const BR = `<option value="未定">未定</option>
                   <option value="クロネコヤマト">クロネコヤマト</option>
                   <option value="ゆうパック">ゆうパック</option>
                   <option value="ゆうメール">ゆうメール</option>`
 
       $("#product_shipping_method").html(PROMPT);
-      $("#product_shipping_method").append(html);
+      $("#product_shipping_method").append(BR);
       changeFlg = true;
 
     } else if (id === INCLUDE_POSTAGE) {
@@ -113,7 +113,7 @@ $(function () {
 
       if (changeFlg) {
 
-        var html = `<option value="未定">未定</option>
+        const IP = `<option value="未定">未定</option>
                     <option value="らくらくメルカリ便">らくらくメルカリ便</option>
                     <option value="ゆうメール">ゆうメール</option>
                     <option value="レターパック">レターパック</option>
@@ -124,7 +124,7 @@ $(function () {
                     <option value="ゆうパケット">ゆうパケット</option>`
 
         $("#product_shipping_method").html(PROMPT);
-        $("#product_shipping_method").append(html);
+        $("#product_shipping_method").append(IP);
       }
     } else {
       $("#shipping_method").css("display", "none");
