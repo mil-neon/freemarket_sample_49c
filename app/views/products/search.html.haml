@@ -1,0 +1,172 @@
+= render 'header'
+.search-container
+  .search-container__left
+    = form_tag('/search', method: :get, class: 'search-container__left__form') do
+      .search-container__left__form__sort
+        %select.search-container__left__form__sort__select
+          %option 並び替え
+          %option{value: "安い順"} 価格の安い順
+          %option{value: "高い順"} 価格の高い順
+          %option{value: "古い順"} 出品の古い順
+          %option{value: "新しい順"} 出品の新しい順
+          %option{value: "いいね順"} いいね!の多い順
+      .search-container__left__form__dropdown
+        .search-container__left__form__dropdown__head
+          詳細検索
+        .search-form
+          %label.search-form__label
+            %i.fas.fa-plus
+            %span.search-form__label__text
+              キーワードを追加する
+          = text_field_tag :keyword, '', class: 'search-form__box'
+        .search-form
+          %label.search-form__label
+            %i.fas.fa-list.search-form__label__icon
+            %span.search-form__label__text
+              カテゴリーを選択する
+          %select.search-form__select
+            %option すべて
+            %option{value: "レディース"} レディース
+            %option{value: "メンズ"} メンズ
+            %option{value: "ベビー・キッズ"} ベビー・キッズ
+            %option{value: "インテリア・住まい・小物"} インテリア・住まい・小物
+            %option{value: "本・音楽・ゲーム"} 本・音楽・ゲーム
+            %option{value: "おもちゃ・ホビー・グッズ"} おもちゃ・ホビー・グッズ
+            %option{value: "コスメ・香水・美容"} コスメ・香水・美容
+            %option{value: "家電・スマホ・カメラ"} 家電・スマホ・カメラ
+            %option{value: "スポーツ・レジャー"} スポーツ・レジャー
+            %option{value: "ハンドメイド"} ハンドメイド
+            %option{value: "チケット"} チケット
+            %option{value: "自動車・オートバイ"} 自動車・オートバイ
+            %option{value: "その他"} その他
+        .search-form
+          %label.search-form__label
+            %i.fas.fa-tag
+            %span.search-form__label__text
+              ブランド名から探す
+          = text_field_tag :brand, '', placeholder: '例) シャネル', class: 'search-form__box'
+        .search-form
+          %label.search-form__label
+            %i.fas.fa-crop-alt
+            %span.search-form__label__text
+              サイズを指定する
+          %select.search-form__select
+            %option すべて
+            %option{value: "洋服のサイズ"} 洋服のサイズ
+            %option{value: "メンズ靴のサイズ"} メンズ靴のサイズ
+            %option{value: "レディース靴のサイズ"} レディース靴のサイズ
+            %option{value: "スカートのサイズ"} スカートのサイズ
+            %option{value: "キッズ服のサイズ"} キッズ服のサイズ
+            %option{value: "ベビー・キッズ靴のサイズ"} ベビー・キッズ靴のサイズ
+            %option{value: "ベビー服のサイズ"} ベビー服のサイズ
+            %option{value: "テレビのサイズ"} テレビのサイズ
+            %option{value: "カメラレンズのサイズ"} カメラレンズのサイズ
+            %option{value: "オートバイのサイズ"} オートバイのサイズ
+            %option{value: "ヘルメットのサイズ"} ヘルメットのサイズ
+            %option{value: "タイヤのサイズ"} タイヤのサイズ
+            %option{value: "スキーのサイズ"} スキーのサイズ
+            %option{value: "スノーボードのサイズ"} スノーボードのサイズ
+        .search-form
+          %label.search-form__label
+            %i.fas.fa-coins
+            %span.search-form__label__text
+              価格
+          %select.search-form__select
+            %option すべて
+            %option{value: "300~1000"} 300~1000
+            %option{value: "1000~5000"} 1000~5000
+            %option{value: "5000~10000"} 5000~10000
+            %option{value: "10000~30000"} 10000~30000
+            %option{value: "30000~50000"} 30000~50000
+            %option{value: "50000~"} 50000~
+          = number_field_tag :min, '', placeholder: '¥min', class: 'search-form__price'
+          %span ~
+          = number_field_tag :max, '', placeholder: '¥max', class: 'search-form__price'
+        .search-form
+          %label.search-form__label
+            %i.fas.fa-star
+            %span.search-form__label__text
+              商品の状態
+          .search-form__check-left
+            %input{id: "item_condition_all", name: "item_condition_all", type: "checkbox", value: "1", class: 'search-form__check-left__box'}/
+            %label{for: "item_condition_all"} すべて
+          .search-form__check-right
+            %input{id: "item_condition_id[1]", name: "item_condition_id[1]", type: "checkbox", value: "1", class: 'search-form__check-right__box'}/
+            %label{for: "item_condition_id[1]"} 新品、未使用
+          .search-form__check-left
+            %input{id: "item_condition_id[2]", name: "item_condition_id[2]", type: "checkbox", value: "1", class: 'search-form__check-left__box'}/
+            %label{for: "item_condition_id[2]"} 未使用に近い
+          .search-form__check-right
+            %input{id: "item_condition_id[3]", name: "item_condition_id[3]", type: "checkbox", value: "1", class: 'search-form__check-right__box'}/
+            %label{for: "item_condition_id[3]"} 目立った傷や汚れなし
+          .search-form__check-left
+            %input{id: "item_condition_id[4]", name: "item_condition_id[4]", type: "checkbox", value: "1", class: 'search-form__check-left__box'}/
+            %label{for: "item_condition_id[4]"} やや傷や汚れあり
+          .search-form__check-right
+            %input{id: "item_condition_id[5]", name: "item_condition_id[5]", type: "checkbox", value: "1", class: 'search-form__check-right__box'}/
+            %label{for: "item_condition_id[5]"} やや傷や汚れあり
+          .search-form__check-left
+            %input{id: "item_condition_id[6]", name: "item_condition_id[6]", type: "checkbox", value: "1", class: 'search-form__check-left__box'}/
+            %label{for: "item_condition_id[6]"} 傷や汚れあり
+          .search-form__check-right
+            %input{id: "item_condition_id[7]", name: "item_condition_id[7]", type: "checkbox", value: "1", class: 'search-form__check-right__box'}/
+            %label{for: "item_condition_id[7]"} 全体的に状態が悪い
+        .search-form
+          %label.search-form__label
+            %i.fas.fa-truck
+            %span.search-form__label__text
+              配送料の負担
+          .search-form__check-left
+            %input{id: "shiping_payer_all", name: "shiping_payer_all", type: "checkbox", value: "1", class: 'search-form__check-left__box'}/
+            %label{for: "shiping_payer_all"} すべて
+          .search-form__check-right
+            %input{id: "shiping_payer_id[1]", name: "shiping_payer_id[1]", type: "checkbox", value: "1", class: 'search-form__check-right__box'}/
+            %label{for: "shiping_payer_id[1]"} 着払い(購入者負担)
+          .search-form__check-left
+            %input{id: "shiping_payer_id[2]", name: "shiping_payer_id[2]", type: "checkbox", value: "1", class: 'search-form__check-left__box'}/
+            %label{for: "shiping_payer_id[2]"} 送料込み(出品者負担)
+        .search-form
+          %label.search-form__label
+            %i.fas.fa-shopping-cart
+            %span.search-form__label__text
+              販売状況
+          .search-form__check-left
+            %input{id: "status_all", name: "status_all", type: "checkbox", value: "1", class: 'search-form__check-left__box'}/
+            %label{for: "status_all"} すべて
+          .search-form__check-right
+            %input{id: "status_on_sale", name: "status_on_sale", type: "checkbox", value: "1", class: 'search-form__check-right__box'}/
+            %label{for: "status_on_sale"} 販売中
+          .search-form__check-left
+            %input{id: "status_sold_out", name: "status_sold_out", type: "checkbox", value: "1", class: 'search-form__check-left__box'}/
+            %label{for: "status_sold_out"} 送料込み(出品者負担)
+        .search-button
+          .search-button__clear
+            クリア
+          = button_tag '完了', class: "search-button__complete"
+  .search-container__right
+    - if @products != []
+      .search-container__right__head
+        = "検索結果 1-" + @products.length.to_s + "件"
+      - @products.each do |product|
+        .search-container__right__contents
+          .search-container__right__contents__item
+            = link_to product_path(product.id), class: 'search-container__right__contents__item__link' do
+              %figure.search-container__right__contents__item__link__figure
+                = image_tag product.images.first.image.url, class: "search-container__right__contents__item__link__figure__img"
+              .search-container__right__contents__item__link__body
+                .search-container__right__contents__item__link__body__name
+                  = product.name
+                .search-container__right__contents__item__link__body__num
+                  .search-container__right__contents__item__link__body__num__price
+                    = "¥" + product.price.to_s
+                  .search-container__right__contents__item__link__body__num__good
+                    %i.far.fa-heart.search-container__right__contents__item__link__body__num__good__icon
+                    .search-container__right__contents__item__link__body__num__good__fig
+                      1
+                .search-container__right__contents__item__link__body__tax
+                  (税込)
+    - else
+      .search-container__right__head
+        検索結果はありません
+= render 'botton'
+= render 'footer'

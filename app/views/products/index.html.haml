@@ -1,4 +1,3 @@
-
 = render 'header'
 %main.white
   %div.top-main__visual
@@ -22,82 +21,72 @@
       .owl-item{:style => "width: 804px;"}
         %h2
           = image_tag "//www-mercari-jp.akamaized.net/assets/img/promotion/jp/201812_bokurano_heisei/index/main-index.png?570108281" ,alt: "僕らのマンガ 平成30年史"
-
   %section.pickup-container
     %h2.pickup-head ピックアップカテゴリー
     %section.items-box__container
       %h3.items-box__container__title
-        = link_to "レディース新着アイテム"
+        = link_to "#{@lady.name}新着アイテム"
       .items-box__content
-        = render partial: "itme"
-        = render partial: "itme"
-        = render partial: "itme"  
+        - if @ladies.present?
+          = render partial: "item", collection: @ladies 
       .view-all
         = link_to "すべての商品を見る"
     %section.items-box__container
       %h3.items-box__container__title
-        = link_to "メンズ新着アイテム"
+        = link_to "#{@men.name}新着アイテム"
       .items-box__content
-        = render partial: "itme"
-        = render partial: "itme"
-        = render partial: "itme"
+        - if @mens.present?
+          = render partial: "item", collection: @mens
       .view-all
         = link_to "すべての商品を見る"
     %section.items-box__container
       %h3.items-box__container__title
-        = link_to "キッズ新着アイテム"
+        = link_to "#{@baby.name}新着アイテム"
       .items-box__content
-        = render partial: "itme"
-        = render partial: "itme"
-        = render partial: "itme"
+        - if @babys.present?
+          = render partial: "item", collection: @babys
       .view-all
         = link_to "すべての商品を見る"
     %section.items-box__container
       %h3.items-box__container__title
-        = link_to "アクセサリー新着アイテム"
+        = link_to "#{@good.name}新着アイテム"
       .items-box__content
-        = render partial: "itme"
-        = render partial: "itme"
-        = render partial: "itme"
+        - if @goods.present?
+          = render partial: "item", collection: @goods
       .view-all
         = link_to "すべての商品を見る"
     %h2.pickup-head ピックアップブランド
     %section.items-box__container
       %h3.items-box__container__title
-        = link_to "ルイビトン新着アイテム"
+        = link_to "#{@chanerl.name}新着アイテム"
       .items-box__content
-        = render partial: "itme"
-        = render partial: "itme"
-        = render partial: "itme"
+        - if @chanerls.present?
+          = render partial: "item", collection: @chanerls 
       .view-all
         = link_to "すべての商品を見る"
     %section.items-box__container
       %h3.items-box__container__title
-        = link_to "シャネル新着アイテム"
+        = link_to "#{@Vuitton.name}新着アイテム"
       .items-box__content
-        = render partial: "itme"
-        = render partial: "itme"
-        = render partial: "itme"
+        - if @Vuittons.present?
+          = render partial: "item", collection: @Vuittons 
       .view-all
         = link_to "すべての商品を見る"
     %section.items-box__container
       %h3.items-box__container__title
-        = link_to "ナイキ新着アイテム"
+        = link_to "#{@nike.name}新着アイテム"
       .items-box__content
-        = render partial: "itme"
-        = render partial: "itme"
-        = render partial: "itme"
+        - if @nikes.present?
+          = render partial: "item", collection: @nikes 
       .view-all
         = link_to "すべての商品を見る"
     %section.items-box__container
       %h3.items-box__container__title
-        = link_to "ニューバランス新着アイテム"
+        = link_to "#{@syupu.name}新着アイテム"
       .items-box__content
-        = render partial: "itme"
-        = render partial: "itme"
-        = render partial: "itme"
+        - if @syupus.present?
+          = render partial: "item", collection: @syupus 
       .view-all
         = link_to "すべての商品を見る"
 = render 'botton'
 = render 'footer'
-

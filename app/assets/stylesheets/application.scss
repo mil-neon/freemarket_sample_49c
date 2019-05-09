@@ -4,10 +4,13 @@
 @import "mixin/clearfix";
 @import "mixin/user-form";
 @import "mixin/mixin";
+@import "mixin/index-header";
+@import "flash";
 @import "modules/sell";
 @import "font-awesome";
 @import "header";
 @import "carousel";
+@import "category";
 @import "top";
 @import "footer";
 @import "buyers/buyers";
@@ -28,3 +31,6 @@
 @import "_mypage-side";
 @import "_mypage-main";
 @import "mypage";
+@import "login";
+@import "search";
+

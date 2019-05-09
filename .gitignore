@@ -25,4 +25,13 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
 app/views/users/last_signup.html.haml
+
+/.env
+
+# Ignore Byebug command history file.
+public/uploads/*
+
+config/secrets.yml
+

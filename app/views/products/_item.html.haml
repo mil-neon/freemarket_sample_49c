@@ -1,0 +1,25 @@
+%div.item-box
+  = link_to product_path(item.id) do
+    %figure.item-box__photo
+      -if item.images.present?
+        -if item.buyer_id
+          = image_tag item.images.first.image.url, class: "item-box__photo-lazyloaded"
+          %figcaption.product-detail__others__section__item__box__href__figure__figcaption
+            .product-detail__others__section__item__box__href__figure__figcaption__sold-out
+              .product-detail__others__section__item__box__href__figure__figcaption__sold-out__budge 
+                SOLD
+        -else
+          = image_tag item.images.first.image.url, class: "item-box__photo-lazyloaded"
+      -else
+        = image_tag "noimage.png" ,class: "item-box__photo-lazyloaded"
+    .item-box__body
+      %h3.item-box__body__name
+        = item.name
+      .item-box__body__num
+        .item-box__body__num__price
+          ¥
+          = number_with_delimiter("#{item.price}")
+        .item-box__body__num__like
+          %i.far.fa-heart
+          %span 1
+      %p.item-box-tax (税込)

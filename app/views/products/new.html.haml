@@ -5,7 +5,7 @@
       %div
         .sell-main__container__inner
           %h2.sell-main__container__inner__head 商品の情報を入力
-          .sell-main__container__inner__form
+          = form_for @product, local: true, remote: true, class: "sell-main__container__inner__form", id:'new_product' do |f|
             .sell-main__container__inner__form__upload-box
               %h3.sell-main__container__inner__form__upload-box__head
                 出品画像
@@ -13,23 +13,21 @@
               %p 最大10枚までアップロードできます
               .sell-main__container__inner__form__upload-box__dropbox
                 .sell-main__container__inner__form__upload-box__dropbox__container
-                  .sell-main__container__inner__form__upload-box__dropbox__container__items
-                    %ul
                 .sell-main__container__inner__form__upload-box__dropbox__upload
-                  %input.sell-main__container__inner__form__upload-box__dropbox__upload--img
-                  %pre.sell-main__container__inner__form__upload-box__dropbox__upload--visible
-                    ドラッグアンドドロップ
-                    またはクリックしてファイルをアップロード
-                  %i.sell-main__container__inner__form__upload-box__dropbox__upload--icon
+                  .sell-main__container__inner__form__upload-box__dropbox__upload__wrap
+                    %pre.sell-main__container__inner__form__upload-box__dropbox__upload__wrap--visible
+                      ドラッグアンドドロップ
+                      またはクリックしてファイルをアップロード
+                    %i.sell-main__container__inner__form__upload-box__dropbox__upload--icon
             .sell-main__container__inner__form__content
               .sell-main__container__inner__form__content__group
                 %label 商品名
                 %span.sell-main__container__inner__form__content__group--require 必須
-                %input.sell-main__container__inner__form__content__group__input
+                = f.text_field :name, placeholder: "商品名（必須 40文字まで)", type: "text", class: 'sell-main__container__inner__form__content__group__input'
               .sell-main__container__inner__form__content__group
                 %label 商品の説明
                 %span.sell-main__container__inner__form__content__group--require 必須
-                %text_area.sell-main__container__inner__form__content__group__textarea
+                = f.text_area :description, rows: "5", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", type: "text", class: 'sell-main__container__inner__form__content__group__textarea'
             .sell-main__container__inner__form__content
               %h3.sell-main__container__inner__form__content__head 商品の詳細
               .sell-main__container__inner__form__content__box
@@ -39,14 +37,36 @@
                     %span.sell-main__container__inner__form__content__box__group--require 必須
                   %div
                     .sell-main__container__inner__form__content__box__group__wrap
-                      %select.sell-main__container__inner__form__content__box__group__wrap__select
+                      = f.select :category_id, @categories.map{|t| [t.name, t.id]}, {prompt: "---"}, class: "sell-main__container__inner__form__content__box__group__wrap__select"
+                      %i.sell-main__container__inner__form__content__box__group__wrap--icon
+                    .sell-main__container__inner__form__content__box__group__wrap#child_category{style: "display:none"}
+                      %select.sell-main__container__inner__form__content__box__group__wrap__select#product_child_category_id{name: ""}
+                      %i.sell-main__container__inner__form__content__box__group__wrap--icon
+                    .sell-main__container__inner__form__content__box__group__wrap#grand_child_category{style: "display:none"}
+                      %select.sell-main__container__inner__form__content__box__group__wrap__select#product_grand_child_category_id{name: ""}
+                      %i.sell-main__container__inner__form__content__box__group__wrap--icon
+                .sell-main__container__inner__form__content__box__group
+                  %label
+                    サイズ
+                    %span.sell-main__container__inner__form__content__box__group--require 必須
+                  .sell-main__container__inner__form__content__box__group__wrap
+                    = f.select :size, Product.sizes.keys, { prompt: "---"}, class: 'sell-main__container__inner__form__content__box__group__wrap__select'
+                    %i.sell-main__container__inner__form__content__box__group__wrap--icon
+                .sell-main__container__inner__form__content__box__group
+                  %label
+                    ブランド
+                    %span.sell-main__container__inner__form__content__box__group--require--grey 任意
+                  %div
+                    .sell-main__container__inner__form__content__box__group__wrap
+                      = f.select :brand_id, Brand.all.map{|t| [t.name, t.id]}, { prompt: "---" },  class: "sell-main__container__inner__form__content__box__group__wrap__select"
                       %i.sell-main__container__inner__form__content__box__group__wrap--icon
                 .sell-main__container__inner__form__content__box__group
                   %label
                     商品の状態
                     %span.sell-main__container__inner__form__content__box__group--require 必須
                   .sell-main__container__inner__form__content__box__group__wrap
-                    %select.sell-main__container__inner__form__content__box__group__wrap__select
+                    = f.select :condition, Product.conditions.keys, { prompt: "---"}, class: 'sell-main__container__inner__form__content__box__group__wrap__select'
+                    %i.sell-main__container__inner__form__content__box__group__wrap--icon
             .sell-main__container__inner__form__content
               %h3.sell-main__container__inner__form__content__head 配送について
               %span.fas.fa-question-circle.sell-main__container__inner__form__content--blue-icon
@@ -56,19 +76,26 @@
                     配送料の負担
                     %span.sell-main__container__inner__form__content__box__group--require 必須
                   .sell-main__container__inner__form__content__box__group__wrap
-                    %select.sell-main__container__inner__form__content__box__group__wrap__select
+                    = f.select :shipping_feeh, Product.shipping_feehs.keys, { prompt: "---"}, class: 'sell-main__container__inner__form__content__box__group__wrap__select'
+                    %i.sell-main__container__inner__form__content__box__group__wrap--icon
+                .sell-main__container__inner__form__content__box__group#shipping_method{style: "display:none"}
+                  %label
+                    配送の方法
+                    %span.sell-main__container__inner__form__content__box__group--require 必須
+                  .sell-main__container__inner__form__content__box__group__wrap
+                    = f.select :shipping_method, Product.shipping_methods.keys, { prompt: "---"}, class: 'sell-main__container__inner__form__content__box__group__wrap__select'
                 .sell-main__container__inner__form__content__box__group
                   %label
                     発送元の地域
                     %span.sell-main__container__inner__form__content__box__group--require 必須
                   .sell-main__container__inner__form__content__box__group__wrap
-                    %select.sell-main__container__inner__form__content__box__group__wrap__select
+                    = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "---"}, class: 'sell-main__container__inner__form__content__box__group__wrap__select'
                 .sell-main__container__inner__form__content__box__group
                   %label
                     配送までの日数
                     %span.sell-main__container__inner__form__content__box__group--require 必須
                   .sell-main__container__inner__form__content__box__group__wrap
-                    %select.sell-main__container__inner__form__content__box__group__wrap__select
+                    = f.select :shipping_date, Product.shipping_dates.keys, { prompt: "---"}, class: 'sell-main__container__inner__form__content__box__group__wrap__select'
             .sell-main__container__inner__form__content
               %h3.sell-main__container__inner__form__content__head 販売価格(300〜9,999,999)
               %span.fas.fa-question-circle.sell-main__container__inner__form__content--blue-icon
@@ -82,7 +109,7 @@
                       .sell-main__container__inner__form__content__box__price__group__wrap--right
                         ¥
                         .sell-main__container__inner__form__content__box__price__group__wrap--right__wrap
-                          %input.sell-main__container__inner__form__content__box__price__group__wrap--right__wrap__input
+                          = f.text_field :price, placeholder: "例）300", type: "text", class: 'sell-main__container__inner__form__content__box__price__group__wrap--right__wrap__input'
                   %li.sell-main__container__inner__form__content__box__price__group
                     .sell-main__container__inner__form__content__box__price__group__wrap
                       %label.sell-main__container__inner__form__content__box__price__group__wrap--left
@@ -110,8 +137,7 @@
                 また、出品をもちまして
                 = link_to '加盟店規約', ''
                 に同意したことになります。
-              = link_to '', class: 'sell-main__container__inner__form__content__btn--red' do
-                出品する
-              = link_to '', class: 'sell-main__container__inner__form__content__btn--grey' do
+              = f.submit '出品する', class: 'sell-main__container__inner__form__content__btn--red'
+              = link_to root_path, class: 'sell-main__container__inner__form__content__btn--grey' do
                 もどる
 = render 'buyers/buyer-footer'

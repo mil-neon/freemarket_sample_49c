@@ -1,16 +1,10 @@
 class UsersController < ApplicationController
-  def index
-  end
-
   def new
   end
 
-  def address
+  def login
   end
-
-  def last_signup
-  end
-
+  
   def mypage
   end
 end

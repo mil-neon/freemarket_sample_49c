@@ -1,7 +1,10 @@
 .header{
-  background-color: #fff;
+  background-color: $white;
+  display: block;
+  position: relative;
+  z-index: 1001;
   &__container {
-    width: 700px;
+    width: 1020px;
     margin: 0 auto;
     padding: 8px 0 0;
     &__search {
@@ -9,9 +12,9 @@
       align-items: center;
       justify-content: space-between;
       &__logo{
-        display: block;
-        color: #333;
         margin: 0;
+        display: block;
+        color: $txt_black;
         &--icon{
           vertical-align: middle;
           height: 36px;
@@ -22,17 +25,22 @@
         position: relative;
         margin-left: 45px;
         width: 100%;
-        height: 40px;
+        -webkit-box-flex: 1;
         flex: 1;
+        display: block;
         &__input{
-          background: #f5f5f5;
+          background: $background_white;
+          border-radius: 4px;
+          padding: 0 42px 0 10px;
           width: 100%;
           height: 40px;
-          padding: 10px 16px 8px;
-          border: 1px solid #ccc;
+          border: 1px solid $light_gray;
           line-height: 1.5;
           font-size: 16px;
-          border-radius: 4px;
+          outline: 0;
+          font-family: inherit;
+          touch-action: manipulation;
+          cursor: text;
         }
         > .search-button{
           position: absolute;
@@ -46,8 +54,8 @@
           padding: 0;
           border-top-right-radius: 4px;
           border-bottom-right-radius: 4px;
-          background: #f5f5f5;
-          border: 1px solid #ccc;
+          background: $background_white;
+          border: 1px solid $light_gray;
           border-left: none;
           cursor: pointer;
           > .fas{
@@ -57,101 +65,383 @@
       }
     }
     &__bottom{
-      margin: 13px 0 0;
-      @include clearfix;
+      margin: 8px 0 0;
+      @include clearfix();
       &__left{
         float: left;
-        height: 100%;
         &__search--menu{
+          font-size: 0;
           &__list__categories{
             padding-left: 0;
             &--tag {
-              font-size: 14px;
-              font-weight: 400px;
+              @include tag();
               > .fas.fa-list-ul {
-                color: #ea352d;
-                margin-right: 4px;
+                @include fas();
               }
               &__text {
-                vertical-align: middle;
+                @include tag_text();
                 font-size: 16px;
-                color: #333;
+              }
+              a:hover {
+                color: $link_blue;
               }
             }
           }
           &__list__brands{
             padding-right: 0;
             &--tag {
-              font-size: 14px;
-              font-weight: 400;
+              @include tag();
               font-weight: bold;
               > .fas.fa-tag {
-                color: #ea352d;
+                @include fas();
                 font-size: 12px;
-                margin-right: 4px;
               }
               &__text {
-                vertical-align: middle;
-                color : #333;
+                @include tag_text();
+              }
+              a:hover {
+                color: $link_blue;
               }
             }
           }
         }
       }
+
+
       &__right{
         float: right;
-        &__personal__menu {
-          height: 44px;
+        .personal__menu {
+          @include clearfix();
+          font-size: 0;
           &__list__news {
-            padding: 0 0 0 7px;
+            padding: 0 14px 0 0;
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
             &--link{
-              color: #333;
-              > .far.fa-bell.icon{
-                font-size: 20px;
-                color: #ccc;
+              position: relative;
+              display: inline-block;
+              height: 44px;
+              line-height: 44px;
+              font-size: 0;
+              color: $txt_black;
+              .fa-bell{
+                display: inline-block;
+                font-size: 23px;
+                color: $light_gray;
               }
-              &__font{
-                margin-left: 5px;
+              span{
+                margin-left: 10px;
+                margin-bottom: 12px; 
                 font-size: 14px;
-                padding-bottom: 8px;
+                vertical-align: middle;
+              }
+              @include hover_color();
+            }
+            .mypage__nav__list{
+              top: 44px;
+              display: none;
+              left: 0;
+              @include list();
+              li {
+                max-height: 120px;
+                position: relative;
+                border-bottom: 1px solid $bottn_line;
+                a {
+                  display: block;
+                  min-height: 80px;
+                  padding: 16px;
+                  color: $txt_black;
+                  span {
+                    position: relative;
+                    overflow: hidden;
+                    float: left;
+                    width: 48px;
+                    height: 48px;
+                    img {
+                      position: absolute;
+                      top: 0;
+                      right: 0;
+                      bottom: 0;
+                      left: 0;
+                      width: 100%;
+                    }
+                  }
+                  .mypage__item__body{
+                    margin: 0 40px 0 68px;
+                    &__text {
+                      margin-bottom: 5px;
+                      overflow: hidden;
+                      display: block;
+                      display: -webkit-box;
+                      max-height: 4.4em;
+                      text-overflow: ellipsis;
+                      line-height: 1.5;
+                    }
+                    time {
+                      display: inline-block;
+                      color: $medium_gray;
+                      i{
+                        margin: 0 8px 0 0;
+                        color: $light_gray;
+                      }
+                      span{
+                        vertical-align: middle;
+                      }
+                    }
+                  }
+                  .fas{
+                    position: absolute;
+                    top: 50%;
+                    right: 16px;
+                    transform: translate(0, -50%);
+                    color: $light_gray;
+                  }
+                }
               }
             }
           }
           &__list__todo {
-            padding: 0 7px;
+            padding: 0 14px;
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
             &--link{
-              color: #333;
-              > .fa.fa-check{
+              position: relative;
+              display: inline-block;
+              height: 44px;
+              line-height: 44px;
+              font-size: 0;
+              color: $txt_black;
+              .fa-check{
                 font-size: 20px;
-                color: #ccc;
+                color: $light_gray;
               }
               &__font{
-                margin-left: 5px;
+                margin-left: 10px;
+                margin-bottom: 12px; 
                 font-size: 14px;
-                padding-bottom: 8px;
+                vertical-align: middle;
+              }
+              @include hover_color();
+            }
+            .mypage__item__todo{
+              left: 50%;
+              transform: translate(-50%, 0);
+              cursor: pointer;
+              position: absolute;
+              top: 50px;
+              z-index: 1;
+              display: none;
+              width: 320px;
+              background: $white;
+              box-shadow: 0 1px 1px 0 rgba(0,0,0,0.24);
+              font-size: 14px;
+              list-style: none;
+              margin-inline-start: 0px;
+              margin-inline-end: 0px;
+              padding-inline-start: 40px;
+              &-not-found {
+                position: relative;
+                border: 0;
+                padding: 160px 0 60px 20px;
+                background: url("mercari_icon.grly.png");
+                background-repeat: no-repeat;
+                background-position: center 40px;
+                background-size: 78px 85px;
+                font-size: 16px;
+                color: $light_gray;
+                font-weight: 600;
               }
             }
           }
           &__list__mypage {
-            padding: 0 7px 0 0;
+            padding: 0 14px 0;
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
             &--link{
-              color: #333;
-              .mypage-avator{
-                font-size: 15px;
-                color: #ccc;
-                overflow: hidden;
-                border-radius: 50%;
+              position: relative;
+              display: block;
+              font-size: 0;
+              color: $txt_black;
+              figure{
+                height: 44px;
                 display: inline-block;
+                position: relative;
+                text-align: center;
+                vertical-align: middle;
+                margin: 0%;
+                color: $txt_black;
+                div{
+                  overflow: hidden;
+                  border-radius: 50%;
+                  .mypage-avator{
+                    vertical-align: bottom;
+                    width: 32px;
+                    text-align: center;
+                  }
+                }
               }
-              &__font{
-                margin-left: 5px;
+              @include hover_color();
+              span{
+                margin-left: 10px;
                 font-size: 14px;
-                padding-bottom: 18px;
+                vertical-align: top;
+                height: 44px;
+                line-height: 35px;
               }
             }
+            .mypage__link__box{
+              display: none;
+              right: 0;
+              @include list();
+              box-shadow: 0 1px 1px 0 rgba(0,0,0,0.24);
+              &-state{
+                text-align: center; 
+                figure {
+                  padding: 28px 0 0;
+                  height: 80px;
+                  background: url(/assets/img/mypage/user-bg.jpg);
+                  background-repeat: no-repeat;
+                  background-size: 320px 80px;
+                  div {
+                    overflow: hidden;
+                    width: 60px;
+                    height: 60px;
+                    margin: 0 auto;
+                    border-radius: 50%;
+                    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.08);
+                    img {
+                      vertical-align: middle;
+                    }
+                    figcaption{
+                      margin: 8px 0 0;
+                      padding: 0 8px;
+                      font-size: 16px;
+                    }
+                  }
+                }
+                &__review{
+                  margin: 40px 0 0;
+                  padding: 8px 8px 0;
+                  font-size: 0;
+                  text-align: center;
+                  li:first-child {
+                    margin: 0;
+                  }
+                  li {
+                    margin: 0 0 0 16px;
+                    display: inline-block;
+                    font-size: 14px;
+                    a {
+                      display: block;
+                      font-size: 14px;
+                      color: $txt_black;
+                    }
+                  }
+                }
+                &__point{
+                  width: 300px;
+                  margin: 16px auto;
+                  background: #fafafa;
+                  border: 1px solid $bottn_line;
+                  list-style: none;
+                  padding: 0;
+                  li:first-child {
+                    border: 0;
+                  }
+                  li{
+                    display: list-item;
+                    border-top: 1px solid $bottn_line;
+                    a {
+                      padding: 0 8px;
+                      line-height: 40px;
+                      display: block;
+                      font-size: 14px;
+                      color: $txt_black;
+                      .l-left {
+                        float: left;
+                      }
+                      .l-right {
+                        float: right;
+                        padding-right: 5px; 
+                        position: relative;
+                      }
+                    }
+                  }
+                }
+              }
+              .mypage__nav__list{
+                list-style: none;
+                li {
+                  width: 93%;
+                  position: relative;
+                  border-top: 1px solid $bottn_line;
+                  .mypage__nav__list-item {
+                    display: block;
+                    padding: 16px;
+                    background: $white;
+                    font-size: 14px;
+                    color: $txt_black;
+                    .fa-chevron-right {
+                      position: absolute;
+                      top: 50%;
+                      right: 10px;
+                      color: $light_gray;
+                      transform: translate(0, -50%);
+                      transition: all ease-out .2s;
+                      vertical-align: middle;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      &__right-login {
+        float: right;
+        display: flex;
+        &__login {
+          width: 78px;
+          height: 32px;
+          background: #ea352d;
+          border-radius: 3px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-right: 10px;
+          &__link {
+            display: block;
+            color: #ffffff;
+            text-decoration: none;
+            line-height: 32px;
+            text-align: center;
+            width: 178px;
+            height: 32px;
+          }
+        }
+        &__new {
+          width: 106px;
+          height: 30px;
+          background: #ffffff;
+          border-radius: 3px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border: 1px solid #0099e8;
+          &__link {
+            color: #0099e8;
+            text-decoration: none;
+            line-height: 30px;
+            text-align: center;
+            width: 106px;
+            height: 30px;
           }
         }
       }
     }
   }
 }
+

@@ -1,3 +1,7 @@
+.footer nav ul li{ 	
+  display: inline;
+} 
+
 .footer {
   padding: 0 20px 10px 20px;
   background: #212121;
@@ -5,7 +9,7 @@
   position:  relative;
   width: 100%;
   > nav{
-    width: 700px;
+    width: 1020px;
     @include clearfix;
     margin: 0 auto;
     padding: 0 10px 0 0;
@@ -16,11 +20,12 @@
     line-height: 1.5em;
   }
   &__cell {
+    display: block;
     float: left;
-    list-style: none;
     margin-top: 18px;
-    padding-left: 10px;
-    width: 45%;
+    width: 20%;
+    padding: 0 40px 0 0;
+    vertical-align: top;
     &__head {
       color: #fff;
       font-size: 16px;
@@ -30,8 +35,9 @@
         padding: 0 14px 0 0;
         a{
           opacity: 1;
-          display: block;
-          i{
+          display: inline-block;
+          .fab{
+            color: #fff;
             font-size: 30px;
             background: transparent;
             margin: 16px 18px 0 0;
@@ -49,8 +55,8 @@
     }
   }
   .footer-bottom{
-    width: 700px;
-    margin: 50px auto 0;
+    margin: 30px auto 20px;
+    width: 1020px;
     &__logo {
       display: inline-block;
       margin-right: 10px;
@@ -62,6 +68,7 @@
       }
     }
     &__copyright{
+      width: 745px;
       display: inline-block;
       margin: 8px 0 0;
       text-align: center;
@@ -73,21 +80,73 @@
 }
 
 .full-width {
-  width: 100%;
-  ul{
-    list-style: none outside;
-    width: 100%;
-    li{
-      padding: 0;
-      float: left;
-      width: 48%;
+  margin-top: 18px;
+  padding: 0 40px 0 0;
+  width: 42%;
+  vertical-align: top;
+  display: block;
+  float: left;
+  &__head {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 100;
+    line-height: 1.4;
+  }
+  .inner__footer__cell:first-of-type {
+    padding: 0 10px 0 0;
+    float: left;
+  }
+  .inner__footer__cell{
+    padding-left: 10px;
+    vertical-align: top;
+    width: 45%;
+    display: inline-block;  
+    float: left; 
+    ul{
+      list-style: none outside;
+      width: 100%;
+      li{
+        margin: 14px 0 0;
+        a {
+          display: block;
+          opacity: .7;
+        }
+      }
+    }
+  }
+}
+.lang{
+  margin-top: 18px;
+  width: auto;
+  padding: 0;
+  vertical-align: top;
+  display: block;
+  float: left;
+  &__head {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 100;
+    line-height: 1.4;
+    ul{
+      list-style: none;
+      li{
+        margin: 16px 0 0;
+        display: block;
+      }
     }
   }
 }
 
-.footer nav ul li{ 	
-  display: inline;
-  .footer__cell__head-link{
-    display: inline-block;
-  }
-} 
+
+
+.footer__cell:first-child {
+  padding: 0 20px 0 0;
+  width: 20%;
+}
+.footer-cell li:first-child {
+  margin: 16px 0 0;
+}
+
+#head-link{
+  display: inline-block;
+}

@@ -1,0 +1,119 @@
+.login1 {
+  height: 100%;
+  width: 100%;
+  &__main {
+    height: 731px;
+    width: 456px;
+    margin: 0 auto;
+    background: #fff;
+    &__noaccount {
+      height: 64px;
+      width: 328px;
+      padding: 40px 64px;
+      text-align: center;
+      &__upper {
+        font-size: 14px; 
+      }
+      &__lower {
+        height: 40px;
+        width: 326px;
+        background: #0099e8;
+        color: #fff;
+        line-height: 40px;
+        margin: 8px 0 0;
+        display: block;
+      }
+    }  
+    &__inner {
+      height: 116px;
+      width: 328px;
+      padding: 32px 64px;
+      text-align: center;
+      border-top: 1px solid #eee;
+      &__facebook {
+        height: 48px;
+        width: 326px;
+        background: #385185;
+        color: #fff;
+        line-height: 48px;
+        font-size: 14px;
+        cursor: pointer;
+        &__btn {
+          font-size: 26px;
+          float: left;
+          padding: 10px 0 0 15px;
+        }
+      }
+      &__google {
+        height: 48px;
+        width: 326px;
+        line-height: 48px;
+        font-size: 14px;
+        cursor: pointer;
+        margin-top: 16px;
+        border: #979797 solid 1px;
+        &__btn {
+          font-size: 20px;
+          float: left;
+          padding: 13px 0 0 15px;
+        }
+      }
+    }
+    &__form {
+      height: 406px;
+      width: 456px;
+      &__inner {
+        height: 350px;
+        width: 328px;
+        padding: 24px 64px 32px;
+        &__group {
+          height: 48px;
+          width: 328px;
+          margin: 24px 0 0;
+          &__email {
+            height: 28px;
+            width: 294px;
+            padding: 10px 16px 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: #fff;
+            font-size: 16px;
+          }
+          &__password {
+            height: 28px;
+            width: 294px;
+            padding: 10px 16px 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: #fff;
+            font-size: 16px;
+          }
+          &__robot {
+            height: 78px;
+            width: 328;
+          }
+        }
+        &__submit {
+          height: 48px;
+          width: 326px;
+          margin: 24px 0 0;
+          background: #ea352d;
+          border: 1px solid #ea352d;
+          color: #fff;
+          line-height: 48px;
+          font-size: 14px;
+          cursor: pointer;
+        }
+        &__text {
+          height: 14px;
+          width: 328px;
+          margin-top: 40px;
+          color: #0099e8;
+          text-decoration: none;
+          touch-action: manipulation;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
