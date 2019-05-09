@@ -17,7 +17,7 @@ class CreditsController < ApplicationController
 
   def pay
     card = Credit.where(user_id: session[:user_id]).first
-    @buyer = User.find(6)
+    @buyer = User.find(session[:user_id])
     if card.blank?
       redirect_to new_signup_pay_path
     else
