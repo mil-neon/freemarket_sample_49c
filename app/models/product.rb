@@ -4,7 +4,7 @@ class Product < ApplicationRecord
   enum shipping_feeh: { "送料込み(出品者負担)": 1, "着払い(購入者負担)": 2 }
   enum shipping_method: { "未定": 1, "らくらくメルカリ便": 2, "ゆうメール": 3, "レターパック": 4, "普通郵便(定形、定形外)": 5, "クロネコヤマト": 6, "ゆうパック": 7, "クリックポスト": 8, "ゆうパケット": 9 }
   enum shipping_date: { "1~2日で発送": 1, "2~3日で発送": 2, "4~7日で発送": 3 }
-  enum status: { "出品中": 1, "取引中": 2, "売却済": 3, "公開停止中": 4 }
+  enum status: { sell: 1, trade: 2, sold: 3, stop: 4 }
 
   belongs_to :user, optional: true
   has_many :likes
