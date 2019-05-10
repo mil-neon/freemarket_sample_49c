@@ -11,21 +11,42 @@
             名前(全角)
           %span.signup4-form-group__require.signup4-main__box__form__contents__name__require
             必須
-          = f.text_field :firstname_fullangle, placeholder: '例) 山田', class: 'signup4-form-group__form signup4-main__box__form__contents__name__form'
-          = f.text_field :lastname_fullangle, placeholder: '例) 彩', class: 'signup4-form-group__form signup4-main__box__form__contents__name__form'
+          = f.text_field :firstname_fullangle, value: session[:firstname_fullangle], placeholder: '例) 山田', class: 'signup4-form-group__form signup4-main__box__form__contents__name__form'
+        .flash
+          - if flash[:firstname_fullangle]
+            = flash[:firstname_fullangle]
+          = f.text_field :lastname_fullangle, value: session[:lastname_fullangle], placeholder: '例) 彩', class: 'signup4-form-group__form signup4-main__box__form__contents__name__form'
+        .flash
+          - if flash[:lastname_fullangle]
+            = flash[:lastname_fullangle]
         .signup4-form-group.signup4-main__box__form__contents__kana
           .signup4-form-group__name.signup4-main__box__form__contents__kana__text
             名前カナ(全角)
           %span.signup4-form-group__require.signup4-main__box__form__contents__kana__require
             必須
-          = f.text_field :firstname_kana, placeholder: '例) ヤマダ', class: 'signup4-form-group__form signup4-main__box__form__contents__kana__form'
-          = f.text_field :lastname_kana, placeholder: '例) アヤ', class: 'signup4-form-group__form signup4-main__box__form__contents__kana__form'
+          = f.text_field :firstname_kana, value: session[:firstname_kana], placeholder: '例) ヤマダ', class: 'signup4-form-group__form signup4-main__box__form__contents__kana__form'
+        .flash
+          - if flash[:firstname_kana]
+            = flash[:firstname_kana]
+        .flash
+          - if flash[:kana_first]
+            = flash[:kana_first]
+          = f.text_field :lastname_kana, value: session[:lastname_kana], placeholder: '例) アヤ', class: 'signup4-form-group__form signup4-main__box__form__contents__kana__form'
+        .flash
+          - if flash[:lastname_kana]
+            = flash[:lastname_kana]
+        .flash
+          - if flash[:kana_last]
+            = flash[:kana_last]
         .signup4-form-group.signup4-main__box__form__contents__postal-cord
           .signup4-form-group__name.signup4-main__box__form__contents__postal-cord__text
             郵便番号
           %span.signup4-form-group__require.signup4-main__box__form__contents__postal-cord__require
             必須
-          = f.number_field :postal_cord, placeholder: '例) 0000000', class: 'signup4-form-group__form signup4-main__box__form__contents__postal-cord__form'
+          = f.number_field :postal_cord, value: session[:postal_cord], placeholder: '例) 0000000', class: 'signup4-form-group__form signup4-main__box__form__contents__postal-cord__form'
+        .flash
+          - if flash[:postal_cord]
+            = flash[:postal_cord]
         .signup4-form-group.signup4-main__box__form__contents__prefecture
           .signup4-form-group__name.signup4-main__box__form__contents__prefecture__text
             都道府県
@@ -37,13 +58,19 @@
             市区町村
           %span.signup4-form-group__require.signup4-main__box__form__contents__city__require
             必須
-          = f.text_field :city, placeholder: '例) 横浜市緑区', class: 'signup4-form-group__form signup4-main__box__form__contents__city__form'
+          = f.text_field :city, value: session[:city], placeholder: '例) 横浜市緑区', class: 'signup4-form-group__form signup4-main__box__form__contents__city__form'
+        .flash
+          - if flash[:city]
+            = flash[:city]
         .signup4-form-group.signup4-main__box__form__contents__address-number
           .signup4-form-group__name.signup4-main__box__form__contents__address-number__text
             番地
           %span.signup4-form-group__require.signup4-main__box__form__contents__address-number__require
             必須
-          = f.text_field :address_number, placeholder: '例) 青山1-1-1', class: 'signup4-form-group__form signup4-main__box__form__contents__address-number__form'
+          = f.text_field :address_number, value: session[:address_number], placeholder: '例) 青山1-1-1', class: 'signup4-form-group__form signup4-main__box__form__contents__address-number__form'
+        .flash
+          - if flash[:address_number]
+            = flash[:address_number]
         .signup4-form-group.signup4-main__box__form__contents__building
           .signup4-form-group__name.signup4-main__box__form__contents__building__text
             建物名
