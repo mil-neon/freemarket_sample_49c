@@ -131,7 +131,7 @@
         商品の編集
     .product-detail__seller__or
       or
-    - if @product.status == "出品中"
+    - if @product.status == "公開停止中"
       .product-detail__seller__again
         = link_to buyer_path(@product.id), class: 'product-detail__seller__again__button' do
           出品を再開する
