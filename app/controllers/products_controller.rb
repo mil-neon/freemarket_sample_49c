@@ -52,6 +52,14 @@ class ProductsController < ApplicationController
     @category_product_image = Image.where(product_id: @category_product.ids).where.not(product_id: @other_product.ids)
   end
 
+  def destroy
+    @product = Product.find(params[:id])
+    if @product.seller_id == session[:user_id]
+      @product.destroy
+      redirect_to root_path
+    end
+  end
+
   def category
     @categories = Category.ransack(parent_id_eq: params[:id]).result
     respond_to do |format|
