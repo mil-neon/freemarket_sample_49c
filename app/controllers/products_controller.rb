@@ -54,10 +54,9 @@ class ProductsController < ApplicationController
 
   def destroy
     @product = Product.find(params[:id])
-    if @product.seller_id == session[:user_id]
-      @product.destroy
-      redirect_to root_path
-    end
+    return if @product.seller_id != session[:user_id]
+    @product.destroy
+    redirect_to root_path
   end
 
   def category
