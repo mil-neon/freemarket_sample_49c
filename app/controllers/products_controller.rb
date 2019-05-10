@@ -55,9 +55,11 @@ class ProductsController < ApplicationController
 
   def destroy
     return if @product.seller_id != session[:user_id]
-
-    @product.destroy
-    redirect_to root_path
+    if @product.destroy
+      redirect_to users_mypage_path
+    else
+      redirect_to action: 'show'
+    end
   end
 
   def category
