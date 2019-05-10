@@ -1,8 +1,8 @@
--if user_signed_in?
+- if user_signed_in?
   = link_to new_product_path, class: 'footer-sell-btn' do
     %div 出品
     %i.fas.fa-camera
--else
+- else
   = link_to new_login_path, class: 'footer-sell-btn' do
     %div 出品
     %i.fas.fa-camera
