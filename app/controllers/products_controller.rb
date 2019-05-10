@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  before_action :set_product, only: [:show, :destroy]
+
   def index
     @lady = Category.find(1)
     @ladies = Product.recent_category(1)
@@ -41,7 +43,6 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
     @seller = User.find_by(id: @product.seller_id)
     @grandchild = Category.find(@product.category_id)
     @parent = Category.find(@grandchild.parent_id)
@@ -53,7 +54,6 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product = Product.find(params[:id])
     return if @product.seller_id != session[:user_id]
 
     @product.destroy
@@ -76,5 +76,9 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:name, :description, :category_id, :brand_id, :size, :condition, :shipping_feeh, :shipping_method, :prefecture_id, :shipping_date, :price, images_attributes: [:image]).merge(seller_id: session[:user_id])
+  end
+
+  def set_product
+    @product = Product.find(params[:id])
   end
 end
