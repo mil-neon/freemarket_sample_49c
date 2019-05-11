@@ -22,9 +22,13 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @product = Product.new
-    @product.images.build
-    @categories = Category.ransack(parent_id_null: true).result
+    if session[:user_id]
+      @product = Product.new
+      @product.images.build
+      @categories = Category.ransack(parent_id_null: true).result
+    else
+      redirect_to new_login_path
+    end
   end
 
   def create
@@ -58,7 +62,7 @@ class ProductsController < ApplicationController
     if @product.destroy
       redirect_to users_mypage_path
     else
-      redirect_to action: 'show'
+      redirect_to action: 'show', controller: 'products'
     end
   end
 
