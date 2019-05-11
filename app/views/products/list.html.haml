@@ -1,0 +1,77 @@
+= render 'header'
+.list-container
+  .list-container__right
+    .list-container__right__head
+      = @category.name.to_s + "の商品一覧"
+  - if @parent_products != [] 
+    .list-container__right__contents
+      - @parent_products.each do |product|
+        .list-container__right__contents__item
+          = link_to product_path(product.id), class: 'list-container__right__contents__item__link' do
+            %figure.list-container__right__contents__item__link__figure
+              = image_tag product.images.first.image.url, class: "list-container__right__contents__item__link__figure__img"
+            .list-container__right__contents__item__link__body
+              .list-container__right__contents__item__link__body__name
+                = product.name
+              .list-container__right__contents__item__link__body__num
+                .list-container__right__contents__item__link__body__num__price
+                  = "¥" + product.price.to_s
+                .list-container__right__contents__item__link__body__num__good
+                  %i.far.fa-heart.list-container__right__contents__item__link__body__num__good__icon
+                  .list-container__right__contents__item__link__body__num__good__fig
+                    1
+              .list-container__right__contents__item__link__body__tax
+                (税込)
+        .list-container__right__contents__bottom
+          .list-container__right__contents__bottom__label
+            = @category.name
+          .list-container__right__contents__bottom__box
+  - elsif @child_products != [] 
+    .list-container__right__contents
+      - @child_products.each do |product|
+        .list-container__right__contents__item
+          = link_to product_path(product.id), class: 'list-container__right__contents__item__link' do
+            %figure.list-container__right__contents__item__link__figure
+              = image_tag product.images.first.image.url, class: "list-container__right__contents__item__link__figure__img"
+            .list-container__right__contents__item__link__body
+              .list-container__right__contents__item__link__body__name
+                = product.name
+              .list-container__right__contents__item__link__body__num
+                .list-container__right__contents__item__link__body__num__price
+                  = "¥" + product.price.to_s
+                .list-container__right__contents__item__link__body__num__good
+                  %i.far.fa-heart.list-container__right__contents__item__link__body__num__good__icon
+                  .list-container__right__contents__item__link__body__num__good__fig
+                    1
+              .list-container__right__contents__item__link__body__tax
+                (税込)
+      .list-container__right__contents__bottom
+        .list-container__right__contents__bottom__label
+          = @category.name
+        .list-container__right__contents__bottom__box
+
+  - elsif @category != []
+    .list-container__right__contents
+      - @products.each do |product|
+        .list-container__right__contents__item
+          = link_to product_path(product.id), class: 'list-container__right__contents__item__link' do
+            %figure.list-container__right__contents__item__link__figure
+              = image_tag product.images.first.image.url, class: "list-container__right__contents__item__link__figure__img"
+            .list-container__right__contents__item__link__body
+              .list-container__right__contents__item__link__body__name
+                = product.name
+              .list-container__right__contents__item__link__body__num
+                .list-container__right__contents__item__link__body__num__price
+                  = "¥" + product.price.to_s
+                .list-container__right__contents__item__link__body__num__good
+                  %i.far.fa-heart.list-container__right__contents__item__link__body__num__good__icon
+                  .list-container__right__contents__item__link__body__num__good__fig
+                    1
+              .list-container__right__contents__item__link__body__tax
+                (税込)
+        .list-container__right__contents__bottom
+          .list-container__right__contents__bottom__label
+            = @category.name
+          .list-container__right__contents__bottom__box
+= render 'botton'
+= render 'footer'

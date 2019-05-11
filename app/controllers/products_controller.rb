@@ -78,6 +78,20 @@ class ProductsController < ApplicationController
     @products = Product.where('name LIKE(?)', "%#{params[:keyword]}%")
   end
 
+  def list
+    @category = Category.find_by(id: params[:id])
+    @products = Product.where(category_id: @category.id)
+    @childs = Category.where(parent_id: @category.id)
+    @child_products = Product.where(category_id: @childs.ids)
+    @grandchilds = Category.where(parent_id: @childs.ids)
+    @parent_products = Product.where(category_id: @grandchilds.ids)
+  end
+
+  def brand
+    @brand = Brand.find_by(id: params[:id])
+    @products = Product.where(brand_id: @brand.id)
+  end
+
   private
 
   def product_params
