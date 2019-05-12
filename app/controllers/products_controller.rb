@@ -58,7 +58,7 @@ class ProductsController < ApplicationController
     @chat = Chat.new
     @chats = @product.chats.includes(:user)
     require 'date'
-    @today = Time.now
+    @today = Time.zone.now
   end
 
   def destroy
