@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :products, dependent: :destroy
   has_many :chats, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :chats, dependent: :destroy
   has_one :credit, dependent: :destroy
 
   validates :nickname, :email, :firstname_fullangle, :lastname_fullangle, :firstname_kana, :lastname_kana, :birthday, :postal_cord, :prefecture, :city, :address_number, presence: true

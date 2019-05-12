@@ -55,6 +55,10 @@ class ProductsController < ApplicationController
     @other_image = Image.where(product_id: @other_product.ids).where.not(product_id: @product.id)
     @category_product = Product.where(category_id: @product.category_id).limit(6)
     @category_product_image = Image.where(product_id: @category_product.ids).where.not(product_id: @other_product.ids)
+    @chat = Chat.new
+    @chats = @product.chats.includes(:user)
+    require 'date'
+    @today = Time.zone.now
   end
 
   def destroy
