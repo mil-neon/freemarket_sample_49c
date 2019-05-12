@@ -1,0 +1,17 @@
+.modal-wrapper
+  .modal-wrapper__inner
+    .modal-wrapper__inner__body
+      .modal-wrapper__inner__body__head
+        確認
+      削除すると二度と復活できません。
+      %br
+      削除する代わりに停止することもできます。
+      %br
+      %br
+      本当に削除しますか？
+    .modal-wrapper__inner__button
+      .modal-wrapper__inner__button--left
+        キャンセル
+      .modal-wrapper__inner__button--right
+        = link_to product_path(@product.id), method: :delete, class: 'product-detail__seller__delete__button' do
+          削除する

@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  before_action :set_product, only: [:show, :destroy]
+
   def index
     @lady = Category.find(1)
     @ladies = Product.recent_category(1)
@@ -20,9 +22,13 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @product = Product.new
-    @product.images.build
-    @categories = Category.ransack(parent_id_null: true).result
+    if session[:user_id]
+      @product = Product.new
+      @product.images.build
+      @categories = Category.ransack(parent_id_null: true).result
+    else
+      redirect_to new_login_path
+    end
   end
 
   def create
@@ -41,7 +47,6 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
     @seller = User.find_by(id: @product.seller_id)
     @grandchild = Category.find(@product.category_id)
     @parent = Category.find(@grandchild.parent_id)
@@ -56,6 +61,15 @@ class ProductsController < ApplicationController
     @today = Time.now
   end
 
+  def destroy
+    return if @product.seller_id != session[:user_id]
+    if @product.destroy
+      redirect_to users_mypage_path
+    else
+      redirect_to action: 'show', controller: 'products'
+    end
+  end
+
   def category
     @categories = Category.ransack(parent_id_eq: params[:id]).result
     respond_to do |format|
@@ -68,9 +82,27 @@ class ProductsController < ApplicationController
     @products = Product.where('name LIKE(?)', "%#{params[:keyword]}%")
   end
 
+  def list
+    @category = Category.find_by(id: params[:id])
+    @products = Product.where(category_id: @category.id)
+    @childs = Category.where(parent_id: @category.id)
+    @child_products = Product.where(category_id: @childs.ids)
+    @grandchilds = Category.where(parent_id: @childs.ids)
+    @parent_products = Product.where(category_id: @grandchilds.ids)
+  end
+
+  def brand
+    @brand = Brand.find_by(id: params[:id])
+    @products = Product.where(brand_id: @brand.id)
+  end
+
   private
 
   def product_params
     params.require(:product).permit(:name, :description, :category_id, :brand_id, :size, :condition, :shipping_feeh, :shipping_method, :prefecture_id, :shipping_date, :price, images_attributes: [:image]).merge(seller_id: session[:user_id])
+  end
+
+  def set_product
+    @product = Product.find(params[:id])
   end
 end

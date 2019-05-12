@@ -71,6 +71,11 @@ ActiveRecord::Schema.define(version: 2019_05_11_024606) do
     t.index ["product_id"], name: "index_images_on_product_id"
   end
 
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "product_id"
+  end
+
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "description", null: false
@@ -103,7 +108,7 @@ ActiveRecord::Schema.define(version: 2019_05_11_024606) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "nickname", null: false
+    t.string "nickname", default: "", null: false
     t.string "firstname_fullangle", null: false
     t.string "lastname_fullangle", null: false
     t.string "firstname_kana", null: false

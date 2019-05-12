@@ -131,7 +131,7 @@
         商品の編集
     .product-detail__seller__or
       or
-    - if @product.status == 3
+    - if @product.stop?
       .product-detail__seller__again
         = link_to buyer_path(@product.id), class: 'product-detail__seller__again__button' do
           出品を再開する
@@ -140,7 +140,5 @@
         = link_to buyer_path(@product.id), class: 'product-detail__seller__stop__button' do
           出品を一旦停止する
     .product-detail__seller__delete
-      = link_to buyer_path(@product.id), class: 'product-detail__seller__delete__button' do
+      .product-detail__seller__delete__button
         この商品を削除する
-
-
