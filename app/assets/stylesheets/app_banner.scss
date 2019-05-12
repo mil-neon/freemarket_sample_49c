@@ -1,0 +1,76 @@
+.app-banner {
+  background: url('app_banner.jpg');
+  background-position: center;
+  background-size: cover;
+  &-pc {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    width: 750px;
+    height: 260px;
+    margin: 0 auto;
+    color: #fff;
+    &-inner {
+      position: absolute;
+      top: 50%;
+      left: 16px;
+      transform: translate(0, -50%);
+      h2 {
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        margin: 0;
+        font-size: 16px;
+      }
+      p{
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        margin: 10px 0 0;
+        font-size: 24px;    
+      }
+      &-icon{
+        @include clearfix();
+        margin: 20px 0 0;
+        &-figure {
+          float: left;
+          margin: 0;
+          img{
+            width: 68px;
+          }
+        }
+        ul {
+          @include clearfix();
+          float: left;
+          margin: 0 0 0 24px;
+          line-height: 68px;
+          li {
+            float: left;
+            padding: 0;
+            a {
+              display: block;
+              line-height: 68px;
+              img {
+                vertical-align: middle;
+                width: 133px;
+                height: 40px;
+              }
+            }
+          }
+          li:last-child {
+            margin: 0 0 0 16px;
+          }
+        }
+      }
+    }
+    &-figure{
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 300px;
+      height: 100%;
+      margin: 0;
+      img {
+        width: 100%;
+        vertical-align: middle;
+      }
+    }
+  }
+}
