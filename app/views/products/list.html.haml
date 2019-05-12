@@ -1,9 +1,34 @@
 = render 'header'
+.bread-container
+  .bread-container__box
+    %li.bread-container__box__list
+      = link_to "メルカリ", root_path
+    - if @parent_products.present?
+      %i.fas.fa-chevron-right.bread-btn
+      %li.bread-container__box__last
+        = @category.name
+    -elsif @child_products.present?
+      %i.fas.fa-chevron-right.bread-btn
+      %li.bread-container__box__list
+        = link_to @parent_breadcrumb.name ,list_path(@parent_breadcrumb.id)
+      %i.fas.fa-chevron-right.bread-btn
+      %li.bread-container__box__last
+        = @category.name
+    -elsif @products.present?
+      %i.fas.fa-chevron-right.bread-btn
+      %li.bread-container__box__list
+        = link_to @child_breadcrumb.name ,list_path(@child_breadcrumb.id)
+      %i.fas.fa-chevron-right.bread-btn
+      %li.bread-container__box__list
+        = link_to @parent_breadcrumb.name ,list_path(@parent_breadcrumb.id)
+      %i.fas.fa-chevron-right.bread-btn
+      %li.bread-container__box__last
+        = @category.name
 .list-container
   .list-container__right
     .list-container__right__head
       = @category.name.to_s + "の商品一覧"
-  - if @parent_products != [] 
+  - if @parent_products.present? 
     .list-container__right__contents
       - @parent_products.each do |product|
         .list-container__right__contents__item
@@ -26,7 +51,7 @@
           .list-container__right__contents__bottom__label
             = @category.name
           .list-container__right__contents__bottom__box
-  - elsif @child_products != [] 
+  - elsif @child_products.present? 
     .list-container__right__contents
       - @child_products.each do |product|
         .list-container__right__contents__item
@@ -50,7 +75,7 @@
           = @category.name
         .list-container__right__contents__bottom__box
 
-  - elsif @category != []
+  - elsif @products.present?
     .list-container__right__contents
       - @products.each do |product|
         .list-container__right__contents__item
@@ -73,5 +98,8 @@
           .list-container__right__contents__bottom__label
             = @category.name
           .list-container__right__contents__bottom__box
+  - else 
+    .search-container__right__head
+      検索結果はありません
 = render 'botton'
 = render 'footer'

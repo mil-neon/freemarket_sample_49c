@@ -63,6 +63,7 @@ class ProductsController < ApplicationController
 
   def destroy
     return if @product.seller_id != session[:user_id]
+
     if @product.destroy
       redirect_to users_mypage_path
     else
@@ -89,6 +90,8 @@ class ProductsController < ApplicationController
     @child_products = Product.where(category_id: @childs.ids)
     @grandchilds = Category.where(parent_id: @childs.ids)
     @parent_products = Product.where(category_id: @grandchilds.ids)
+    @parent_breadcrumb = Category.find_by(id: @category.parent_id)
+    @child_breadcrumb = Category.find_by(id: @parent_breadcrumb.parent_id) unless @parent_breadcrumb.nil?
   end
 
   def brand
