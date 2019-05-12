@@ -6,12 +6,13 @@ class Product < ApplicationRecord
   enum shipping_date: { "1~2日で発送": 1, "2~3日で発送": 2, "4~7日で発送": 3 }
   enum status: { "出品中": 1, "取引中": 2, "売却済": 3, "公開停止中": 4 }
 
-  belongs_to :user, optional: true
+  has_many :chats, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :images, dependent: :destroy
   has_many :chats, dependent: :destroy
   belongs_to :brand, optional: true
   belongs_to :category
+  belongs_to :user, optional: true
   accepts_nested_attributes_for :images, allow_destroy: true
 
   validates :name, :description, :category_id, :condition, :shipping_feeh, :shipping_method, :prefecture_id, :shipping_date, :price, :seller_id, presence: true
