@@ -138,10 +138,12 @@
 .slick-dots{
   li{
     button{
-      height: 15px;
-      width: 15px;
-      background-color: rgb(238, 238, 238);
-      border-radius: 50%;
+      &::before{
+        height: 15px;
+        width: 15px;
+        background-color: rgb(116, 116, 116);
+        border-radius: 50%;
+      }
     }
   }
 }
