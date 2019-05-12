@@ -79,7 +79,7 @@
 }
 .active{
   .top-banner {
-    background-image: url("index_keyvisual.png");
+    background-image: image-url("index_keyvisual.png");
     background-color: rgb(231, 223, 221);
     display: block;
     background-size: 700px;
@@ -90,7 +90,7 @@
 }
 .nuko{
   .top-banner {
-    background-image: url("miyagito1.png");
+    background-image: image-url("miyagito1.png");
     background-color: rgb(77, 33, 55);
     display: block;
     background-size: 520px;
@@ -101,7 +101,7 @@
 }
 .donarudo{
   .top-banner {
-    background-image: url("tenor.gif");
+    background-image: image-url("tenor.gif");
     display: block;
     background-size: 520px;
     background-position: center;
@@ -120,7 +120,7 @@
 .slick-prev{
   height: 80px;
   width: 80px;
-  background-image: url("hidari.png");
+  background-image: image-url("hidari.png");
   z-index: 100;
   background-size: 30px;
   background-repeat: no-repeat;
@@ -129,7 +129,7 @@
 .slick-next{
   height: 80px;
   width: 80px;
-  background-image: url("migi.png");
+  background-image: image-url("migi.png");
   z-index: 100;
   background-size: 40px;
   background-repeat: no-repeat;
