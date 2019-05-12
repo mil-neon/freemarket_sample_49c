@@ -1,10 +1,14 @@
 class ChatsController < ApplicationController
   def create
-    @chat = Chat.create(chat_params)
-    @product = Product.find(params[:product_id])
-    @seller = User.find_by(id: @product.seller_id)
-    respond_to do |format|
-      format.json
+    if session[:user_id]
+      @chat = Chat.create(chat_params)
+      @product = Product.find(params[:product_id])
+      @seller = User.find_by(id: @product.seller_id)
+      respond_to do |format|
+        format.json
+      end
+    else
+      redirect_to new_login_path
     end
   end
 
