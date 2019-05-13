@@ -33,6 +33,7 @@ $(function () {
     })
     .done(function (response) {
       response.forEach(function (category) {
+        $("#product_category_id").attr("name", "");
         var childCategory = `<option value="${category.id}">${category.name}</option>`;
         $("#product_child_category_id").append(childCategory);
       });
@@ -69,6 +70,7 @@ $(function () {
     ).done(
       function (response) {
         response.forEach(function (category) {
+          $("#product_child_category_id").attr("name", "");
           $("#grand_child_category").css("display", "block");
           var grandChildCategory = `<option value="${category.id}">${category.name}</option>`;
           $("#product_grand_child_category_id").append(grandChildCategory);
