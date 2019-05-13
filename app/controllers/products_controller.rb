@@ -66,6 +66,18 @@ class ProductsController < ApplicationController
   end
 
   def update
+    if params[:images_attributes]
+      params[:images_attributes]['image'].each do |i|
+        @product.images.new(image: i)
+      end
+    end
+    if @product.update(product_params)
+      respond_to do |format|
+        format.json
+      end
+    else
+      render :edit
+    end
   end
 
   def destroy

@@ -1,0 +1,6 @@
+.sell-main__container__inner__form__upload-box__dropbox__container__items__item{id: "editItem-#{image.id}"}
+  %figure.sell-main__container__inner__form__upload-box__dropbox__container__items__item__figure
+    = image_tag image.image.url, id: "editImage-#{image.id}"
+  .sell-main__container__inner__form__upload-box__dropbox__container__items__item__button{id: "editButton-#{image.id}"}
+    %a.sell-main__container__inner__form__upload-box__dropbox__container__items__item__button__edit{"data-id": "#{image.id}"} 編集
+    %a.sell-main__container__inner__form__upload-box__dropbox__container__items__item__button__destroy{"data-id": "#{image.id}"} 削除

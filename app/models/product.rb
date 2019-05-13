@@ -6,7 +6,6 @@ class Product < ApplicationRecord
   enum shipping_date: { "1~2日で発送": 1, "2~3日で発送": 2, "4~7日で発送": 3 }
   enum status: { sell: 1, trade: 2, sold: 3, stop: 4 }
 
-
   has_many :chats, dependent: :destroy
   has_many :likes
   has_many :images, dependent: :destroy
