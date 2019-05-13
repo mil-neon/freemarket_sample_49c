@@ -6,15 +6,15 @@
     %title FreemarketSample49c
     %script{src: "https://js.pay.jp/", type: "text/javascript"}
     %script{src: "https://www.google.com/recaptcha/api.js", type: "text/javascript"}
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track': 'reload'
+    %link{href: "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css", rel: "stylesheet", type: "text/css"}/
     %link(href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet")
-    %link{href:".../path/to/slick.css", rel: "stylesheet"}/
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    %script{src: "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js", type: "text/javascript"}
     = favicon_link_tag('mercari_icon.png')
-    %script{src: "slick.js", type: "text/javascript"}
-    %script{src: "sample.js", type: "text/javascript"}
     %title メルカリ
     = csrf_meta_tags
     = csp_meta_tag
   %body
     = yield
+    

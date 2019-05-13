@@ -99,6 +99,8 @@
 |------|----|-------|
 |name	|string	|unique: true, null: false|
 |parent_id|references|null: false, foreign_key: true|
+||references|null: false, foreign_key: true|
+|size|boolean|null: false, default: false|
 
 ### Association
 * has_many :products

@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root 'products#index'
   get 'users/mypage' => 'users#mypage'
-  resources :products, only: [:index, :new, :create, :show, :destroy]
+  resources :products, only: [:index, :new, :create, :show, :destroy] do
+    resources :chats, only: :create
+  end
   resources :search, to: 'products#search', only: :index
   resources :buyers, only: [:show, :index]
   resources :users, only: [:new]
@@ -19,4 +21,6 @@ Rails.application.routes.draw do
   resource :pay, to: 'credits#pay', only: :create
   resource :sns, to: 'sessions#sns', path: 'auth/:provider/callback', only: :show
   resource :category, to: 'products#category', only: :show
+  resource :list, to: 'products#list', path: 'list/:id', only: :show
+  resource :brand, to: 'products#brand', path: 'brand/:id', only: :show
 end

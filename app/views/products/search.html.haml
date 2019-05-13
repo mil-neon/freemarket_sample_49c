@@ -1,4 +1,11 @@
 = render 'header'
+.bread-container
+  .bread-container__box
+    %li.bread-container__box__list
+      = link_to "メルカリ", root_path
+    %i.fas.fa-chevron-right.bread-btn
+    %li.bread-container__box__last
+      = "#{params[:keyword]}"
 .search-container
   .search-container__left
     = form_tag('/search', method: :get, class: 'search-container__left__form') do

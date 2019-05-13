@@ -59,6 +59,10 @@ class ProductsController < ApplicationController
     @other_image = Image.where(product_id: @other_product.ids).where.not(product_id: @product.id)
     @category_product = Product.where(category_id: @product.category_id).limit(6)
     @category_product_image = Image.where(product_id: @category_product.ids).where.not(product_id: @other_product.ids)
+    @chat = Chat.new
+    @chats = @product.chats.includes(:user)
+    require 'date'
+    @today = Time.zone.now
   end
 
   def update
@@ -66,6 +70,7 @@ class ProductsController < ApplicationController
 
   def destroy
     return if @product.seller_id != session[:user_id]
+
     if @product.destroy
       redirect_to users_mypage_path
     else
@@ -83,6 +88,22 @@ class ProductsController < ApplicationController
 
   def search
     @products = Product.where('name LIKE(?)', "%#{params[:keyword]}%")
+  end
+
+  def list
+    @category = Category.find_by(id: params[:id])
+    @products = Product.where(category_id: @category.id)
+    @childs = Category.where(parent_id: @category.id)
+    @child_products = Product.where(category_id: @childs.ids)
+    @grandchilds = Category.where(parent_id: @childs.ids)
+    @parent_products = Product.where(category_id: @grandchilds.ids)
+    @parent_breadcrumb = Category.find_by(id: @category.parent_id)
+    @child_breadcrumb = Category.find_by(id: @parent_breadcrumb.parent_id) unless @parent_breadcrumb.nil?
+  end
+
+  def brand
+    @brand = Brand.find_by(id: params[:id])
+    @products = Product.where(brand_id: @brand.id)
   end
 
   private

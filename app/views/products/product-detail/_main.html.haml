@@ -1,3 +1,10 @@
+.bread-container
+  .bread-container__box
+    %li.bread-container__box__list
+      = link_to "メルカリ", root_path
+    %i.fas.fa-chevron-right.bread-btn
+    %li.bread-container__box__last
+      = @product.name
 .product-detail__item
   .product-detail__item__name
     = @product.name
