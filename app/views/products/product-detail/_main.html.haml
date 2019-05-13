@@ -1,19 +1,33 @@
+.bread-container
+  .bread-container__box
+    %li.bread-container__box__list
+      = link_to "メルカリ", root_path
+    %i.fas.fa-chevron-right.bread-btn
+    %li.bread-container__box__last
+      = @product.name
 .product-detail__item
   .product-detail__item__name
-    supreme
+    = @product.name
   .product-detail__item__main
     .product-detail__item__main__photo
-      = image_tag ("/ダウンロード.jpeg"), class: 'product-detail__item__main__photo__biggest'
-      .product-detail__item__main__photo__mini-box
-        - @images.each do |image|
-          = image_tag (image), class: 'product-detail__item__main__photo__mini-box__dot'
+      -if @product.buyer_id
+        = image_tag @product.images.first.image.url, class: 'product-detail__item__main__photo__biggest'
+        %figcaption.product-detail__item__main__photo__sold
+          .product-detail__item__main__photo__sold__label
+            .product-detail__item__main__photo__sold__label__string
+              SOLD
+      -else
+        = image_tag @product.images.first.image.url, class: 'product-detail__item__main__photo__biggest'
+        .product-detail__item__main__photo__mini-box
+          - @product.images.each do |image|
+            = image_tag image.image.url, class: 'product-detail__item__main__photo__mini-box__dot'
     %table.product-detail__item__main__table
       %tbody.product-detail__item__main__table__tbody
         %tr.product-detail__item__main__table__tbody__tr
           %th.product-detail__item__main__table__tbody__tr__th
             出品者
           %td.product-detail__item__main__table__tbody__tr__td
-            = link_to @user.nickname, root_path, class: 'product-detail__item__main__table__tbody__tr__td__user-name'
+            = link_to @seller.nickname, root_path, class: 'product-detail__item__main__table__tbody__tr__td__user-name'
             .product-detail__item__main__table__tbody__tr__td__rating-box
               .product-detail__item__main__table__tbody__tr__td__rating-box__ratings-left
                 %i.far.fa-grin-hearts.product-detail__item__main__table__tbody__tr__td__rating-box__ratings-left__icon-good
@@ -32,60 +46,71 @@
             カテゴリー
           %td.product-detail__item__main__table__tbody__tr__td
             = link_to root_path, class: 'product-detail__item__main__table__tbody__tr__td__main-category' do
-              カテゴリ
+              = @category.name
             = link_to root_path, class: 'product-detail__item__main__table__tbody__tr__td__sub-category' do
               %i.fas.fa-chevron-right
-              カテゴリ
+              = @parent.name
             = link_to root_path, class: 'product-detail__item__main__table__tbody__tr__td__sub-category' do
               %i.fas.fa-chevron-right
-              カテゴリ
+              = @grandchild.name
         %tr.product-detail__item__main__table__tbody__tr
           %th.product-detail__item__main__table__tbody__tr__th
             ブランド
           %td.product-detail__item__main__table__tbody__tr__td
             = link_to root_path, class: 'product-detail__item__main__table__tbody__tr__td__brand' do
-              ブランド名
+              = @product.brand.name
         %tr.product-detail__item__main__table__tbody__tr
           %th.product-detail__item__main__table__tbody__tr__th
             商品のサイズ
           %td.product-detail__item__main__table__tbody__tr__td
-            XL
+            = @product.size
         %tr.product-detail__item__main__table__tbody__tr
           %th.product-detail__item__main__table__tbody__tr__th
             商品の状態
           %td.product-detail__item__main__table__tbody__tr__td
-            未使用に近い
+            = @product.condition
         %tr.product-detail__item__main__table__tbody__tr
           %th.product-detail__item__main__table__tbody__tr__th
             配送料の負担
           %td.product-detail__item__main__table__tbody__tr__td
-            送料込み(出品者負担)
+            = @product.shipping_feeh
         %tr.product-detail__item__main__table__tbody__tr
           %th.product-detail__item__main__table__tbody__tr__th
             配送の方法
           %td.product-detail__item__main__table__tbody__tr__td
-            未定
+            = @product.shipping_method
         %tr.product-detail__item__main__table__tbody__tr
           %th.product-detail__item__main__table__tbody__tr__th
             配送元地域
           %td.product-detail__item__main__table__tbody__tr__td
             = link_to root_path, class: 'product-detail__item__main__table__tbody__tr__td__place' do
-              神奈川県
+              = @product.prefecture.name
         %tr.product-detail__item__main__table__tbody__tr
           %th.product-detail__item__main__table__tbody__tr__th
             発送日の目安
           %td.product-detail__item__main__table__tbody__tr__td
-            1~2日で発送
+            = @product.shipping_date
   .product-detail__item__price-box
     .product-detail__item__price-box__price
-      ¥10,000
+      = '¥' + @product.price.to_s
     .product-detail__item__price-box__tax
       (税込)
     .product-detail__item__price-box__shipping-fee
       送料込み
-  .product-detail__item__buy
-    = link_to root_path, class: 'product-detail__item__buy__button' do
-      購入画面に進む
+  - if @seller.id != session[:user_id]
+    -if @product.buyer_id
+      .product-detail__item__sold-btn
+        .product-detail__item__buy__button
+          売り切れました
+    -else
+      -if user_signed_in?
+        .product-detail__item__buy
+          = link_to buyer_path(@product.id), class: 'product-detail__item__buy__button' do
+            購入画面に進む
+      -else
+        .product-detail__item__buy
+          = link_to new_login_path, class: 'product-detail__item__buy__button' do
+            購入画面に進む
   .product-detail__item__description-box
     .product-detail__item__description-box__text
       = @product.description
@@ -101,4 +126,21 @@
         %i.fas.fa-lock.product-detail__item__button-box__right__report__icon
         %span.product-detail__item__button-box__right__report__text
           あんしん・あんぜんへの取り組み
-
+- if @seller.id == session[:user_id]
+  .product-detail__seller
+    .product-detail__seller__edit
+      = link_to buyer_path(@product.id), class: 'product-detail__seller__edit__button' do
+        商品の編集
+    .product-detail__seller__or
+      or
+    - if @product.stop?
+      .product-detail__seller__again
+        = link_to buyer_path(@product.id), class: 'product-detail__seller__again__button' do
+          出品を再開する
+    - else
+      .product-detail__seller__stop
+        = link_to buyer_path(@product.id), class: 'product-detail__seller__stop__button' do
+          出品を一旦停止する
+    .product-detail__seller__delete
+      .product-detail__seller__delete__button
+        この商品を削除する

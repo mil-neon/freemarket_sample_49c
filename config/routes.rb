@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   root 'products#index'
-  resources :products, only: [:index, :new, :show]
-  resources :buyers, only: [:show]
+  get 'users/mypage' => 'users#mypage'
+  resources :products, only: [:index, :new, :create, :show, :destroy] do
+    resources :chats, only: :create
+  end
+  resources :search, to: 'products#search', only: :index
+  resources :buyers, only: [:show, :index]
   resources :users, only: [:new]
   resource :login, to: 'users#login', only: :new
   resource :registration, controller: 'sessions', only: [:new, :create]
@@ -10,9 +14,15 @@ Rails.application.routes.draw do
   resource :signup_address, to: 'sessions#signup_address', only: :new
   resource :create_address, to: 'sessions#create_address', only: :create
   resource :signup_pay, to: 'sessions#signup_pay', only: :new
+  resource :credits, only: [:create]
   resource :complete, to: 'sessions#complete', only: :new
   resource :logout, to: 'sessions#logout', only: :new
   resource :login, to: 'sessions#login', only: :create
   resource :likes, to: 'likes#create', path: 'likes/:product_id/create', only: :create, as: 'like'
   resource :likes, to: 'likes#destroy', path: 'likes/:product_id/destroy', only: :destroy, as: 'unlike'
+　resource :pay, to: 'credits#pay', only: :create
+  resource :sns, to: 'sessions#sns', path: 'auth/:provider/callback', only: :show
+  resource :category, to: 'products#category', only: :show
+  resource :list, to: 'products#list', path: 'list/:id', only: :show
+  resource :brand, to: 'products#brand', path: 'brand/:id', only: :show
 end

@@ -12,8 +12,12 @@
             メールアドレスで登録
         .signup__box__main__content__facebook
           %i.fab.fa-facebook.icon-facebook
-          Facebookで登録
+          = link_to "/auth/facebook" do
+            Facebookで登録
+        - if flash[:notice]
+          = flash[:notice]
         .signup__box__main__content__google
           %i.fab.fa-google.icon-google
-          Googleで登録
+          = link_to "/auth/google_oauth2" do
+            Googleで登録
 = render 'buyers/buyer-footer'

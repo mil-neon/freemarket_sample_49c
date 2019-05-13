@@ -1,0 +1,37 @@
+.l-side {
+  margin: 40px auto 0;
+  float: left;
+  li{
+    display: list-item;
+    }
+  .mypage-nav {
+  margin:0;
+  padding:0;
+  .mypage-nav-head  {
+  font-size:16px;
+  font-weight: bold;
+  margin-top:40px;
+  margin-bottom: 5px;
+  }
+  &-list-item {
+  text-decoration: none;
+  display: block;
+  min-height: 15px;
+  padding: 16px;
+  background: $white;
+  color: $list_black;
+  line-height:10px;
+  border-bottom: 1px solid #eee;
+  &:hover {
+  opacity: 1;
+    }
+  }
+  .fa-angle-right{
+  float:right;
+  margin-top: -40px;
+  margin-right:20px;
+  font-size:25px;
+  color: $light_gray;
+    }
+  }
+}
