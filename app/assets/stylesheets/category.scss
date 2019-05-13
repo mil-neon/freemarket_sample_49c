@@ -1,0 +1,114 @@
+.header__container__bottom__left__search--menu__list__categories{
+  position: relative;
+  .category-menu{
+    &__level1{
+      display: none;
+      height: auto;
+      width: auto;
+      position: absolute;
+      top: 44px;
+      left: 0;
+      z-index: 1000;
+      background: #fff;
+      box-shadow: 0 1px 1px 0 rgba(0,0,0,0.24);
+      li{
+        position: static;
+        width: 224px;
+        font-weight: 400;
+        font-size: 14px;
+        a{
+          padding: 0 16px;
+          line-height: 44px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          font-size: 14px;
+          display: block;
+          color: #333;
+        }
+        a:hover {
+          color: white;
+        }
+      }
+      &__level2{
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 245px;
+        bottom: 0;
+        background: #fff;
+        box-shadow: 0 1px 1px 0 rgba(0,0,0,0.24);
+        li{
+          width: 224px;
+          a{
+            line-height: 30px;
+            padding: 0px 16px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-decoration: none;
+            white-space: nowrap;
+            font-size: 14px;
+            display: block;
+            color: #333;
+          }
+          a:hover {
+            color: #333;
+          }
+        }
+        &__level3{
+          display: none;
+          position: absolute;
+          top: 0;
+          left: 245px;
+          bottom: 0;
+          background: #fff;
+          box-shadow: 0 1px 1px 0 rgba(0,0,0,0.24);
+          li{
+            width: 320px;
+            a{
+              padding: 0px 16px;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              font-size: 14px;
+              display: block;
+              color: #333;
+              text-decoration: none;
+              touch-action: manipulation;
+            }
+            a:hover {
+              color: #333;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.header__container__bottom__left__search--menu__list__brands{
+  position: relative;
+  .brand-menu__level1{
+    display: none;
+    left: 0;
+    position: absolute;
+    top: 44px;
+    z-index: 1000;
+    background: #fff;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.24);
+    a{
+      width: 180px;
+      font-weight: 400;
+      font-size: 14px;
+      padding: 0 16px;
+      line-height: 44px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      display: block;
+      color: #333;
+    }
+    a:hover {
+      color: white;
+    }
+  }
+}

@@ -10,10 +10,14 @@
     .login1__main__inner
       .login1__main__inner__facebook
         %i.fab.fa-facebook.login1__main__inner__facebook__btn
-        Facebookでログイン
+        = link_to "/auth/facebook" do
+          Facebookでログイン
+      - if flash[:notice]
+        = flash[:notice]
       .login1__main__inner__google
         %i.fab.fa-google.login1__main__inner__google__btn
-        Googleでログイン
+        = link_to "/auth/google_oauth2" do
+          Googleでログイン
     = form_with url: login_path, html: { class: "login1__main__form" } do |f|
       .login1__main__form__inner
         .login1__main__form__inner__group

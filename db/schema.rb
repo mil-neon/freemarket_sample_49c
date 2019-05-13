@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_01_081750) do
+ActiveRecord::Schema.define(version: 2019_05_11_024606) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -28,12 +28,39 @@ ActiveRecord::Schema.define(version: 2019_05_01_081750) do
     t.index ["category_id"], name: "index_brands_categories_on_category_id"
   end
 
+  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "customer_id", null: false
+    t.string "card_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "parent_id", null: false
+    t.bigint "parent_id"
     t.index ["parent_id"], name: "index_categories_on_parent_id"
+  end
+
+  create_table "chats", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "comment", null: false
+    t.bigint "user_id", null: false
+    t.bigint "product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_chats_on_product_id"
+    t.index ["user_id"], name: "index_chats_on_user_id"
+  end
+
+  create_table "credits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "customer_id", null: false
+    t.string "card_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_credits_on_user_id"
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -47,11 +74,10 @@ ActiveRecord::Schema.define(version: 2019_05_01_081750) do
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "description", null: false
-    t.integer "size", null: false
+    t.integer "size"
     t.integer "condition", null: false
-    t.integer "select_shipping_feeh", null: false
+    t.integer "shipping_feeh", null: false
     t.integer "shipping_method", null: false
-    t.integer "area", null: false
     t.integer "shipping_date", null: false
     t.integer "price", null: false
     t.bigint "seller_id", null: false
@@ -62,6 +88,7 @@ ActiveRecord::Schema.define(version: 2019_05_01_081750) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "prefecture_id", null: false
+    t.integer "status", default: 1, null: false
     t.index ["brand_id"], name: "index_products_on_brand_id"
     t.index ["buyer_id"], name: "index_products_on_buyer_id"
     t.index ["category_id"], name: "index_products_on_category_id"
@@ -76,7 +103,7 @@ ActiveRecord::Schema.define(version: 2019_05_01_081750) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "nickname", default: "", null: false
+    t.string "nickname", null: false
     t.string "firstname_fullangle", null: false
     t.string "lastname_fullangle", null: false
     t.string "firstname_kana", null: false
@@ -86,11 +113,13 @@ ActiveRecord::Schema.define(version: 2019_05_01_081750) do
     t.string "city", null: false
     t.string "address_number", null: false
     t.string "building_name"
-    t.integer "phone_number", null: false
     t.string "icon_image"
     t.text "profile"
     t.integer "prefecture_id", null: false
     t.string "password"
+    t.string "phone_number"
+    t.string "uid"
+    t.string "provider"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -98,6 +127,9 @@ ActiveRecord::Schema.define(version: 2019_05_01_081750) do
   add_foreign_key "brands_categories", "brands"
   add_foreign_key "brands_categories", "categories"
   add_foreign_key "categories", "categories", column: "parent_id"
+  add_foreign_key "chats", "products"
+  add_foreign_key "chats", "users"
+  add_foreign_key "credits", "users"
   add_foreign_key "images", "products"
   add_foreign_key "products", "brands"
   add_foreign_key "products", "categories"
