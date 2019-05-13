@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
 
   def show
     @user = User.find(1)
-    @products = Product.find(1)
-    @images = @products.images.pluck("image")
+    @product = Product.find(10)
+    @images = @product.images.pluck("image")
   end
 end
