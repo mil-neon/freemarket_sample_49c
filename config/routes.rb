@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
   root 'products#index'
-  post "likes/:product_id/create" => "likes#create", as: 'like'
-  post "likes/:product_id/destroy" => "likes#destroy", as: 'unlike'
   resources :products, only: [:index, :new, :show]
   resources :buyers, only: [:show]
   resources :users, only: [:new]
@@ -15,4 +13,6 @@ Rails.application.routes.draw do
   resource :complete, to: 'sessions#complete', only: :new
   resource :logout, to: 'sessions#logout', only: :new
   resource :login, to: 'sessions#login', only: :create
+  resource :likes, to: 'likes#create', path: 'likes/:product_id/create', only: :create, as: 'like'
+  resource :likes, to: 'likes#destroy', path: 'likes/:product_id/destroy', only: :destroy, as: 'unlike'
 end

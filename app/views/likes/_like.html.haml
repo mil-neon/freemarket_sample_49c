@@ -3,7 +3,7 @@
     - if user_signed_in?
       - if Like.find_by( user_id: current_user.id, product_id: product.id)
         %i.fas.fa-heart.product-detail__item__button-box__left__good__text__heart
-        = link_to("いいね！", unlike_path(product.id), method: :post, remote: true) 
+        = link_to("いいね！", unlike_path(product.id), method: :delete, remote: true) 
         %span.product-detail__item__button-box__left__good__count
           = product.likes_count
       - else
