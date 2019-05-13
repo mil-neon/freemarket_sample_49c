@@ -116,7 +116,7 @@
       = @product.description
   .product-detail__item__button-box
     .product-detail__item__button-box__left{id: "like-link-#{@product.id}"}
-      = render partial: 'likes/like', locals: { product: @product}
+      = render partial: 'likes/like', locals: { product: @product, likes: @likes}
     .product-detail__item__button-box__left2
       = link_to root_path, class: 'product-detail__item__button-box__left2__report' do
         %i.fas.fa-flag-checkered
