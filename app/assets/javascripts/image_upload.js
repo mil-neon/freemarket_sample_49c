@@ -1,35 +1,34 @@
 $(function(){
 
+  var imageCount = $(".sell-main__container__inner__form__upload-box").data('image_count');
   var imageList = [];
-  var imageCount = 0;
   var imageNum = 0;
 
   function addPreviewToUpload(image, index) {
 
-    const container = `<div class="sell-main__container__inner__form__upload-box__dropbox__container__items" id="product-${index}">
-                    <div class="sell-main__container__inner__form__upload-box__dropbox__container__items__item">
-                      <figure class="sell-main__container__inner__form__upload-box__dropbox__container__items__item__figure">
-                        <img src="${image}" id="image-${index}"/>
-                      </figure>
-                      <div class="sell-main__container__inner__form__upload-box__dropbox__container__items__item__button" id="upButton-${index}">
-                        <a class="sell-main__container__inner__form__upload-box__dropbox__container__items__item__button__edit" data-id="${index}">編集</a>
-                        <a class="sell-main__container__inner__form__upload-box__dropbox__container__items__item__button__edit" data-id="${index}">削除</a>
-                      </div>
-                    </div>
-                  </div>`
-
-    const upload = `<div class="sell-main__container__inner__form__upload-box__dropbox__upload">
-                        <div class="sell-main__container__inner__form__upload-box__dropbox__upload__wrap">
-                          <pre class="sell-main__container__inner__form__upload-box__dropbox__upload__wrap--visible">
-                            ドラッグアンドドロップ
-                            またはクリックしてファイルをアップロード
-                          </pre>
+    const container = `<div 
+                    class="sell-main__container__inner__form__upload-box__dropbox__container__items__item">
+                        <figure class="sell-main__container__inner__form__upload-box__dropbox__container__items__item__figure">
+                          <img src="${image}" id="image-${index}"/>
+                        </figure>
+                        <div class="sell-main__container__inner__form__upload-box__dropbox__container__items__item__button" id="upButton-${index}">
+                          <a class="sell-main__container__inner__form__upload-box__dropbox__container__items__item__button__edit" data-id="${index}">編集</a>
+                          <a class="sell-main__container__inner__form__upload-box__dropbox__container__items__item__button__destroy" data-id="${index}">削除</a>
                         </div>
                       </div>`
 
+    const upload = `<div class="sell-main__container__inner__form__upload-box__dropbox__upload">
+                      <div class="sell-main__container__inner__form__upload-box__dropbox__upload__wrap">
+                        <pre class="sell-main__container__inner__form__upload-box__dropbox__upload__wrap--visible">
+                          ドラッグアンドドロップ
+                          またはクリックしてファイルをアップロード
+                        </pre>
+                      </div>
+                    </div>`
+
     $(".sell-main__container__inner__form__upload-box__dropbox__upload").empty();
     $(".sell-main__container__inner__form__upload-box__dropbox__upload").css("display", "none");
-    $(".sell-main__container__inner__form__upload-box__dropbox").append(container);
+    $(".sell-main__container__inner__form__upload-box__dropbox__container").append(container);
     $(".sell-main__container__inner__form__upload-box__dropbox").append(upload);
     if (imageCount == 10) {
       $(".sell-main__container__inner__form__upload-box__dropbox__upload__wrap").css("display", "none");
@@ -129,6 +128,15 @@ $(function(){
     $('#new_product').on('submit', function(e){
 
       e.preventDefault();
+
+      if ($('#product_grand_child_category_id').is(':visible')) {
+        $("#product_grand_child_category_id").attr("name", "product[category_id]");
+      } else if ($('#product_child_category_id').is(':visible')) {
+        $("#product_child_category_id").attr("name", "product[category_id]");
+      } else if ($('#product_category_id').is(':visible')) {
+        $("#product_category_id").attr("name", "product[category_id]");
+      }
+
       var formData = new FormData($(this).get(0));
       var url = $(this).attr('action');
 
@@ -147,7 +155,6 @@ $(function(){
         dataType: 'json',
       })
       .done(function(){
-        $('#new_product')[0].reset();
         location.href = "/products";
       })
       .fail(function(){
