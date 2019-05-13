@@ -32,4 +32,7 @@ class Product < ApplicationRecord
   scope :recent_brand, lambda { |count|
     where(brand_id: count).order(created_at: :DESC).limit(4)
   }
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :prefecture
 end
