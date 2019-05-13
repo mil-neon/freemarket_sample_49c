@@ -84,7 +84,7 @@
             配送元地域
           %td.product-detail__item__main__table__tbody__tr__td
             = link_to root_path, class: 'product-detail__item__main__table__tbody__tr__td__place' do
-              = @product.prefecture_id
+              = @product.prefecture.name
         %tr.product-detail__item__main__table__tbody__tr
           %th.product-detail__item__main__table__tbody__tr__th
             発送日の目安
