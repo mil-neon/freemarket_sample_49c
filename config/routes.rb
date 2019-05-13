@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'products#index'
   get 'users/mypage' => 'users#mypage'
-  resources :products, only: [:index, :new, :create, :show, :destroy] do
+  resources :products do
     resources :chats, only: :create
   end
   resources :search, to: 'products#search', only: :index

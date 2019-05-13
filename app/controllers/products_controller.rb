@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :destroy]
+  before_action :set_product, only: [:edit, :show, :update, :destroy]
 
   def index
     @lady = Category.find(1)
@@ -46,6 +46,10 @@ class ProductsController < ApplicationController
     end
   end
 
+  def edit
+    @categories = Category.ransack(parent_id_null: true).result
+  end
+
   def show
     @seller = User.find_by(id: @product.seller_id)
     @grandchild = Category.find(@product.category_id)
@@ -61,9 +65,23 @@ class ProductsController < ApplicationController
     @today = Time.zone.now
   end
 
+  def update
+    if params[:images_attributes]
+      params[:images_attributes]['image'].each do |i|
+        @product.images.new(image: i)
+      end
+    end
+    if @product.update(product_params)
+      respond_to do |format|
+        format.json
+      end
+    else
+      render :edit
+    end
+  end
+
   def destroy
     return if @product.seller_id != session[:user_id]
-
     if @product.destroy
       redirect_to users_mypage_path
     else

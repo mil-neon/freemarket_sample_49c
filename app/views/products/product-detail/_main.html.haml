@@ -134,7 +134,7 @@
 - if @seller.id == session[:user_id]
   .product-detail__seller
     .product-detail__seller__edit
-      = link_to buyer_path(@product.id), class: 'product-detail__seller__edit__button' do
+      = link_to edit_product_path(@product.id), class: 'product-detail__seller__edit__button' do
         商品の編集
     .product-detail__seller__or
       or
