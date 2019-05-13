@@ -70,7 +70,6 @@ class ProductsController < ApplicationController
 
   def destroy
     return if @product.seller_id != session[:user_id]
-
     if @product.destroy
       redirect_to users_mypage_path
     else
