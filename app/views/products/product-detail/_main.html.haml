@@ -88,16 +88,16 @@
       購入画面に進む
   .product-detail__item__description-box
     .product-detail__item__description-box__text
-      = @products.description
+      = @product.description
   .product-detail__item__button-box
-    .product-detail__item__button-box__left
-      = render 'products/product-detail/like',  locals: {product: @product}
-      = link_to root_path, class: 'product-detail__item__button-box__left__report' do
+    .product-detail__item__button-box__left{id: "like-link-#{@product.id}"}
+      = render partial: 'likes/like', locals: { product: @product}
+    .product-detail__item__button-box__left2
+      = link_to root_path, class: 'product-detail__item__button-box__left2__report' do
         %i.fas.fa-flag-checkered
-        %span.product-detail__item__button-box__left__report__text
+        %span.product-detail__item__button-box__left2__report__text
           不適切な商品の報告
-    .product-detail__item__button-box__right
-      = link_to root_path, class: 'product-detail__item__button-box__right__report' do
+      = link_to root_path, class: 'product-detail__item__button-box__left2__right' do
         %i.fas.fa-lock.product-detail__item__button-box__right__report__icon
         %span.product-detail__item__button-box__right__report__text
           あんしん・あんぜんへの取り組み
