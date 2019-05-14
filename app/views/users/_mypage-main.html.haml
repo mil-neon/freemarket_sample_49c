@@ -6,7 +6,7 @@
           .none
             =image_tag("member_no_member.png")
           %p.user-name
-            Yuki
+            = @user.nickname
         .under-content
           %span.counter-label 評価
           %span.counter 0
@@ -19,10 +19,10 @@
       %input#tab-todo{type: "radio",name: "tab_btn1"}
       %label.tab_btn1{for: "tab-todo"}やることリスト
       .tab_pages#info-contents
-        .none-content
+        .none-content{style: "background-image: url(#{image_path 'mercari_icon.grly.png'})"}
           %p 現在、お知らせはありません
       .tab_pages#todo-contents
-        .none-content
+        .none-content{style: "background-image: url(#{image_path 'mercari_icon.grly.png'})"}
           %p 現在、やることリストはありません
   .content-buy-items
     .content-buy-items__header
@@ -34,7 +34,15 @@
       %label.tab_btn2{for: "tab-past-transaction"}過去の取引
       .tab_pages#transaction-contents
         %ul.mypage-item-list
-          %p 取引中の商品がありません
+          -if products_buy_now.present?
+            = render partial: "item_transaction", collection: products_buy_now
+          -else
+            .none-content{style: "background-image: url(#{image_path 'mercari_icon.grly.png'})"}
+              %p 取引中の商品がありません
       .tab_pages#past-transaction-contents
         %ul.mypage-item-list
-          %p 過去に取引した商品がありません
+          -if products_buy_close.present?
+            = render partial: "item_transaction", collection: products_buy_close
+          -else
+            .none-content{style: "background-image: url(#{image_path 'mercari_icon.grly.png'})"}
+              %p 過去に取引した商品がありません
