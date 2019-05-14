@@ -7,6 +7,17 @@ class UsersController < ApplicationController
   end
 
   def mypage
+  def update_profile
+    if @user.update_attributes(update_params)
+      redirect_to mypage_path
+    else
+      render edit_edit_profile_path
+    end
+  end
+
+  def edit_profile
+  end
+
   def set_user
     @user = User.find(session[:user_id]) if session[:user_id] != nil
   end
