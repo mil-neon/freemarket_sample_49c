@@ -1,0 +1,7 @@
+%li
+  =link_to product_path(item_transaction.id), class: "mypage-item-link" do
+    %figure
+      = image_tag item_transaction.images.first.image.url
+    .mypage-item-body
+      .mypage-item-text=item_transaction.name
+    %i.fa.fa-angle-right.icon
