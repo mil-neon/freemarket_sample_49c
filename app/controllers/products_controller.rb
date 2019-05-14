@@ -117,6 +117,16 @@ class ProductsController < ApplicationController
     @products = Product.where(brand_id: @brand.id)
   end
 
+  def stop_shipping
+    Product.find(params[:id]).update(status: 4)
+    redirect_to product_path(params[:id])
+  end
+
+  def shipping_again
+    Product.find(params[:id]).update(status: 1)
+    redirect_to product_path(params[:id])
+  end
+
   private
 
   def product_params

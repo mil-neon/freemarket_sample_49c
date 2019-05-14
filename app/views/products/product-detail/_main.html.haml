@@ -140,11 +140,11 @@
       or
     - if @product.stop?
       .product-detail__seller__again
-        = link_to buyer_path(@product.id), class: 'product-detail__seller__again__button' do
+        = link_to shipping_again_path(@product.id), method: :patch, class: 'product-detail__seller__again__button' do
           出品を再開する
     - else
       .product-detail__seller__stop
-        = link_to buyer_path(@product.id), class: 'product-detail__seller__stop__button' do
+        = link_to stop_shipping_path(@product.id), method: :patch, class: 'product-detail__seller__stop__button' do
           出品を一旦停止する
     .product-detail__seller__delete
       .product-detail__seller__delete__button

@@ -23,4 +23,6 @@ Rails.application.routes.draw do
   resource :category, to: 'products#category', only: :show
   resource :list, to: 'products#list', path: 'list/:id', only: :show
   resource :brand, to: 'products#brand', path: 'brand/:id', only: :show
+  resource :stop_shipping, to: 'products#stop_shipping', path: 'stop_shipping/:id', only: :update
+  resource :shipping_again, to: 'products#shipping_again', path: 'shipping_again/:id', only: :update
 end
