@@ -1,3 +1,10 @@
+.bread-container
+  .bread-container__box
+    %li.bread-container__box__list
+      = link_to "メルカリ", root_path
+    %i.fas.fa-chevron-right.bread-btn
+    %li.bread-container__box__last
+      = @product.name
 .product-detail__item
   .product-detail__item__name
     = @product.name
@@ -10,10 +17,10 @@
             .product-detail__item__main__photo__sold__label__string
               SOLD
       -else
-        = image_tag @product.images.first.image.url, class: 'product-detail__item__main__photo__biggest'
-        .product-detail__item__main__photo__mini-box
+        .slick-main
           - @product.images.each do |image|
-            = image_tag image.image.url, class: 'product-detail__item__main__photo__mini-box__dot'
+            = image_tag image.image.url, class: 'product-detail__item__main__photo__biggest'
+
     %table.product-detail__item__main__table
       %tbody.product-detail__item__main__table__tbody
         %tr.product-detail__item__main__table__tbody__tr
@@ -77,7 +84,7 @@
             配送元地域
           %td.product-detail__item__main__table__tbody__tr__td
             = link_to root_path, class: 'product-detail__item__main__table__tbody__tr__td__place' do
-              = @product.prefecture_id
+              = @product.prefecture.name
         %tr.product-detail__item__main__table__tbody__tr
           %th.product-detail__item__main__table__tbody__tr__th
             発送日の目安
@@ -127,11 +134,11 @@
 - if @seller.id == session[:user_id]
   .product-detail__seller
     .product-detail__seller__edit
-      = link_to buyer_path(@product.id), class: 'product-detail__seller__edit__button' do
+      = link_to edit_product_path(@product.id), class: 'product-detail__seller__edit__button' do
         商品の編集
     .product-detail__seller__or
       or
-    - if @product.status == 3
+    - if @product.stop?
       .product-detail__seller__again
         = link_to buyer_path(@product.id), class: 'product-detail__seller__again__button' do
           出品を再開する
@@ -140,7 +147,5 @@
         = link_to buyer_path(@product.id), class: 'product-detail__seller__stop__button' do
           出品を一旦停止する
     .product-detail__seller__delete
-      = link_to buyer_path(@product.id), class: 'product-detail__seller__delete__button' do
+      .product-detail__seller__delete__button
         この商品を削除する
-
-

@@ -1,3 +1,5 @@
+@import "slick-theme";
+@import "slick";
 @import "config/reset";
 @import "config/config";
 @import "config/colors";
@@ -9,7 +11,6 @@
 @import "modules/sell";
 @import "font-awesome";
 @import "header";
-@import "carousel";
 @import "category";
 @import "top";
 @import "footer";
@@ -36,3 +37,8 @@
 @import "item_transaction";
 @import "signout";
 @import "edit_profile";
+@import "list";
+@import "modal";
+@import "modules/breadcrumbs";
+@import "app_banner";
+@import "carousel";

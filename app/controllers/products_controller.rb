@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_user
+  before_action :set_product, only: [:edit, :show, :update, :destroy]
+
   def index
     @lady = Category.find(1)
     @ladies = Product.recent_category(1)
@@ -21,9 +23,13 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @product = Product.new
-    @product.images.build
-    @categories = Category.ransack(parent_id_null: true).result
+    if session[:user_id]
+      @product = Product.new
+      @product.images.build
+      @categories = Category.ransack(parent_id_null: true).result
+    else
+      redirect_to new_login_path
+    end
   end
 
   def create
@@ -41,8 +47,11 @@ class ProductsController < ApplicationController
     end
   end
 
+  def edit
+    @categories = Category.ransack(parent_id_null: true).result
+  end
+
   def show
-    @product = Product.find(params[:id])
     @seller = User.find_by(id: @product.seller_id)
     @grandchild = Category.find(@product.category_id)
     @parent = Category.find(@grandchild.parent_id)
@@ -51,6 +60,34 @@ class ProductsController < ApplicationController
     @other_image = Image.where(product_id: @other_product.ids).where.not(product_id: @product.id)
     @category_product = Product.where(category_id: @product.category_id).limit(6)
     @category_product_image = Image.where(product_id: @category_product.ids).where.not(product_id: @other_product.ids)
+    @chat = Chat.new
+    @chats = @product.chats.includes(:user)
+    require 'date'
+    @today = Time.zone.now
+  end
+
+  def update
+    if params[:images_attributes]
+      params[:images_attributes]['image'].each do |i|
+        @product.images.new(image: i)
+      end
+    end
+    if @product.update(product_params)
+      respond_to do |format|
+        format.json
+      end
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    return if @product.seller_id != session[:user_id]
+    if @product.destroy
+      redirect_to users_mypage_path
+    else
+      redirect_to action: 'show', controller: 'products'
+    end
   end
 
   def category
@@ -65,6 +102,22 @@ class ProductsController < ApplicationController
     @products = Product.where('name LIKE(?)', "%#{params[:keyword]}%")
   end
 
+  def list
+    @category = Category.find_by(id: params[:id])
+    @products = Product.where(category_id: @category.id)
+    @childs = Category.where(parent_id: @category.id)
+    @child_products = Product.where(category_id: @childs.ids)
+    @grandchilds = Category.where(parent_id: @childs.ids)
+    @parent_products = Product.where(category_id: @grandchilds.ids)
+    @parent_breadcrumb = Category.find_by(id: @category.parent_id)
+    @child_breadcrumb = Category.find_by(id: @parent_breadcrumb.parent_id) unless @parent_breadcrumb.nil?
+  end
+
+  def brand
+    @brand = Brand.find_by(id: params[:id])
+    @products = Product.where(brand_id: @brand.id)
+  end
+
   private
 
   def product_params
@@ -73,5 +126,9 @@ class ProductsController < ApplicationController
 
   def set_user
     @user = User.find(session[:user_id]) if session[:user_id] != nil
+  end
+  
+  def set_product
+    @product = Product.find(params[:id])
   end
 end

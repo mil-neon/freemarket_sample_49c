@@ -19,32 +19,31 @@
               - categories = Category.all.where(parent_id: nil)
               - categories.all.each do |parent|
                 %li
-                  = link_to parent.name, root_path
+                  = link_to parent.name, list_path(parent.id)
                   %ul.category-menu__level1__level2
                     - children = Category.where( parent_id: parent.id )
                     - children.all.each do |child|
                       %li
-                        = link_to child.name, root_path
+                        = link_to child.name, list_path(child.id)
                         %ul.category-menu__level1__level2__level3
                           - grandchild = Category.where( parent_id: child.id ).limit(16)
                           - grandchild.all.each do |grandchild|
                             %li
-                              =link_to grandchild .name, root_path
+                              =link_to grandchild .name, list_path(grandchild.id)
           %li.header__container__bottom__left__search--menu__list__brands
             %h2.header__container__bottom__left__search--menu__list__brands--tag
               %i.fas.fa-tag
               = link_to "ブランドから探す", class: "header__container__bottom__left__search--menu__list__brands--tag__text"
             %ul.brand-menu__level1
               %li
-                = link_to "シャネル"
+                = link_to "シャネル", brand_path(1243)
               %li
-                = link_to "ナイキ"
+                = link_to "ナイキ", brand_path(1244)
               %li
-                = link_to "ルイヴィトン"
+                = link_to "ルイヴィトン", brand_path(1245)
               %li
-                = link_to "シュプリーム"
-              %li
-                = link_to "アディダス"
+                = link_to "シュプリーム", brand_path(1246)
+
       - if user_signed_in?
         .header__container__bottom__right
           %ul.personal__menu

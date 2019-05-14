@@ -1,0 +1,151 @@
+= render 'buyers/buyer-header'
+.sell-main
+  %section.sell-main__container
+    %div
+      %div
+        .sell-main__container__inner
+          %h2.sell-main__container__inner__head 商品の情報を入力
+          = form_with model: @product, local: true, id: "new_product", class: "sell-main__container__inner__form" do |f|
+            .sell-main__container__inner__form__upload-box{"data-image_count": @product.images.count}
+              %h3.sell-main__container__inner__form__upload-box__head
+                出品画像
+                %span.sell-main__container__inner__form__upload-box__head--require 必須
+              %p 最大10枚までアップロードできます
+              .sell-main__container__inner__form__upload-box__dropbox
+                .sell-main__container__inner__form__upload-box__dropbox__container
+                  = render @product.images
+                .sell-main__container__inner__form__upload-box__dropbox__upload
+                  .sell-main__container__inner__form__upload-box__dropbox__upload__wrap
+                    %pre.sell-main__container__inner__form__upload-box__dropbox__upload__wrap--visible
+                      ドラッグアンドドロップ
+                      またはクリックしてファイルをアップロード
+                    %i.sell-main__container__inner__form__upload-box__dropbox__upload--icon
+            .sell-main__container__inner__form__content
+              .sell-main__container__inner__form__content__group
+                %label 商品名
+                %span.sell-main__container__inner__form__content__group--require 必須
+                = f.text_field :name, placeholder: "商品名（必須 40文字まで)", type: "text", class: 'sell-main__container__inner__form__content__group__input'
+              .sell-main__container__inner__form__content__group
+                %label 商品の説明
+                %span.sell-main__container__inner__form__content__group--require 必須
+                = f.text_area :description, rows: "5", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", type: "text", class: 'sell-main__container__inner__form__content__group__textarea'
+            .sell-main__container__inner__form__content
+              %h3.sell-main__container__inner__form__content__head 商品の詳細
+              .sell-main__container__inner__form__content__box
+                .sell-main__container__inner__form__content__box__group
+                  %label
+                    カテゴリー
+                    %span.sell-main__container__inner__form__content__box__group--require 必須
+                  %div
+                  - if !@product.category.parent
+                    .sell-main__container__inner__form__content__box__group__wrap
+                      = f.select :category_id, @categories.map{|t| [t.name, t.id]}, prompt: "---", selected: @product.category.id
+                      %i.sell-main__container__inner__form__content__box__group__wrap--icon
+                    .sell-main__container__inner__form__content__box__group__wrap#child_category{style: "display:none"}
+                      %select#product_child_category_id{name: ""}
+                      %i.sell-main__container__inner__form__content__box__group__wrap--icon
+                    .sell-main__container__inner__form__content__box__group__wrap#grand_child_category{style: "display:none"}
+                      %select#product_grand_child_category_id{name: ""}
+                      %i.sell-main__container__inner__form__content__box__group__wrap--icon
+                  - elsif !@product.category.parent.parent
+                    .sell-main__container__inner__form__content__box__group__wrap
+                      = f.select :category_id, @categories.map{|t| [t.name, t.id]}, prompt: "---", selected: @product.category.parent.id
+                      %i.sell-main__container__inner__form__content__box__group__wrap--icon
+                    .sell-main__container__inner__form__content__box__group__wrap#child_category
+                      = f.select :child_category_id, @product.category.parent.children.map{|t| [t.name, t.id]}, selected: @product.category.id
+                      %i.sell-main__container__inner__form__content__box__group__wrap--icon
+                    .sell-main__container__inner__form__content__box__group__wrap#grand_child_category{style: "display:none"}
+                      %select#product_grand_child_category_id{name: ""}
+                      %i.sell-main__container__inner__form__content__box__group__wrap--icon
+                  - elsif !@product.category.parent.parent.parent
+                    .sell-main__container__inner__form__content__box__group__wrap
+                      = f.select :category_id, @categories.map{|t| [t.name, t.id]}, prompt: "---",  selected: @product.category.parent.parent.id
+                      %i.sell-main__container__inner__form__content__box__group__wrap--icon
+                    .sell-main__container__inner__form__content__box__group__wrap#child_category
+                      = f.select :child_category_id, @product.category.parent.parent.children.map{|t| [t.name, t.id]}, prompt: "---", selected: @product.category.parent.id
+                      %i.sell-main__container__inner__form__content__box__group__wrap--icon
+                    .sell-main__container__inner__form__content__box__group__wrap#grand_child_category
+                      = f.select :grand_child_category_id, @product.category.parent.children.map{|t| [t.name, t.id]}, prompt: "---", selected: @product.category.id
+                      %i.sell-main__container__inner__form__content__box__group__wrap--icon
+                .sell-main__container__inner__form__content__box__group
+                  %label
+                    サイズ
+                    %span.sell-main__container__inner__form__content__box__group--require 必須
+                  .sell-main__container__inner__form__content__box__group__wrap
+                    = f.select :size, Product.sizes.keys, { prompt: "---"}
+                    %i.sell-main__container__inner__form__content__box__group__wrap--icon
+                .sell-main__container__inner__form__content__box__group
+                  %label
+                    ブランド
+                    %span.sell-main__container__inner__form__content__box__group--require--grey 任意
+                  %div
+                    .sell-main__container__inner__form__content__box__group__wrap
+                      = f.select :brand_id, Brand.all.map{|t| [t.name, t.id]}, { prompt: "---" }
+                      %i.sell-main__container__inner__form__content__box__group__wrap--icon
+                .sell-main__container__inner__form__content__box__group
+                  %label
+                    商品の状態
+                    %span.sell-main__container__inner__form__content__box__group--require 必須
+                  .sell-main__container__inner__form__content__box__group__wrap
+                    = f.select :condition, Product.conditions.keys, { prompt: "---"}
+                    %i.sell-main__container__inner__form__content__box__group__wrap--icon
+            .sell-main__container__inner__form__content
+              %h3.sell-main__container__inner__form__content__head 配送について
+              %span.fas.fa-question-circle.sell-main__container__inner__form__content--blue-icon
+              .sell-main__container__inner__form__content__box
+                .sell-main__container__inner__form__content__box__group
+                  %label
+                    配送料の負担
+                    %span.sell-main__container__inner__form__content__box__group--require 必須
+                  .sell-main__container__inner__form__content__box__group__wrap
+                    = f.select :shipping_feeh, Product.shipping_feehs.keys, { prompt: "---"}
+                    %i.sell-main__container__inner__form__content__box__group__wrap--icon
+                .sell-main__container__inner__form__content__box__group#shipping_method
+                  %label
+                    配送の方法
+                    %span.sell-main__container__inner__form__content__box__group--require 必須
+                  .sell-main__container__inner__form__content__box__group__wrap
+                    = f.select :shipping_method, Product.shipping_methods.keys, { prompt: "---"}
+                .sell-main__container__inner__form__content__box__group
+                  %label
+                    発送元の地域
+                    %span.sell-main__container__inner__form__content__box__group--require 必須
+                  .sell-main__container__inner__form__content__box__group__wrap
+                    = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "---"}
+                .sell-main__container__inner__form__content__box__group
+                  %label
+                    配送までの日数
+                    %span.sell-main__container__inner__form__content__box__group--require 必須
+                  .sell-main__container__inner__form__content__box__group__wrap
+                    = f.select :shipping_date, Product.shipping_dates.keys, { prompt: "---"}
+            .sell-main__container__inner__form__content
+              %h3.sell-main__container__inner__form__content__head 販売価格(300〜9,999,999)
+              %span.fas.fa-question-circle.sell-main__container__inner__form__content--blue-icon
+              .sell-main__container__inner__form__content__box
+                %ul.sell-main__container__inner__form__content__box__price
+                  %li.sell-main__container__inner__form__content__box__price__group
+                    .sell-main__container__inner__form__content__box__price__group__wrap
+                      %label.sell-main__container__inner__form__content__box__price__group__wrap--left
+                        価格
+                        %span.sell-main__container__inner__form__content__box__price__group__wrap--left--require 必須
+                      .sell-main__container__inner__form__content__box__price__group__wrap--right
+                        ¥
+                        .sell-main__container__inner__form__content__box__price__group__wrap--right__wrap
+                          = f.text_field :price, placeholder: "例）300", type: "text", class: 'sell-main__container__inner__form__content__box__price__group__wrap--right__wrap__input'
+                  %li.sell-main__container__inner__form__content__box__price__group
+                    .sell-main__container__inner__form__content__box__price__group__wrap
+                      %label.sell-main__container__inner__form__content__box__price__group__wrap--left
+                        販売手数料 (10%)
+                      .sell-main__container__inner__form__content__box__price__group__wrap--right
+                        ー
+                  %li.sell-main__container__inner__form__content__box__price__group
+                    .sell-main__container__inner__form__content__box__price__group__wrap
+                      %label.sell-main__container__inner__form__content__box__price__group__wrap--left
+                        販売利益
+                      .sell-main__container__inner__form__content__box__price__group__wrap--right
+                        ー
+            .sell-main__container__inner__form__content
+              = f.submit '変更する', class: 'sell-main__container__inner__form__content__btn--red'
+              = link_to root_path, class: 'sell-main__container__inner__form__content__btn--grey' do
+                キャンセル
+= render 'buyers/buyer-footer'

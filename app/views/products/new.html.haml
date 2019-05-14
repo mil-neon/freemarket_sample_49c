@@ -37,20 +37,20 @@
                     %span.sell-main__container__inner__form__content__box__group--require 必須
                   %div
                     .sell-main__container__inner__form__content__box__group__wrap
-                      = f.select :category_id, @categories.map{|t| [t.name, t.id]}, {prompt: "---"}, class: "sell-main__container__inner__form__content__box__group__wrap__select"
+                      = f.select :category_id, @categories.map{|t| [t.name, t.id]}, {prompt: "---"}
                       %i.sell-main__container__inner__form__content__box__group__wrap--icon
                     .sell-main__container__inner__form__content__box__group__wrap#child_category{style: "display:none"}
-                      %select.sell-main__container__inner__form__content__box__group__wrap__select#product_child_category_id{name: ""}
+                      %select#product_child_category_id{name: ""}
                       %i.sell-main__container__inner__form__content__box__group__wrap--icon
                     .sell-main__container__inner__form__content__box__group__wrap#grand_child_category{style: "display:none"}
-                      %select.sell-main__container__inner__form__content__box__group__wrap__select#product_grand_child_category_id{name: ""}
+                      %select#product_grand_child_category_id{name: ""}
                       %i.sell-main__container__inner__form__content__box__group__wrap--icon
                 .sell-main__container__inner__form__content__box__group
                   %label
                     サイズ
                     %span.sell-main__container__inner__form__content__box__group--require 必須
                   .sell-main__container__inner__form__content__box__group__wrap
-                    = f.select :size, Product.sizes.keys, { prompt: "---"}, class: 'sell-main__container__inner__form__content__box__group__wrap__select'
+                    = f.select :size, Product.sizes.keys, { prompt: "---"}
                     %i.sell-main__container__inner__form__content__box__group__wrap--icon
                 .sell-main__container__inner__form__content__box__group
                   %label
@@ -58,14 +58,14 @@
                     %span.sell-main__container__inner__form__content__box__group--require--grey 任意
                   %div
                     .sell-main__container__inner__form__content__box__group__wrap
-                      = f.select :brand_id, Brand.all.map{|t| [t.name, t.id]}, { prompt: "---" },  class: "sell-main__container__inner__form__content__box__group__wrap__select"
+                      = f.select :brand_id, Brand.all.map{|t| [t.name, t.id]}, { prompt: "---" }
                       %i.sell-main__container__inner__form__content__box__group__wrap--icon
                 .sell-main__container__inner__form__content__box__group
                   %label
                     商品の状態
                     %span.sell-main__container__inner__form__content__box__group--require 必須
                   .sell-main__container__inner__form__content__box__group__wrap
-                    = f.select :condition, Product.conditions.keys, { prompt: "---"}, class: 'sell-main__container__inner__form__content__box__group__wrap__select'
+                    = f.select :condition, Product.conditions.keys, { prompt: "---"}
                     %i.sell-main__container__inner__form__content__box__group__wrap--icon
             .sell-main__container__inner__form__content
               %h3.sell-main__container__inner__form__content__head 配送について
@@ -76,26 +76,26 @@
                     配送料の負担
                     %span.sell-main__container__inner__form__content__box__group--require 必須
                   .sell-main__container__inner__form__content__box__group__wrap
-                    = f.select :shipping_feeh, Product.shipping_feehs.keys, { prompt: "---"}, class: 'sell-main__container__inner__form__content__box__group__wrap__select'
+                    = f.select :shipping_feeh, Product.shipping_feehs.keys, { prompt: "---"}
                     %i.sell-main__container__inner__form__content__box__group__wrap--icon
                 .sell-main__container__inner__form__content__box__group#shipping_method{style: "display:none"}
                   %label
                     配送の方法
                     %span.sell-main__container__inner__form__content__box__group--require 必須
                   .sell-main__container__inner__form__content__box__group__wrap
-                    = f.select :shipping_method, Product.shipping_methods.keys, { prompt: "---"}, class: 'sell-main__container__inner__form__content__box__group__wrap__select'
+                    = f.select :shipping_method, Product.shipping_methods.keys, { prompt: "---"}
                 .sell-main__container__inner__form__content__box__group
                   %label
                     発送元の地域
                     %span.sell-main__container__inner__form__content__box__group--require 必須
                   .sell-main__container__inner__form__content__box__group__wrap
-                    = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "---"}, class: 'sell-main__container__inner__form__content__box__group__wrap__select'
+                    = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "---"}
                 .sell-main__container__inner__form__content__box__group
                   %label
                     配送までの日数
                     %span.sell-main__container__inner__form__content__box__group--require 必須
                   .sell-main__container__inner__form__content__box__group__wrap
-                    = f.select :shipping_date, Product.shipping_dates.keys, { prompt: "---"}, class: 'sell-main__container__inner__form__content__box__group__wrap__select'
+                    = f.select :shipping_date, Product.shipping_dates.keys, { prompt: "---"}
             .sell-main__container__inner__form__content
               %h3.sell-main__container__inner__form__content__head 販売価格(300〜9,999,999)
               %span.fas.fa-question-circle.sell-main__container__inner__form__content--blue-icon
