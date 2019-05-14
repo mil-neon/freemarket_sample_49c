@@ -7,6 +7,8 @@ class UsersController < ApplicationController
   end
 
   def mypage
+  def signout
+  end
   def update_profile
     if @user.update_attributes(update_params)
       redirect_to mypage_path
