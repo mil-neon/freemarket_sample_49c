@@ -1,0 +1,8 @@
+= render partial: 'products/header'
+.l-container.clearfix
+  .logout-content
+    .logout-content__btn
+      = link_to "ログアウト", new_logout_path
+  = render 'mypage-side'
+= render 'products/botton'
+= render 'products/footer'
