@@ -9,6 +9,18 @@ class UsersController < ApplicationController
   def mypage
   def signout
   end
+
+  def update_user
+    if @user.update_attributes(update_params)
+      redirect_to mypage_path
+    else
+      render edit_edit_user_path
+    end
+  end
+
+  def edit_user
+  end
+
   def update_profile
     if @user.update_attributes(update_params)
       redirect_to mypage_path
