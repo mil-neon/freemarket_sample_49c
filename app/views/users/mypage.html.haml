@@ -1,0 +1,6 @@
+= render partial: 'products/header'
+.l-container.clearfix
+  = render partial: 'mypage-main', locals: {products_buy_now: @products_buy_now, products_buy_close: @products_buy_close}
+  = render 'mypage-side'
+= render 'products/botton'
+= render 'products/footer'
