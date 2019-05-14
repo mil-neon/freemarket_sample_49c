@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
   root 'products#index'
-  get 'users/mypage' => 'users#mypage'
   resources :products, only: [:index, :new, :create, :show]
   resources :search, to: 'products#search', only: :index
   resources :buyers, only: [:show, :index]
   resources :users, only: [:new]
   resource :login, to: 'users#login', only: :new
+  resource :mypage, to: 'users#mypage', path: 'users/:id', only: :show
+  resource :signout, to: 'users#signout', path: 'users/:id/signout', only: :show
+  resource :update_user, to: 'users#update_user', path: 'users/:id/update_user', only: :update
+  resource :edit_user, to: 'users#edit_user', path: 'users/:id/edit_user', only: :edit
+  resource :update_profile, to: 'users#update_profile', path: 'users/:id/update_profile', only: :update
+  resource :edit_profile, to: 'users#edit_profile', path: 'users/:id/edit_profile', only: :edit
   resource :registration, controller: 'sessions', only: [:new, :create]
   resource :create_user, to: 'sessions#create_user', only: :create
   resource :signup_phone, to: 'sessions#signup_phone', only: :new
