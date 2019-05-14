@@ -118,12 +118,12 @@ class ProductsController < ApplicationController
   end
 
   def stop_shipping
-    Product.find(params[:id]).update(status: 4)
+    Product.find(params[:id]).update(status: :stop)
     redirect_to product_path(params[:id])
   end
 
   def shipping_again
-    Product.find(params[:id]).update(status: 1)
+    Product.find(params[:id]).update(status: :sell)
     redirect_to product_path(params[:id])
   end
 
