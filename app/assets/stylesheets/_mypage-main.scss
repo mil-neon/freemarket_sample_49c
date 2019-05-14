@@ -74,3 +74,32 @@
     }
   }
 }
+
+.product-detail__item__main__photo{
+  .slick-prev {
+    background-image: none;
+    height: 0;
+    width: 0;
+  }
+  .slick-next{
+    background-image: none;
+    height: 0;
+    width: 0;
+  }
+  .slick-main{
+    height: 300px;
+  }
+  .slick-dots{
+    line-height: 0;
+    text-align: inherit;
+    bottom: -25px;
+    li{
+      margin: 0;
+      position: relative;
+      overflow: hidden;
+      display: inline-block;
+      width: 25%;
+      max-height: 90px;
+    } 
+  } 
+}

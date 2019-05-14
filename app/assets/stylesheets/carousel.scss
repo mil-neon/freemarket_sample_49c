@@ -20,6 +20,33 @@
       }
     }
   }
+  .slick-prev{
+    height: 80px;
+    width: 80px;
+    background-image: image-url("hidari.png");
+    z-index: 100;
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .slick-next{
+    height: 80px;
+    width: 80px;
+    background-image: image-url("migi.png");
+    z-index: 100;
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .slick-dots li button{
+    &::before{
+      height: 15px;
+      width: 15px;
+      background-color: rgb(116, 116, 116);
+      border-radius: 50%;
+    }
+  }
+  
 }
 .cloned{
   .top-main-visual {
@@ -117,33 +144,3 @@
   }
 }
 
-.slick-prev{
-  height: 80px;
-  width: 80px;
-  background-image: image-url("hidari.png");
-  z-index: 100;
-  background-size: 30px;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-.slick-next{
-  height: 80px;
-  width: 80px;
-  background-image: image-url("migi.png");
-  z-index: 100;
-  background-size: 40px;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-.slick-dots{
-  li{
-    button{
-      &::before{
-        height: 15px;
-        width: 15px;
-        background-color: rgb(116, 116, 116);
-        border-radius: 50%;
-      }
-    }
-  }
-}

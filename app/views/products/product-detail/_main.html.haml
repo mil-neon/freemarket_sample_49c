@@ -17,10 +17,10 @@
             .product-detail__item__main__photo__sold__label__string
               SOLD
       -else
-        = image_tag @product.images.first.image.url, class: 'product-detail__item__main__photo__biggest'
-        .product-detail__item__main__photo__mini-box
+        .slick-main
           - @product.images.each do |image|
-            = image_tag image.image.url, class: 'product-detail__item__main__photo__mini-box__dot'
+            = image_tag image.image.url, class: 'product-detail__item__main__photo__biggest'
+
     %table.product-detail__item__main__table
       %tbody.product-detail__item__main__table__tbody
         %tr.product-detail__item__main__table__tbody__tr
