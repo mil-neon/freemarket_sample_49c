@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :set_user
   def index
     @lady = Category.find(1)
     @ladies = Product.recent_category(1)
@@ -68,5 +69,9 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:name, :description, :category_id, :brand_id, :size, :condition, :shipping_feeh, :shipping_method, :prefecture_id, :shipping_date, :price, images_attributes: [:image]).merge(seller_id: session[:user_id])
+  end
+
+  def set_user
+    @user = User.find(session[:user_id]) if session[:user_id] != nil
   end
 end
