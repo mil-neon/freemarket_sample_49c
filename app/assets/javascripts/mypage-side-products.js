@@ -45,7 +45,7 @@ $(function(){
       url: url,
       type: "GET",
       dataType: "json"
-      })
+    })
     .done(function(data){
       $('.l-main, .l-chapter, .signup4-main, .logout-content').remove();
       var html = buildHTML();
@@ -56,18 +56,18 @@ $(function(){
         data.buy_now.forEach(function(product_buy_now){
           var html2 = buildHTML2(product_buy_now);
           $('#item-now').append(html2);
-          })
+        })
         data.buy_close.forEach(function(product_buy_close){
           var html2 = buildHTML2(product_buy_close);
           $('#item-close').append(html2);
-          })}
+        })}
       else if (data.buy_now.length == 0 && data.buy_close.length !== 0){
         $('#item-now').remove();
         $('#transaction-contents').append(none_content_now);
         data.buy_close.forEach(function(product_buy_close){
           var html2 = buildHTML2(product_buy_close);
           $('#item-close').append(html2);
-          })}
+        })}
       else if (data.buy_now.length !== 0 && data.buy_close.length == 0){
         data.buy_now.forEach(function(product_buy_now){
           var html2 = buildHTML2(product_buy_now);
@@ -90,7 +90,7 @@ $(function(){
       url: url,
       type: "GET",
       dataType: "json"
-      })
+    })
     .done(function(data){
       $('.l-main, .l-chapter, .signup4-main, .logout-content').remove();
       var html = buildHTML();
@@ -102,23 +102,23 @@ $(function(){
         data.buy_now.forEach(function(product_buy_now){
           var html2 = buildHTML2(product_buy_now);
           $('#item-now').append(html2);
-          })
+        })
         data.buy_close.forEach(function(product_buy_close){
           var html2 = buildHTML2(product_buy_close);
           $('#item-close').append(html2);
-          })}
+        })}
       else if (data.buy_now.length == 0 && data.buy_close.length !== 0){
         $('#item-now').remove();
         $('#transaction-contents').append(none_content_now);
         data.buy_close.forEach(function(product_buy_close){
           var html2 = buildHTML2(product_buy_close);
           $('#item-close').append(html2);
-          })}
+        })}
       else if (data.buy_now.length !== 0 && data.buy_close.length == 0){
         data.buy_now.forEach(function(product_buy_now){
           var html2 = buildHTML2(product_buy_now);
           $('#item-now').append(html2);
-          })
+        })
         $('#item-close').remove();
         $('#past-transaction-contents').append(none_content_close);
         }
@@ -127,7 +127,7 @@ $(function(){
         $('#transaction-contents').append(none_content_now);
         $('#item-close').remove();
         $('#past-transaction-contents').append(none_content_close);
-        }
+      }
     })
   });
 });
@@ -179,7 +179,7 @@ $(function(){
       url: url,
       type: "GET",
       dataType: "json"
-      })
+    })
     .done(function(data){
       $('.l-main, .l-chapter, .signup4-main, .logout-content').remove();
       var html = buildHTML();
@@ -190,23 +190,23 @@ $(function(){
         data.sell_now.forEach(function(product_sell_now){
           var html2 = buildHTML2(product_sell_now);
           $('#item-now').append(html2);
-          })
+        })
         data.sell_close.forEach(function(product_sell_close){
           var html2 = buildHTML2(product_sell_close);
           $('#item-close').append(html2);
-          })}
+        })}
       else if (data.sell_now.length == 0 && data.sell_close.length !== 0){
         $('#item-now').remove();
         $('#transaction-contents').append(none_content_now);
         data.sell_close.forEach(function(product_sell_close){
           var html2 = buildHTML2(product_sell_close);
           $('#item-close').append(html2);
-          })}
+        })}
       else if (data.sell_now.length !== 0 && data.sell_close.length == 0){
         data.sell_now.forEach(function(product_sell_now){
           var html2 = buildHTML2(product_sell_now);
           $('#item-now').append(html2);
-          })
+        })
         $('#item-close').remove();
         $('#past-transaction-contents').append(none_content_close);
         }
@@ -224,7 +224,7 @@ $(function(){
       url: url,
       type: "GET",
       dataType: "json"
-      })
+    })
     .done(function(data){
       $('.l-main, .l-chapter, .signup4-main, .logout-content').remove();
       var html = buildHTML();
@@ -236,23 +236,23 @@ $(function(){
         data.sell_now.forEach(function(product_sell_now){
           var html2 = buildHTML2(product_sell_now);
           $('#item-now').append(html2);
-          })
+        })
         data.sell_close.forEach(function(product_sell_close){
           var html2 = buildHTML2(product_sell_close);
           $('#item-close').append(html2);
-          })}
+        })}
       else if (data.sell_now.length == 0 && data.sell_close.length !== 0){
         $('#item-now').remove();
         $('#transaction-contents').append(none_content_now);
         data.sell_close.forEach(function(product_sell_close){
           var html2 = buildHTML2(product_sell_close);
           $('#item-close').append(html2);
-          })}
+        })}
       else if (data.sell_now.length !== 0 && data.sell_close.length == 0){
         data.sell_now.forEach(function(product_sell_now){
           var html2 = buildHTML2(product_sell_now);
           $('#item-now').append(html2);
-          })
+        })
         $('#item-close').remove();
         $('#past-transaction-contents').append(none_content_close);
         }
@@ -261,7 +261,7 @@ $(function(){
         $('#transaction-contents').append(none_content_now);
         $('#item-close').remove();
         $('#past-transaction-contents').append(none_content_close);
-        }
+      }
     })
   });
 });
