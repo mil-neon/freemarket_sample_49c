@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   resource :login, to: 'sessions#login', only: :create
   resource :likes, to: 'likes#create', path: 'likes/:product_id/create', only: :create, as: 'like'
   resource :likes, to: 'likes#destroy', path: 'likes/:product_id/destroy', only: :destroy, as: 'unlike'
-　resource :pay, to: 'credits#pay', only: :create
+  resource :pay, to: 'credits#pay', only: :create
   resource :sns, to: 'sessions#sns', path: 'auth/:provider/callback', only: :show
   resource :category, to: 'products#category', only: :show
   resource :list, to: 'products#list', path: 'list/:id', only: :show
