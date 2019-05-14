@@ -7,6 +7,18 @@ class UsersController < ApplicationController
   end
 
   def mypage
+    @products_buy = Product.where(buyer_id: session[:user_id])
+    @products_buy_now = @products_buy.where(status: 2)
+    @products_buy_close = @products_buy.where(status: 3)
+    @products_sell = Product.where(seller_id: session[:user_id])
+    @products_sell_now = @products_sell.where(status: 2)
+    @products_sell_close = @products_sell.where(status: 3)
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
   def signout
   end
 
