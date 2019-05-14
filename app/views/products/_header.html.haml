@@ -52,8 +52,8 @@
                 %i.far.fa-bell.icon
                 %span.personal__menu__list__news__font お知らせ
               %ul.mypage__nav__list.pulldown
-                = render 'news'
-                = render 'news'
+                = render 'products/news'
+                = render 'products/news'
             %li.personal__menu__list__todo
               = link_to root_path ,class:"personal__menu__list__todo--link" do
                 %i.fa.fa-check
@@ -61,7 +61,7 @@
               %ul.mypage__item__todo.pulldown
                 %li.mypage__item__todo-not-found 現在、やることリストはありません
             %li.personal__menu__list__mypage
-              = link_to root_path ,class:"personal__menu__list__mypage--link" do
+              = link_to mypage_path(session[:user_id]) ,class:"personal__menu__list__mypage--link" do
                 %figure
                   %div
                     = image_tag "member_photo_noimage_thumb.png", class: "mypage-avator", alt: "", width: "32"
@@ -71,7 +71,8 @@
                   %figure
                     %div
                       = image_tag "member_photo_noimage_thumb.png", width: "60"
-                    %figcaption name
+                    %figcaption
+                      = @user.nickname
                   %ul.mypage__link__box-state__review
                     %li#li_clear_marging
                       = link_to root_path ,class:"pc-header-link" do

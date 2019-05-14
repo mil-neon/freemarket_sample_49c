@@ -1,0 +1,12 @@
+.logout-content{
+  float: right;
+  width: 700px;
+  height: 179px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    &__btn{
+      @include button-default-style;
+    }
+  }

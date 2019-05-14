@@ -1,4 +1,4 @@
-= render 'header'
+= render partial: 'products/header'
 %main.white
   = render 'carousel'
   %section.pickup-container
@@ -8,7 +8,7 @@
         = link_to "#{@lady.name}新着アイテム"
       .items-box__content
         - if @ladies.present?
-          = render partial: "item", collection: @ladies 
+          = render partial: "item", collection: @ladies
       .view-all
         = link_to "すべての商品を見る"
     %section.items-box__container
@@ -41,7 +41,7 @@
         = link_to "#{@chanerl.name}新着アイテム"
       .items-box__content
         - if @chanerls.present?
-          = render partial: "item", collection: @chanerls 
+          = render partial: "item", collection: @chanerls
       .view-all
         = link_to "すべての商品を見る"
     %section.items-box__container
@@ -49,7 +49,7 @@
         = link_to "#{@Vuitton.name}新着アイテム"
       .items-box__content
         - if @Vuittons.present?
-          = render partial: "item", collection: @Vuittons 
+          = render partial: "item", collection: @Vuittons
       .view-all
         = link_to "すべての商品を見る"
     %section.items-box__container
@@ -57,7 +57,7 @@
         = link_to "#{@nike.name}新着アイテム"
       .items-box__content
         - if @nikes.present?
-          = render partial: "item", collection: @nikes 
+          = render partial: "item", collection: @nikes
       .view-all
         = link_to "すべての商品を見る"
     %section.items-box__container
@@ -65,7 +65,7 @@
         = link_to "#{@syupu.name}新着アイテム"
       .items-box__content
         - if @syupus.present?
-          = render partial: "item", collection: @syupus 
+          = render partial: "item", collection: @syupus
       .view-all
         = link_to "すべての商品を見る"
 = render 'top-footer-img'

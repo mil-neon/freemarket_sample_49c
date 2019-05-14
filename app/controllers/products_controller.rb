@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :set_user
   before_action :set_product, only: [:edit, :show, :update, :destroy]
 
   def index
@@ -123,6 +124,10 @@ class ProductsController < ApplicationController
     params.require(:product).permit(:name, :description, :category_id, :brand_id, :size, :condition, :shipping_feeh, :shipping_method, :prefecture_id, :shipping_date, :price, images_attributes: [:image]).merge(seller_id: session[:user_id])
   end
 
+  def set_user
+    @user = User.find(session[:user_id]) if session[:user_id] != nil
+  end
+  
   def set_product
     @product = Product.find(params[:id])
   end

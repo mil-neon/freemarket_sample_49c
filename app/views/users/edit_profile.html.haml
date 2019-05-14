@@ -1,0 +1,15 @@
+= render partial: 'products/header'
+.l-container.clearfix
+  %section.l-chapter
+    %h2.l-chapter-head プロフィール
+    = form_with url: update_profile_path(session[:user_id]), method: :patch, html: {class: "form-profile"} do |f|
+      .setting-profile-icon{clearfix: ""}
+        %figure.circle-photo-box
+          = image_tag "member_no_member.png", class: "circle-image", alt: ""
+        = f.text_field :nickname, placeholder: '例)YUKI☆セール中', value: @user.nickname, class: 'input-default'
+      .setting-profile-content
+        = f.text_area :profile, value: @user.profile, placeholder: '例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪', class: 'textarea-default'
+        = f.submit '変更する', class: 'button-default-style'
+  = render 'mypage-side'
+= render 'products/botton'
+= render 'products/footer'
