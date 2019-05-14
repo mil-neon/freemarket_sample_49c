@@ -106,6 +106,7 @@
     width: 300px;
     height: 75px;
     li{
+      opacity: .4;
       margin: 0;
       position: relative;
       overflow: hidden;
@@ -118,9 +119,5 @@
         object-fit: cover;
       }
     } 
-    &.active {
-      opacity: 1;
-      cursor: default;
-    }
   } 
 }
