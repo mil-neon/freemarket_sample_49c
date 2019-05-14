@@ -37,12 +37,12 @@
           -if products_buy_now.present?
             = render partial: "item_transaction", collection: products_buy_now
           -else
-            .none-content{style: "background-image: url(#{image_path 'mercari_icon.grly.png'})"}
+            .none-content
               %p 取引中の商品がありません
       .tab_pages#past-transaction-contents
         %ul.mypage-item-list
           -if products_buy_close.present?
             = render partial: "item_transaction", collection: products_buy_close
           -else
-            .none-content{style: "background-image: url(#{image_path 'mercari_icon.grly.png'})"}
+            .none-content
               %p 過去に取引した商品がありません
