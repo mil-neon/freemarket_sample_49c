@@ -115,7 +115,7 @@
     .product-detail__item__description-box__text
       = @product.description
   .product-detail__item__button-box
-    .product-detail__item__button-box__left{id: "like-link-#{@product.id}"}
+    .product-detail__item__button-box__left
       = render partial: 'likes/like', locals: { product: @product, likes: @likes}
     .product-detail__item__button-box__left2
       = link_to root_path, class: 'product-detail__item__button-box__left2__report' do
