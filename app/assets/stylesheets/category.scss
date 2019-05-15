@@ -9,7 +9,7 @@
       top: 44px;
       left: 0;
       z-index: 1000;
-      background: #fff;
+      background: $white;
       box-shadow: 0 1px 1px 0 rgba(0,0,0,0.24);
       li{
         position: static;
@@ -24,10 +24,10 @@
           white-space: nowrap;
           font-size: 14px;
           display: block;
-          color: #333;
+          color: $txt_black;
         }
         a:hover {
-          color: white;
+          color: $white;
         }
       }
       &__level2{
@@ -36,7 +36,7 @@
         top: 0;
         left: 245px;
         bottom: 0;
-        background: #fff;
+        background: $white;
         box-shadow: 0 1px 1px 0 rgba(0,0,0,0.24);
         li{
           width: 224px;
@@ -49,10 +49,10 @@
             white-space: nowrap;
             font-size: 14px;
             display: block;
-            color: #333;
+            color: $txt_black;
           }
           a:hover {
-            color: #333;
+            color: $txt_black;
           }
         }
         &__level3{
@@ -61,7 +61,7 @@
           top: 0;
           left: 245px;
           bottom: 0;
-          background: #fff;
+          background: $white;
           box-shadow: 0 1px 1px 0 rgba(0,0,0,0.24);
           li{
             width: 320px;
@@ -72,12 +72,12 @@
               white-space: nowrap;
               font-size: 14px;
               display: block;
-              color: #333;
+              color: $txt_black;
               text-decoration: none;
               touch-action: manipulation;
             }
             a:hover {
-              color: #333;
+              color: $txt_black;
             }
           }
         }
@@ -93,7 +93,7 @@
     position: absolute;
     top: 44px;
     z-index: 1000;
-    background: #fff;
+    background: $white;
     box-shadow: 0 1px 1px 0 rgba(0,0,0,0.24);
     a{
       width: 180px;
@@ -105,7 +105,7 @@
       text-overflow: ellipsis;
       white-space: nowrap;
       display: block;
-      color: #333;
+      color: $txt_black;
     }
     a:hover {
       color: white;

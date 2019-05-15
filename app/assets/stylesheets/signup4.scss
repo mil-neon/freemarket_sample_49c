@@ -11,7 +11,7 @@
     }
     &__form {
       padding: 64px;
-      border-top: 1px solid #f5f5f5;
+      border-top: 1px solid $background_white;
       &__contents {
         max-width: 320px;
         margin: 0 auto;
@@ -30,12 +30,12 @@
   }
   &__require {
     @include require-logo;
-    background: #ea352d;
+    background: $bottn_red;
 
   }
   &__arbitrary {
     @include require-logo;
-    background: #ccc;
+    background: $light_gray;
   }
   &__form {
     @include form();

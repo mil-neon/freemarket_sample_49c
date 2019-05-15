@@ -16,7 +16,7 @@
       line-height: 1.4;
     }
     &__main {
-      height: 420px;
+      height: 360px;
       width: 100%;
       margin-top: 16px;
       &__photo {
@@ -81,7 +81,7 @@
           &__tr {
             display: flex;
             &__th {
-              padding: 8px;
+              padding: 9px;
               width: 39%;
               text-align: left;
               font-weight: 400;
@@ -144,7 +144,7 @@
       }
     }
     &__price-box {
-      margin-top: 24px;
+      margin-top: 30px;
       width: 620px;
       height: 50px;
       display: flex;
@@ -152,12 +152,14 @@
       padding-left: 22%;
       &__price {
         margin-right: 16px;
-        font-size: 40px;
+        font-size: 50px;
         font-weight: 700;
+        height: 50px;
+        line-height: 50px;
       }
       &__tax {
         font-size: 10px;
-        padding-top: 35px;
+        padding: 33px 3px 0 0;
       }
       &__shipping-fee {
         font-size: 16px;
@@ -242,12 +244,20 @@
           border-radius: 40px;
           border: 1px solid #f5f5f5;
         }
-        &__right {
-          margin: 8px 0 0;
-          float: right;
-          position: absolute;
-          right:0;
-          line-height: 10px;
+      }
+      &__right {
+        margin: 8px 0 0;
+        float: right;
+        position: absolute;
+        right:0;
+        &__report{
+          &__icon{
+            color: $link_blue;
+          }
+          &__text {
+            margin-left: 5px;
+            color: $link_blue;
+          }
         }
       }
     }
@@ -329,4 +339,46 @@
   left: 0;
   z-index: 1;
   border-style: solid;
+}
+
+.product-detail__item__main__photo{
+  .slick-prev {
+    background-image: none;
+    height: 0;
+    width: 0;
+  }
+  .slick-next{
+    background-image: none;
+    height: 0;
+    width: 0;
+  }
+  .slick-main{
+    height: 300px;
+    .product-detail__item__main__photo__biggest{
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+    }
+  }
+  .slick-dots{
+    line-height: 0;
+    text-align: inherit;
+    bottom: -75px;
+    width: 300px;
+    height: 75px;
+    li{
+      opacity: .4;
+      margin: 0;
+      position: relative;
+      overflow: hidden;
+      display: inline-block;
+      width: 25%;
+      height: 75px;
+      img{
+        width: 75px;
+        height: 75px;
+        object-fit: cover;
+      }
+    } 
+  } 
 }

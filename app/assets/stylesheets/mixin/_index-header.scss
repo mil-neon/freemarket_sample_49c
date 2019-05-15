@@ -22,11 +22,6 @@
   color : $txt_black;
 }
 
-@mixin hover_color() {
-  &:hover {
-    color: $link_blue;
-  }
-}
 @mixin list(){
   z-index: 1;
   position: absolute;

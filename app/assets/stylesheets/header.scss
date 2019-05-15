@@ -136,7 +136,7 @@
                 font-size: 14px;
                 vertical-align: middle;
               }
-              @include hover_color();
+              
             }
             .mypage__nav__list{
               top: 44px;
@@ -223,7 +223,7 @@
                 font-size: 14px;
                 vertical-align: middle;
               }
-              @include hover_color();
+              
             }
             .mypage__item__todo{
               left: 50%;
@@ -283,7 +283,7 @@
                   }
                 }
               }
-              @include hover_color();
+              
               span{
                 margin-left: 10px;
                 font-size: 14px;
@@ -300,12 +300,13 @@
               &-state{
                 text-align: center; 
                 figure {
+                  margin: 0%;
                   padding: 28px 0 0;
-                  height: 80px;
-                  background: url(/assets/img/mypage/user-bg.jpg);
+                  background: image-url("user_bg.png");
                   background-repeat: no-repeat;
                   background-size: 320px 80px;
                   div {
+                    padding: 0%;
                     overflow: hidden;
                     width: 60px;
                     height: 60px;
@@ -315,15 +316,14 @@
                     img {
                       vertical-align: middle;
                     }
-                    figcaption{
-                      margin: 8px 0 0;
-                      padding: 0 8px;
-                      font-size: 16px;
-                    }
+                  }
+                  figcaption{
+                    margin: 8px 0 0;
+                    padding: 0 8px;
+                    font-size: 19px;
                   }
                 }
                 &__review{
-                  margin: 40px 0 0;
                   padding: 8px 8px 0;
                   font-size: 0;
                   text-align: center;
@@ -375,15 +375,18 @@
               .mypage__nav__list{
                 list-style: none;
                 li {
-                  width: 93%;
+                  padding: 0%;
+                  width: 100%;
                   position: relative;
                   border-top: 1px solid $bottn_line;
+                  background: $white;
                   .mypage__nav__list-item {
+                    margin: 0%;
                     display: block;
                     padding: 16px;
-                    background: $white;
                     font-size: 14px;
                     color: $txt_black;
+                    width: 100%;
                     .fa-chevron-right {
                       position: absolute;
                       top: 50%;
@@ -406,7 +409,7 @@
         &__login {
           width: 78px;
           height: 32px;
-          background: #ea352d;
+          background: $bottn_red;
           border-radius: 3px;
           display: flex;
           justify-content: center;
@@ -414,7 +417,7 @@
           margin-right: 10px;
           &__link {
             display: block;
-            color: #ffffff;
+            color:  $white;
             text-decoration: none;
             line-height: 32px;
             text-align: center;
@@ -425,14 +428,14 @@
         &__new {
           width: 106px;
           height: 30px;
-          background: #ffffff;
+          background:  $white;
           border-radius: 3px;
           display: flex;
           justify-content: center;
           align-items: center;
-          border: 1px solid #0099e8;
+          border: 1px solid   $link_blue;
           &__link {
-            color: #0099e8;
+            color:   $link_blue;
             text-decoration: none;
             line-height: 30px;
             text-align: center;

@@ -44,4 +44,52 @@ $(document).on('turbolinks:load', function(){
       backgroundColor: ""
     });
   });
+  $(".personal__menu__list__mypage--link").on("mouseover",function () {
+    $(this).children().css({
+      color: "#0099e8"
+    });
+  });
+  $(".personal__menu__list__mypage--link").on("mouseout",function () {
+    $(this).children().css({
+      color: "",
+    });
+  });
+  $(".personal__menu__list__todo--link").on("mouseover",function () {
+    $(this).children().css({
+      color: "#0099e8"
+    });
+  });
+  $(".personal__menu__list__todo--link").on("mouseout",function () {
+    $(this).children().css({
+      color: "",
+    });
+  });
+  $(".personal__menu__list__news--link").on("mouseover",function () {
+    $(this).children().css({
+      color: "#0099e8"
+    });
+  });
+  $(".personal__menu__list__news--link").on("mouseout",function () {
+    $(this).children().css({
+      color: "",
+    });
+  });
+  $(".personal__menu__list__mypage .mypage__link__box .mypage__nav__list li").on("mouseover",function () {
+    $(this).css({
+      backgroundColor: "#fafafa",
+    });
+    $(this).children().children().css({
+      color: "#333",
+      right: "5px"
+    });
+  });
+  $(".personal__menu__list__mypage .mypage__link__box .mypage__nav__list li").on("mouseout",function () {
+    $(this).css({
+      backgroundColor: ""
+    });
+    $(this).children().children().css({
+      color: "",
+      right: ""
+    });
+  });
 });

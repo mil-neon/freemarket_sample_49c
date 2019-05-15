@@ -1,9 +1,15 @@
 .l-side {
-  margin: 40px auto 0;
   float: left;
+  width: 280px;
+  margin: 0 40px auto 0;
   li{
     display: list-item;
+    margin: 0;
+    padding: 0;
+    div{
+      color: $txt_black;
     }
+  }
   .mypage-nav {
   margin:0;
   padding:0;
@@ -21,7 +27,7 @@
   background: $white;
   color: $list_black;
   line-height:10px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid $bottn_line;
   &:hover {
   opacity: 1;
     }

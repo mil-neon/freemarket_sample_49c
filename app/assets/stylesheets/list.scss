@@ -22,10 +22,10 @@
         height: 298px;
         position: relative;
         float: left;
-        background: #fff;
+        background: $white;
         &__link {
           display: block;
-          color: #333;
+          color: $txt_black;
           text-decoration: none;
           &__figure {
             margin:0;
@@ -64,15 +64,15 @@
               &__price {
                 font-size: 17px;
                 font-weight: 600;
-                color: #333;
+                color: $txt_black;
               }
               &__good {
                 font-size: 16px;
                 font-weight: 400;
-                color: #333;
+                color: $txt_black;
                 display: flex;
                 &__icon {
-                  color: #ccc;
+                  color: $light_gray;
                 }
               }
             }
@@ -89,8 +89,8 @@
 	      bottom: 0;
         &__label {
           height: 54px;
-          background-color: red;
-          color: white;
+          background-color: $bottn_red;
+          color: $white;
           font-size: 22px;
           font-weight: bold;
           text-align: center;
@@ -98,7 +98,7 @@
         }
         &__box {
           height: 140px;
-          background-color: white;
+          background-color: $white;
         }
       }
     }

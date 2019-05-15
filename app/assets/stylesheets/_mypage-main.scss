@@ -24,7 +24,7 @@
         text-align: center;
         line-height: 25px;
         a{
-          color: #333;
+          color: $txt_black;
         }
         img{
           height: 50px;
@@ -78,46 +78,4 @@
       }
     }
   }
-}
-
-.product-detail__item__main__photo{
-  .slick-prev {
-    background-image: none;
-    height: 0;
-    width: 0;
-  }
-  .slick-next{
-    background-image: none;
-    height: 0;
-    width: 0;
-  }
-  .slick-main{
-    height: 300px;
-    .product-detail__item__main__photo__biggest{
-      width: 300px;
-      height: 300px;
-      object-fit: cover;
-    }
-  }
-  .slick-dots{
-    line-height: 0;
-    text-align: inherit;
-    bottom: -75px;
-    width: 300px;
-    height: 75px;
-    li{
-      opacity: .4;
-      margin: 0;
-      position: relative;
-      overflow: hidden;
-      display: inline-block;
-      width: 25%;
-      height: 75px;
-      img{
-        width: 75px;
-        height: 75px;
-        object-fit: cover;
-      }
-    } 
-  } 
 }

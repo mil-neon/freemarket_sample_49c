@@ -12,11 +12,12 @@
         line-height: 1.4;
         &__head {
           touch-action: manipulation;
-          color: #0099e8;
+          color: $link_blue;
           text-decoration: none;
         }
       }
       &__item {
+        margin-bottom: 40px;
         width: auto;
         overflow-x: auto;
         overflow-y: hidden;
@@ -30,7 +31,7 @@
           &__href {
             height: 330px;
             display: block;
-            color: #333;
+            color: $txt_black;
             position: relative;
             &__figure {
               width: 220px;
@@ -58,7 +59,7 @@
                     position: absolute;
                     left: 0;
                     z-index: 2;
-                    color: #fff;
+                    color: $white;
                     transform: rotate(-45deg);
                     letter-spacing: 2px;
                     font-weight: 600;
@@ -71,11 +72,11 @@
               top: 220px;
               left: 0;
               width: 188px;
-              background: #fff;
+              background: $white;
               padding: 16px;
               height: 78px;
               &__name {
-                color: #333;
+                color: $txt_black;
                 font-size: 16px;
                 overflow: hidden;
                 position: relative;
@@ -93,13 +94,13 @@
                 &__price {
                   font-size: 17px;
                   font-weight: 600;
-                  color: #333;
+                  color: $txt_black;
                 }
                 &__good {
                   font-weight: 600;
-                  color: #333;
+                  color: $txt_black;
                   &__icon {
-                    color: #ccc;
+                    color: $light_gray;
                   }
                 }
               }
@@ -116,7 +117,7 @@
 
 .product-detail__others__section__item__box__href__figure__figcaption__sold-out:after {
   border-width: 100px 100px 0 0;
-  border-color: #ea352d transparent transparent transparent;
+  border-color: $bottn_red transparent transparent transparent;
   content: '';
   position: absolute;
   top: 0;

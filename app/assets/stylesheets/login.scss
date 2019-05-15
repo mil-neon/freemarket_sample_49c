@@ -5,7 +5,7 @@
     height: 731px;
     width: 456px;
     margin: 0 auto;
-    background: #fff;
+    background: $white;
     &__noaccount {
       height: 64px;
       width: 328px;
@@ -17,8 +17,8 @@
       &__lower {
         height: 40px;
         width: 326px;
-        background: #0099e8;
-        color: #fff;
+        background: $link_blue;
+        color: $white;
         line-height: 40px;
         margin: 8px 0 0;
         display: block;
@@ -29,12 +29,12 @@
       width: 328px;
       padding: 32px 64px;
       text-align: center;
-      border-top: 1px solid #eee;
+      border-top: 1px solid $bottn_line;
       &__facebook {
         height: 48px;
         width: 326px;
         background: #385185;
-        color: #fff;
+        color: $white;
         line-height: 48px;
         font-size: 14px;
         cursor: pointer;
@@ -75,8 +75,8 @@
             width: 294px;
             padding: 10px 16px 8px;
             border-radius: 4px;
-            border: 1px solid #ccc;
-            background: #fff;
+            border: 1px solid $txt_black;
+            background: $white;
             font-size: 16px;
           }
           &__password {
@@ -84,8 +84,8 @@
             width: 294px;
             padding: 10px 16px 8px;
             border-radius: 4px;
-            border: 1px solid #ccc;
-            background: #fff;
+            border: 1px solid $txt_black;
+            background: $white;
             font-size: 16px;
           }
           &__robot {
@@ -97,9 +97,9 @@
           height: 48px;
           width: 326px;
           margin: 24px 0 0;
-          background: #ea352d;
-          border: 1px solid #ea352d;
-          color: #fff;
+          background: $bottn_red;
+          border: 1px solid $bottn_red;
+          color: $white;
           line-height: 48px;
           font-size: 14px;
           cursor: pointer;
@@ -108,7 +108,7 @@
           height: 14px;
           width: 328px;
           margin-top: 40px;
-          color: #0099e8;
+          color: $link_blue;
           text-decoration: none;
           touch-action: manipulation;
           cursor: pointer;

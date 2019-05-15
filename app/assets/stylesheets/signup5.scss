@@ -6,13 +6,13 @@
   height: 100%;
   width: 100%;
   &__box {
-    background-color: #fff;
+    background-color: $white;
     margin: 0 auto;
     padding-bottom: 40px;
     text-align: center;
     width: 700px;
     &__header {
-      border-bottom: 1px #f5f5f5 solid;
+      border-bottom: 1px $background_white solid;
       font-size: 22px;
       line-height: 33px;
       height: 33px;
@@ -39,9 +39,9 @@
           &__span {
             padding: 3px;
             border-radius: 4px;
-            background: red;
+            background: $bottn_red;
             font-size: 12px;
-            color: #fff;
+            color: $white;
             margin-left: 10px;
           }
           &__field {
@@ -52,7 +52,7 @@
             height: 48px;
             padding: 0 20px;
             margin: 5px 0;
-            border: 1px solid #ccc;
+            border: 1px solid $light_gray;
           }
           &__credit-img {
             height: 30px;
@@ -67,15 +67,15 @@
                 width: 140px;
                 height: 48px;
                 margin: 5px 0;
-                background: white;
-                border: 1px solid #ccc;
+                background: $white;
+                border: 1px solid $light_gray;
               }
             }
           }
           &__submit {
-            background: #ea352d;
-            border: 1px solid #ea352d;
-            color: #fff;
+            background: $bottn_red;
+            border: 1px solid $bottn_red;
+            color: $white;
             margin-top: 40px;
             width: 100%;
             line-height: 48px;

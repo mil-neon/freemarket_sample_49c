@@ -2,77 +2,75 @@
   float: right;
   width: 700px;
   display: block;
-  background-color: white;
+  background-color: $white;
 }
 
 .l-chapter-head{
-      font-weight: bold;
-      font-size: 24px;
-      text-align: center;
-      padding: 12px;
-      border-bottom: 2px solid #f5f5f5;
+  font-weight: bold;
+  font-size: 24px;
+  text-align: center;
+  padding: 12px;
+  border-bottom: 2px solid $background_white;
 }
 
-  .form-profile{
-    margin: 0;
-    padding: 0;
-
-    .setting-profile-icon{
-      padding: 72px 16px 24px;
+.form-profile{
+  margin: 0;
+  padding: 0;
+  .setting-profile-icon{
+    padding: 72px 16px 24px;
+    text-align: center;
+    font-size: 0;
+    background: image-url("user_bg.png");
+    display:block;
+    .circle-photo-box{
+      display: inline-block;
+      overflow: hidden;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      vertical-align: middle;
       text-align: center;
-      font-size: 0;
-      background: image-url("user_bg.png");
-      display:block;
-
-      .circle-photo-box{
+      img.circle-image{
+        border-radius: 50%;
         display: inline-block;
         overflow: hidden;
         width: 60px;
         height: 60px;
-        border-radius: 50%;
         vertical-align: middle;
-        text-align: center;
-        img.circle-image{
-          border-radius: 50%;
-          display: inline-block;
-          overflow: hidden;
-          width: 60px;
-          height: 60px;
-          vertical-align: middle;
-        }
       }
-      .input-default{
+    }
+    .input-default{
       width: 220px;
       margin: 0 0 0 8px;
       vertical-align: middle;
       height: 48px;
       padding: 10px 16px 8px;
-      background-color: #fff;
-      border: 1px solid #ccc;
-      line-height: 1.5;
+      background-color: $white;
+      border: 1px solid $light_gray;
+      line-height:1.5;
       border-radius: 4px;
       font-size: 16px;
       font-family: inherit;
       box-sizing: border-box;
-      }
-    }
-    .setting-profile-content{
-      padding: 40px 16px;
-      margin: 0;
-      display: block;
-
-      .textarea-default{
-        min-height: 216px;
-        display: block;
-        width: 100%;
-        max-width: 100%;
-        padding: 10px;
-        border: 1px solid #ccc;
-        font-size: 16px;
-      }
-      .button-default-style{
-        @include button-default-style;
-        margin: 16px 0 0;
-      }
     }
   }
+  .setting-profile-content{
+    padding: 40px 16px;
+    margin: 0;
+    display: block;
+
+    .textarea-default{
+      min-height: 216px;
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      padding: 10px;
+      border: 1px solid $light_gray;
+      font-size: 16px;
+    }
+    .button-default-style{
+      @include button-default-style;
+      margin: 16px 0 0;
+    }
+  }
+}

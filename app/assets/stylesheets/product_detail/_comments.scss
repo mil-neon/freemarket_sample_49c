@@ -162,6 +162,9 @@
       text-align: right;
       position: relative;
       word-wrap: break-word;
+      &__href {
+        color: #0099e8;
+      }
     }
   }
 }
