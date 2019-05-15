@@ -116,18 +116,13 @@
       = @product.description
   .product-detail__item__button-box
     .product-detail__item__button-box__left
-      %button.product-detail__item__button-box__left__good
-        %i.far.fa-heart.product-detail__item__button-box__left__good__icon
-        %span.product-detail__item__button-box__left__good__text
-          いいね!
-        %span.product-detail__item__button-box__left__good__count
-          0
-      = link_to root_path, class: 'product-detail__item__button-box__left__report' do
+      = render partial: 'likes/like', locals: { product: @product, likes: @likes}
+    .product-detail__item__button-box__left2
+      = link_to root_path, class: 'product-detail__item__button-box__left2__report' do
         %i.fas.fa-flag-checkered
-        %span.product-detail__item__button-box__left__report__text
+        %span.product-detail__item__button-box__left2__report__text
           不適切な商品の報告
-    .product-detail__item__button-box__right
-      = link_to root_path, class: 'product-detail__item__button-box__right__report' do
+      = link_to root_path, class: 'product-detail__item__button-box__left2__right' do
         %i.fas.fa-lock.product-detail__item__button-box__right__report__icon
         %span.product-detail__item__button-box__right__report__text
           あんしん・あんぜんへの取り組み

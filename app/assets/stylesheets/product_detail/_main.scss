@@ -223,29 +223,31 @@
           }
           &__text {
             margin-left: 1px;
+            &__heart {
+              color: red;
+            }
           }
           &__count {
             margin-left: 1px;
           }
         }
+      }
+      &__left2 {
+        line-height: 34px;
         &__report {
-          margin-left: 16px;
+          margin-left: 30px;
           color: #333;
           background: #f5f5f5;
           padding: 8px 16px;
           border-radius: 40px;
           border: 1px solid #f5f5f5;
         }
-      }
-      &__right {
-        margin: 8px 0 0;
-        float: right;
-        position: absolute;
-        right:0;
-        &__report{
-          &__text {
-            margin-left: 5px;
-          }
+        &__right {
+          margin: 8px 0 0;
+          float: right;
+          position: absolute;
+          right:0;
+          line-height: 10px;
         }
       }
     }

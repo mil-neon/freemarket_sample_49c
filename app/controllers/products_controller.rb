@@ -20,6 +20,7 @@ class ProductsController < ApplicationController
     @nikes = Product.recent_brand(1243)
     @syupu = Brand.find(1245)
     @syupus = Product.recent_brand(1245)
+    @likes = Like.find_by(user_id: session[:user_id], product_id: @product.id)
   end
 
   def new
@@ -64,6 +65,7 @@ class ProductsController < ApplicationController
     @chats = @product.chats.includes(:user)
     require 'date'
     @today = Time.zone.now
+    @likes = Like.find_by(user_id: session[:user_id], product_id: @product.id)
   end
 
   def update

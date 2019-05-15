@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user
+
   def new
     session[:nickname] = nil
     session[:email] = nil
