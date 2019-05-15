@@ -1,0 +1,18 @@
+%button.product-detail__item__button-box__left__good
+  .product-detail__item__button-box__left__good__text
+    - if user_signed_in?
+      - if likes
+        %i.fas.fa-heart.product-detail__item__button-box__left__good__text__heart
+        = link_to("いいね！", unlike_path(product.id), method: :delete, remote: true) 
+        %span.product-detail__item__button-box__left__good__count
+          = product.likes_count
+      - else
+        %i.far.fa-heart.product-detail__item__button-box__left__good__icon
+        = link_to("いいね！", like_path(product.id), method: :post, remote: true) 
+        %span.product-detail__item__button-box__left__good__count
+          = product.likes_count
+    - else
+      %i.far.fa-heart.product-detail__item__button-box__left__good__icon
+        いいね！ 
+        %span.product-detail__item__button-box__left__good__count
+          = product.likes_count
