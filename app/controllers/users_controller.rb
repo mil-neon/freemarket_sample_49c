@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   def new
     session[:nickname] = nil
     session[:email] = nil
