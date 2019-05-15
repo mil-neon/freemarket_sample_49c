@@ -20,7 +20,6 @@ class ProductsController < ApplicationController
     @nikes = Product.recent_brand(1243)
     @syupu = Brand.find(1245)
     @syupus = Product.recent_brand(1245)
-    @likes = Like.find_by(user_id: session[:user_id], product_id: @product.id)
   end
 
   def new
@@ -85,6 +84,7 @@ class ProductsController < ApplicationController
 
   def destroy
     return if @product.seller_id != session[:user_id]
+
     if @product.destroy
       redirect_to users_mypage_path
     else
@@ -137,9 +137,9 @@ class ProductsController < ApplicationController
   end
 
   def set_user
-    @user = User.find(session[:user_id]) if session[:user_id] != nil
+     @user = User.find(session[:user_id]) if session[:user_id] != nil
   end
-  
+
   def set_product
     @product = Product.find(params[:id])
   end

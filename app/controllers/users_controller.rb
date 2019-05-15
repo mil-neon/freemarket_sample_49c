@@ -58,8 +58,6 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(session[:user_id]) if session[:user_id] != nil
-  end
-
   private
 
   def update_params
