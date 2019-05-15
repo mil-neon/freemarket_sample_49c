@@ -17,10 +17,10 @@
             .product-detail__item__main__photo__sold__label__string
               SOLD
       -else
-        = image_tag @product.images.first.image.url, class: 'product-detail__item__main__photo__biggest'
-        .product-detail__item__main__photo__mini-box
+        .slick-main
           - @product.images.each do |image|
-            = image_tag image.image.url, class: 'product-detail__item__main__photo__mini-box__dot'
+            = image_tag image.image.url, class: 'product-detail__item__main__photo__biggest'
+
     %table.product-detail__item__main__table
       %tbody.product-detail__item__main__table__tbody
         %tr.product-detail__item__main__table__tbody__tr
@@ -129,17 +129,17 @@
 - if @seller.id == session[:user_id]
   .product-detail__seller
     .product-detail__seller__edit
-      = link_to buyer_path(@product.id), class: 'product-detail__seller__edit__button' do
+      = link_to edit_product_path(@product.id), class: 'product-detail__seller__edit__button' do
         商品の編集
     .product-detail__seller__or
       or
     - if @product.stop?
       .product-detail__seller__again
-        = link_to buyer_path(@product.id), class: 'product-detail__seller__again__button' do
+        = link_to shipping_again_path(@product.id), method: :patch, class: 'product-detail__seller__again__button' do
           出品を再開する
     - else
       .product-detail__seller__stop
-        = link_to buyer_path(@product.id), class: 'product-detail__seller__stop__button' do
+        = link_to stop_shipping_path(@product.id), method: :patch, class: 'product-detail__seller__stop__button' do
           出品を一旦停止する
     .product-detail__seller__delete
       .product-detail__seller__delete__button

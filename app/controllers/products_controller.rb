@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :destroy]
+  before_action :set_user
+  before_action :set_product, only: [:edit, :show, :update, :destroy]
 
   def index
     @lady = Category.find(1)
@@ -47,6 +48,10 @@ class ProductsController < ApplicationController
     end
   end
 
+  def edit
+    @categories = Category.ransack(parent_id_null: true).result
+  end
+
   def show
     @seller = User.find_by(id: @product.seller_id)
     @grandchild = Category.find(@product.category_id)
@@ -63,9 +68,23 @@ class ProductsController < ApplicationController
     @likes = Like.find_by(user_id: session[:user_id], product_id: @product.id)
   end
 
+  def update
+    if params[:images_attributes]
+      params[:images_attributes]['image'].each do |i|
+        @product.images.new(image: i)
+      end
+    end
+    if @product.update(product_params)
+      respond_to do |format|
+        format.json
+      end
+    else
+      render :edit
+    end
+  end
+
   def destroy
     return if @product.seller_id != session[:user_id]
-
     if @product.destroy
       redirect_to users_mypage_path
     else
@@ -101,12 +120,26 @@ class ProductsController < ApplicationController
     @products = Product.where(brand_id: @brand.id)
   end
 
+  def stop_shipping
+    Product.find(params[:id]).update(status: :stop)
+    redirect_to product_path(params[:id])
+  end
+
+  def shipping_again
+    Product.find(params[:id]).update(status: :sell)
+    redirect_to product_path(params[:id])
+  end
+
   private
 
   def product_params
     params.require(:product).permit(:name, :description, :category_id, :brand_id, :size, :condition, :shipping_feeh, :shipping_method, :prefecture_id, :shipping_date, :price, images_attributes: [:image]).merge(seller_id: session[:user_id])
   end
 
+  def set_user
+    @user = User.find(session[:user_id]) if session[:user_id] != nil
+  end
+  
   def set_product
     @product = Product.find(params[:id])
   end
