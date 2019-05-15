@@ -85,6 +85,7 @@ class ProductsController < ApplicationController
 
   def destroy
     return if @product.seller_id != session[:user_id]
+
     if @product.destroy
       redirect_to users_mypage_path
     else
@@ -139,7 +140,7 @@ class ProductsController < ApplicationController
   def set_user
     @user = User.find(session[:user_id]) if session[:user_id] != nil
   end
-  
+
   def set_product
     @product = Product.find(params[:id])
   end
