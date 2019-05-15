@@ -24,7 +24,7 @@ $(function(){
   }
   function buildHTML2(product){
     insertimage = `<img src="${product.image}">`;
-    inserturl = '/users/products/' + String(product.id)
+    inserturl = '/products/' + String(product.id)
     var html2 =
 `<li>
   <a href=${inserturl}, class="mypage-item-link">
@@ -158,7 +158,7 @@ $(function(){
   }
   function buildHTML2(product){
     insertimage = `<img src="${product.image}">`;
-    inserturl = '/users/products/' + String(product.id)
+    inserturl = '/products/' + String(product.id)
     var html2 =
 `<li>
   <a href=${inserturl}, class="mypage-item-link">
