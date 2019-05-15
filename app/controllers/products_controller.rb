@@ -137,7 +137,7 @@ class ProductsController < ApplicationController
   end
 
   def set_user
-     @user = User.find(session[:user_id]) if session[:user_id] != nil
+    @user = User.find(session[:user_id]) unless session[:user_id].nil?
   end
 
   def set_product
