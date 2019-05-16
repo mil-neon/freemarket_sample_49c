@@ -59,7 +59,7 @@ class ProductsController < ApplicationController
     @other_product = Product.where(seller_id: @product.seller_id)
     @other_image = Image.where(product_id: @other_product.ids).where.not(product_id: @product.id).limit(6)
     @category_product = Product.where(category_id: @product.category_id).limit(6)
-    @category_product_image = Image.where(product_id: @category_product.ids).where.not(product_id: @other_product.ids)
+    @category_product_image = Image.where(product_id: @category_product.ids).where.not(product_id: @other_product.ids).limit(6)
     @chat = Chat.new
     @chats = @product.chats.includes(:user)
     require 'date'
