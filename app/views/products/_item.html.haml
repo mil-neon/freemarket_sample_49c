@@ -20,6 +20,12 @@
           ¥
           = number_with_delimiter("#{item.price}")
         .item-box__body__num__like
-          %i.far.fa-heart
-          %span 1
+          - if item.likes_count.nil? || item.likes_count == 0
+            %i.far.fa-heart.item-box__body__num__like__icon
+            %span.item-box__body__num__like__count
+              0
+          - else
+            %i.far.fa-heart.fa-heart.item-box__body__num__like__icon
+            %span.item-box__body__num__like__count
+              = item.likes_count.to_s
       %p.item-box-tax (税込)

@@ -12,14 +12,14 @@ class ProductsController < ApplicationController
     @good = Category.find(4)
     @goods = Product.recent_category(4)
 
-    @Vuitton = Brand.find(1244)
-    @Vuittons = Product.recent_brand(1244)
-    @chanerl = Brand.find(1242)
-    @chanerls = Product.recent_brand(1242)
-    @nike = Brand.find(1243)
-    @nikes = Product.recent_brand(1243)
-    @syupu = Brand.find(1245)
-    @syupus = Product.recent_brand(1245)
+    @Vuitton = Brand.find(1245)
+    @Vuittons = Product.recent_brand(1245)
+    @chanerl = Brand.find(1243)
+    @chanerls = Product.recent_brand(1243)
+    @nike = Brand.find(1244)
+    @nikes = Product.recent_brand(1244)
+    @syupu = Brand.find(1246)
+    @syupus = Product.recent_brand(1246)
   end
 
   def new
@@ -55,9 +55,9 @@ class ProductsController < ApplicationController
     @seller = User.find_by(id: @product.seller_id)
     @grandchild = Category.find(@product.category_id)
     @parent = Category.find(@grandchild.parent_id)
-    @category = Category.find(@parent.parent_id)
+    @category = Category.find(@parent.parent_id) if @parent.parent_id.present?
     @other_product = Product.where(seller_id: @product.seller_id)
-    @other_image = Image.where(product_id: @other_product.ids).where.not(product_id: @product.id)
+    @other_image = Image.where(product_id: @other_product.ids).where.not(product_id: @product.id).limit(6)
     @category_product = Product.where(category_id: @product.category_id).limit(6)
     @category_product_image = Image.where(product_id: @category_product.ids).where.not(product_id: @other_product.ids)
     @chat = Chat.new
@@ -137,7 +137,7 @@ class ProductsController < ApplicationController
   end
 
   def set_user
-    @user = User.find(session[:user_id]) if session[:user_id] != nil
+    @user = User.find(session[:user_id]) unless session[:user_id].nil?
   end
 
   def set_product

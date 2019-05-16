@@ -45,8 +45,9 @@
           %th.product-detail__item__main__table__tbody__tr__th
             カテゴリー
           %td.product-detail__item__main__table__tbody__tr__td
-            = link_to root_path, class: 'product-detail__item__main__table__tbody__tr__td__main-category' do
-              = @category.name
+            - if @category.present?
+              = link_to root_path, class: 'product-detail__item__main__table__tbody__tr__td__main-category' do
+                = @category.name
             = link_to root_path, class: 'product-detail__item__main__table__tbody__tr__td__sub-category' do
               %i.fas.fa-chevron-right
               = @parent.name
@@ -56,9 +57,12 @@
         %tr.product-detail__item__main__table__tbody__tr
           %th.product-detail__item__main__table__tbody__tr__th
             ブランド
-          %td.product-detail__item__main__table__tbody__tr__td
-            = link_to root_path, class: 'product-detail__item__main__table__tbody__tr__td__brand' do
-              = @product.brand.name
+          - if @product.brand_id.nil?
+            %td.product-detail__item__main__table__tbody__tr__td
+          - else
+            %td.product-detail__item__main__table__tbody__tr__td
+              = link_to root_path, class: 'product-detail__item__main__table__tbody__tr__td__brand' do
+                = @product.brand.name
         %tr.product-detail__item__main__table__tbody__tr
           %th.product-detail__item__main__table__tbody__tr__th
             商品のサイズ

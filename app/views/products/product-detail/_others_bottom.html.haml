@@ -21,9 +21,14 @@
                 .product-detail__others__section__item__box__href__body__num__price
                   = '¥' + image.product.price.to_s 
                 .product-detail__others__section__item__box__href__body__num__good
-                  %i.far.fa-heart.product-detail__others__section__item__box__href__body__num__good__icon
-                  %span.product-detail__others__section__item__box__href__body__num__good__count
-                    0
+                  - if image.product.likes_count.nil? || image.product.likes_count == 0
+                    %i.far.fa-heart.product-detail__others__section__item__box__href__body__num__good__icon
+                    %span.product-detail__others__section__item__box__href__body__num__good__count
+                      0
+                  - else
+                    %i.far.fa-heart.product-detail__others__section__item__box__href__body__num__good__icon
+                    %span.product-detail__others__section__item__box__href__body__num__good__count
+                      = image.product.likes_count.to_s
               .product-detail__others__section__item__box__href__body__tax
                 (税込)
       -else 
@@ -38,8 +43,13 @@
                 .product-detail__others__section__item__box__href__body__num__price
                   = '¥' + image.product.price.to_s 
                 .product-detail__others__section__item__box__href__body__num__good
-                  %i.far.fa-heart.product-detail__others__section__item__box__href__body__num__good__icon
-                  %span.product-detail__others__section__item__box__href__body__num__good__count
-                    0
+                  - if image.product.likes_count.nil? || image.product.likes_count == 0
+                    %i.far.fa-heart.product-detail__others__section__item__box__href__body__num__good__icon
+                    %span.product-detail__others__section__item__box__href__body__num__good__count
+                      0
+                  - else
+                    %i.far.fa-heart.product-detail__others__section__item__box__href__body__num__good__icon
+                    %span.product-detail__others__section__item__box__href__body__num__good__count
+                      = image.product.likes_count.to_s
               .product-detail__others__section__item__box__href__body__tax
                 (税込)

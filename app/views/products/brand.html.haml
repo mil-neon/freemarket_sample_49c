@@ -23,9 +23,14 @@
                 .list-container__right__contents__item__link__body__num__price
                   = "¥" + product.price.to_s
                 .list-container__right__contents__item__link__body__num__good
-                  %i.far.fa-heart.list-container__right__contents__item__link__body__num__good__icon
-                  .list-container__right__contents__item__link__body__num__good__fig
-                    1
+                  - if product.likes_count.nil? || product.likes_count == 0
+                    %i.far.fa-heart.list-container__right__contents__item__link__body__num__good__icon
+                    .list-container__right__contents__item__link__body__num__good__fig
+                      0
+                  - else
+                    %i.far.fa-heart.list-container__right__contents__item__link__body__num__good__icon
+                    %span.product-detail__others__section__item__box__href__body__num__good__count
+                      = product.likes_count.to_s
               .list-container__right__contents__item__link__body__tax
                 (税込)
         .list-container__right__contents__bottom

@@ -10,7 +10,7 @@
         - if @ladies.present?
           = render partial: "item", collection: @ladies
       .view-all
-        = link_to "すべての商品を見る"
+        = link_to "すべての商品を見る",list_path(@lady)
     %section.items-box__container
       %h3.items-box__container__title
         = link_to "#{@men.name}新着アイテム"
@@ -18,7 +18,7 @@
         - if @mens.present?
           = render partial: "item", collection: @mens
       .view-all
-        = link_to "すべての商品を見る"
+        = link_to "すべての商品を見る",list_path(@men)
     %section.items-box__container
       %h3.items-box__container__title
         = link_to "#{@baby.name}新着アイテム"
@@ -26,7 +26,7 @@
         - if @babys.present?
           = render partial: "item", collection: @babys
       .view-all
-        = link_to "すべての商品を見る"
+        = link_to "すべての商品を見る",list_path(@baby)
     %section.items-box__container
       %h3.items-box__container__title
         = link_to "#{@good.name}新着アイテム"
@@ -34,7 +34,7 @@
         - if @goods.present?
           = render partial: "item", collection: @goods
       .view-all
-        = link_to "すべての商品を見る"
+        = link_to "すべての商品を見る",list_path(@good)
     %h2.pickup-head ピックアップブランド
     %section.items-box__container
       %h3.items-box__container__title
@@ -43,7 +43,7 @@
         - if @chanerls.present?
           = render partial: "item", collection: @chanerls
       .view-all
-        = link_to "すべての商品を見る"
+        = link_to "すべての商品を見る",brand_path(@chanerl.id)
     %section.items-box__container
       %h3.items-box__container__title
         = link_to "#{@Vuitton.name}新着アイテム"
@@ -51,7 +51,7 @@
         - if @Vuittons.present?
           = render partial: "item", collection: @Vuittons
       .view-all
-        = link_to "すべての商品を見る"
+        = link_to "すべての商品を見る",brand_path(@Vuitton.id)
     %section.items-box__container
       %h3.items-box__container__title
         = link_to "#{@nike.name}新着アイテム"
@@ -59,7 +59,7 @@
         - if @nikes.present?
           = render partial: "item", collection: @nikes
       .view-all
-        = link_to "すべての商品を見る"
+        = link_to "すべての商品を見る",brand_path(@nike.id)
     %section.items-box__container
       %h3.items-box__container__title
         = link_to "#{@syupu.name}新着アイテム"
@@ -67,7 +67,7 @@
         - if @syupus.present?
           = render partial: "item", collection: @syupus
       .view-all
-        = link_to "すべての商品を見る"
+        = link_to "すべての商品を見る",brand_path(@syupu.id)
 = render 'top-footer-img'
 = render 'botton'
 = render 'footer'
