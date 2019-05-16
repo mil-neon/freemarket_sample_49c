@@ -12,14 +12,14 @@ class ProductsController < ApplicationController
     @good = Category.find(4)
     @goods = Product.recent_category(4)
 
-    @Vuitton = Brand.find(1245)
-    @Vuittons = Product.recent_brand(1245)
-    @chanerl = Brand.find(1243)
-    @chanerls = Product.recent_brand(1243)
-    @nike = Brand.find(1244)
-    @nikes = Product.recent_brand(1244)
-    @syupu = Brand.find(1246)
-    @syupus = Product.recent_brand(1246)
+    @Vuitton = Brand.find(1244)
+    @Vuittons = Product.recent_brand(1244)
+    @chanerl = Brand.find(1242)
+    @chanerls = Product.recent_brand(1242)
+    @nike = Brand.find(1243)
+    @nikes = Product.recent_brand(1243)
+    @syupu = Brand.find(1245)
+    @syupus = Product.recent_brand(1245)
   end
 
   def new
