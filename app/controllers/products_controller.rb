@@ -86,7 +86,7 @@ class ProductsController < ApplicationController
     return if @product.seller_id != session[:user_id]
 
     if @product.destroy
-      redirect_to users_mypage_path
+      redirect_to mypage_path(@product.seller_id)
     else
       redirect_to action: 'show', controller: 'products'
     end
