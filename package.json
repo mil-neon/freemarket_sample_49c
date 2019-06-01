@@ -1,6 +1,6 @@
 {
   "name": "freemarket_sample_49c",
-  "private": true,
+  "private": false,
   "dependencies": {},
   "version": "1.0.0",
   "main": "index.js",
